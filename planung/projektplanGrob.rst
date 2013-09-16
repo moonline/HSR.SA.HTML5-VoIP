@@ -83,30 +83,30 @@ Infrastruktur
 Tools
 -----
 - Projektmanagement
-  - Redmine?
-    - HSR bietet meines Wisens fertige Redmine Installs soweit ich mich ans SE-projekt erinnere.
-    - Redmine Supported Git integration
-    - Tobias kennt Redmine von der Firma und vom SE2 Projekt
+	- Redmine?
+		- HSR bietet meines Wisens fertige Redmine Installs soweit ich mich ans SE-projekt erinnere.
+		- Redmine Supported Git integration
+	- Tobias kennt Redmine von der Firma und vom SE2 Projekt
 - Dokumentation
-  - Dokumente: latex
-  - Notizen, Meetingsprotokolle, ... : rst, txt, md, ...
-  - Opendocument nur wenn notwendig (z.B. Draw Diagramme, Skizzen, ...) weil nicht versionierbar über Git
+	- Dokumente: latex
+	- Notizen, Meetingsprotokolle, ... : rst, txt, md, ...
+	- Opendocument nur wenn notwendig (z.B. Draw Diagramme, Skizzen, ...) weil nicht versionierbar über Git
 - Versionverwaltung
-  - git / github private repo
+	- git / github private repo
 - Modelling
-  - Astah?
+	- Astah?
 - UI Drafting
-  - Libo Draw?
+	- Libo Draw?
 - Testing
-  - JsUnit?
-    - Als testsystem muss ein realer Browser vorhanden sein. Browsersimulationen unterstützen vermutlich WebRTC noch nicht.
-    - http://stackoverflow.com/questions/300855/javascript-unit-test-tools-for-tdd
+	- JsUnit?
+		- Als testsystem muss ein realer Browser vorhanden sein. Browsersimulationen unterstützen vermutlich WebRTC noch nicht.
+	- http://stackoverflow.com/questions/300855/javascript-unit-test-tools-for-tdd
 - Building
-  - Build System wie Ant ist in meinen Augen nicht nötig für ein 2-Mann Projekt.
+	- Build System wie Ant ist in meinen Augen nicht nötig für ein 2-Mann Projekt.
 - Entwicklungsumgebung
-  - Jedem das seine.
+	- Jedem das seine.
 - RunTime
-  - WebRTC kompatibler Browser (Firefox, Chrome(ium))
+	- WebRTC kompatibler Browser (Firefox, Chrome(ium))
 
 
 Meetings

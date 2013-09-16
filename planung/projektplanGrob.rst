@@ -3,12 +3,13 @@ Projektplanung grob
 ===================
 
 - Start: Woche 38
-- Abgabetermin: Ende Woche 51
+- Abgabe Kurzfassung & Poster: 16.Dez (Woche 51)
+- Abgabetermin: 20.Dez (Woche 51)
 
 
-Aufgabenstellung
-================
-
+Aufgabenstellung Anmerkungen
+============================
+- Serverkomponente zwingend erforderlich (NAT Routing). Java?
 
 
 Arbeitspakete / MileStones
@@ -79,6 +80,7 @@ Infrastruktur
 - Zugewiesene SA Arbeitsplätze (1.262)
 - Raum mit Beamer für die Abschlusspräsentation (gibt es eine?)
 - Falls vorhanden: Handy mit WebRTC fähigem Browser zum experimentieren
+- Server für Vermittlungskomponente
 
 Tools
 -----
@@ -101,6 +103,7 @@ Tools
 	- JsUnit?
 		- Als testsystem muss ein realer Browser vorhanden sein. Browsersimulationen unterstützen vermutlich WebRTC noch nicht.
 	- http://stackoverflow.com/questions/300855/javascript-unit-test-tools-for-tdd
+	- JUnit für die Serverkomponente
 - Building
 	- Build System wie Ant ist nicht nötig für ein 2-Mann Projekt.
 - Entwicklungsumgebung
@@ -111,7 +114,7 @@ Tools
 
 Meetings
 ========
-Jeweils vor dem erreichen eines Milestones.
+Jeweils vor dem erreichen eines Milestones und danach (jede bis jede 2. Woche).
 
 
 Intellectual Property Declaration

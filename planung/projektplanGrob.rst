@@ -2,8 +2,8 @@
 Projektplanung grob
 ===================
 
-Start: Woche 38
-Abgabetermin: Ende Woche 51
+- Start: Woche 38
+- Abgabetermin: Ende Woche 51
 
 
 Aufgabenstellung
@@ -75,7 +75,7 @@ Infrastruktur & Tools
 
 Infrastruktur
 -------------
-- Persönliches Notebook / HSR Rechner linux
+- Persönliches Notebook / HSR Rechner
 - Zugewiesene SA Arbeitsplätze (1.262)
 - Raum mit Beamer für die Abschlusspräsentation (gibt es eine?)
 - Falls vorhanden: Handy mit WebRTC fähigem Browser zum experimentieren
@@ -84,7 +84,7 @@ Tools
 -----
 - Projektmanagement
 	- Redmine?
-		- HSR bietet meines Wisens fertige Redmine Installs soweit ich mich ans SE-projekt erinnere.
+		- HSR bietet fertige Redmine Installs (falls noch so wie beim SE Projekt).
 		- Redmine Supported Git integration
 	- Tobias kennt Redmine von der Firma und vom SE2 Projekt
 - Dokumentation
@@ -102,7 +102,7 @@ Tools
 		- Als testsystem muss ein realer Browser vorhanden sein. Browsersimulationen unterstützen vermutlich WebRTC noch nicht.
 	- http://stackoverflow.com/questions/300855/javascript-unit-test-tools-for-tdd
 - Building
-	- Build System wie Ant ist in meinen Augen nicht nötig für ein 2-Mann Projekt.
+	- Build System wie Ant ist nicht nötig für ein 2-Mann Projekt.
 - Entwicklungsumgebung
 	- Jedem das seine.
 - RunTime
@@ -112,4 +112,10 @@ Tools
 Meetings
 ========
 Jeweils vor dem erreichen eines Milestones.
+
+
+Intellectual Property Declaration
+=================================
+???
+
 

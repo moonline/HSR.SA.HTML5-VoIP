@@ -18,8 +18,11 @@ Arbeitspakete / MileStones
 
 Inception
 -----------
-I1
-..
+I1 MS EOI - Woche 38
+....................
+- Überarbeitung der Aufgabenstellung
+- Festlegen von Tools und Infrastruktur
+- Planung
 - Tools einrichten
 - Doku initialisieren
 - WebRTC Einarbeitung
@@ -31,43 +34,61 @@ Elaboration
 I1
 ..
 - genaue Anforderungen festlegen
-- Grobarchitektur entwerfen
+- Ausarbeitung Projektplan
 - Schnittstellenevaluierung
+- Grobarchitektur entwerfen
 
-I2 MS EOE
-.........
-- Prototyp Implementation
+I2 - MS EOE - 28. Sept (Woche 40)
+.................................
+- Architektur spezifizieren
+- Domain und Use Cases entwerfen
+- Prototyp Implementation starten
+- Testkonzept entwerfen
+- Prototyp entwerfen
 
 
 Construction
 ------------
-I1
-..
-- Domain Entwurf / Prototyp Implementation
+I1 - Woche 41
+.............
+- Umsetzung Basisarchitektur
+- Implementation Domain
 - UI Entwurf
+- Testing Entwurf
 
-I2 MS lauffähiger Prototyp
-..
+I2 - MS lauffähiger Prototyp - Woche 42
+.......................................
+- Architektur Umsetzung abgeschlossen
+- Domain Implementation erweitern
+- UI Implementation
+- Testing wächst mit App
 
+I3 - Woche 44
+.............
+- UI verfeinern
 
-I3
-..
-
-
-I4 MS EOC
-.........
+I4 - MS EOC - 29.November (Woche 48)
+....................................
+- Domain Implementierung abschliessen
+- UI abschliessen
+- Performance Testing
+- Optimierungen
+- Code Freeze
 
 
 Transition
 ----------
 
-I1
-..
+I1 - Woche 49
+.............
+- Dokumentation
+- Vorbereitungen Präsentation
 
 
-I2 MS EOT
-.........
-
+I2 - MS EOT - 13. Dez (Woche 50)
+................................
+- Präsentation
+- Abgabe
 
 
 
@@ -79,8 +100,9 @@ Infrastruktur
 - Persönliches Notebook / HSR Rechner
 - Zugewiesene SA Arbeitsplätze (1.262)
 - Raum mit Beamer für die Abschlusspräsentation (gibt es eine?)
-- Falls vorhanden: Handy mit WebRTC fähigem Browser zum experimentieren
+- Falls vorhanden: Handy mit WebRTC fähigem Browser zum experimentieren (Android Firefox sollte WebRTC bereits unterstützen)
 - Server für Vermittlungskomponente
+- Server für Projektmanagementtool
 
 Tools
 -----

@@ -9,7 +9,8 @@ Projektplanung grob
 
 Aufgabenstellung Anmerkungen
 ============================
-- Serverkomponente zwingend erforderlich (NAT Routing). Java?
+- Serverkomponente technisch zwingend erforderlich (NAT Routing). Für Projekt jedoch nur erforderlich, wenn nicht auf SIP oder ein ähnliches Protokoll gesetzt wird, wo es bereits Serverinfrastrukturen gibt.
+- Kommunikation mit mehr als zwei Teilnehmern als optionale Aufgabe?
 
 
 Arbeitspakete / MileStones

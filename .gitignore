@@ -1,3 +1,6 @@
+# local material
+material/*
+
 # temporary files
 *~
 *.swp

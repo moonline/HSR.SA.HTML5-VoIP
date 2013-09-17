@@ -20,7 +20,7 @@
 *.ppt
 *.pptx
 
-# exclude pdf, except as pdf or in special directories
+# exclude pdf, except as image or in special directories
 *.pdf
 !planung/*.pdf    # allow pdfs in directory "planung"
 !*/img/*.pdf      # allow pdf as images

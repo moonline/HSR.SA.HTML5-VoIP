@@ -1,5 +1,4 @@
 # local material
-material/*
 
 # temporary files
 *~
@@ -28,6 +27,7 @@ material/*
 !planung/*.pdf    # allow pdfs in directory "planung"
 !*/img/*.pdf      # allow pdf as images
 !*/images/*.pdf
+!material/*.pdf
 
 # mac trash
 .DS_Store

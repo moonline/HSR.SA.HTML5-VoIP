@@ -9,7 +9,7 @@ Projektplanung grob
 
 Aufgabenstellung Anmerkungen
 ============================
-- Serverkomponente technisch zwingend erforderlich (NAT Routing). Für Projekt jedoch nur erforderlich, wenn nicht auf SIP oder ein ähnliches Protokoll gesetzt wird, wo es bereits Serverinfrastrukturen gibt.
+- Serverkomponente technisch zwingend erforderlich für Verbindungsaufnahme (NAT Routing). Für Projekt jedoch nur erforderlich, wenn nicht auf SIP oder ein ähnliches Protokoll gesetzt wird, wo es bereits Serverinfrastrukturen gibt.
 - Kommunikation mit mehr als zwei Teilnehmern als optionale Aufgabe?
 
 
@@ -19,6 +19,7 @@ Arbeitspakete / MileStones
 
 Inception
 -----------
+
 I1 MS EOI - Woche 38
 ....................
 - Überarbeitung der Aufgabenstellung
@@ -32,24 +33,25 @@ I1 MS EOI - Woche 38
 Elaboration
 -----------
 
-I1
-..
-- genaue Anforderungen festlegen
+I1 - Woche 39
+.............
+- Anforderungen festlegen
 - Ausarbeitung Projektplan
-- Schnittstellenevaluierung
-- Grobarchitektur entwerfen
+- Schnittstellenevaluierung / Evaluierung Signalingprotokoll
+- Architektur entwerfen
 
 I2 - MS EOE - 28. Sept (Woche 40)
 .................................
 - Architektur spezifizieren
+- Schnittstelle Telefonbuch spezifizieren
 - Domain und Use Cases entwerfen
-- Prototyp Implementation starten
-- Testkonzept entwerfen
-- Prototyp entwerfen
+- Prototyp Implementation starten (P2P ohne NAT im gleichen Netz)
+- Testkonzept spezifizieren
 
 
 Construction
 ------------
+
 I1 - Woche 41
 .............
 - Umsetzung Basisarchitektur
@@ -88,8 +90,26 @@ I1 - Woche 49
 
 I2 - MS EOT - 13. Dez (Woche 50)
 ................................
-- Präsentation
+- Präsentation?
 - Abgabe
+
+
+
+Arbeitsteilung Grob
+===================
+
+Nächste Aufgaben:
+-----------------
+- Gedanken machen über Telefonbuchschnittstelle / Architektur
+- Expoerimentieren mit WebRTC / Prototyp
+
+Beat:
+.....
+- JsUnit anschauen
+
+Tobias:
+......
+- Redmine aufsetzen
 
 
 
@@ -101,8 +121,8 @@ Infrastruktur
 - Persönliches Notebook / HSR Rechner
 - Zugewiesene SA Arbeitsplätze (1.262)
 - Raum mit Beamer für die Abschlusspräsentation (gibt es eine?)
-- Falls vorhanden: Handy mit WebRTC fähigem Browser zum experimentieren (Android Firefox sollte WebRTC bereits unterstützen)
-- Server für Vermittlungskomponente
+- Falls vorhanden: Handy mit WebRTC fähigem Browser zum experimentieren (Android Firefox und Android Chrome sollten WebRTC bereits unterstützen)
+- Server für Vermittlungskomponente falls kein SIP / XAMPP
 - Server für Projektmanagementtool
 
 Tools
@@ -121,28 +141,31 @@ Tools
 - Modelling
 	- Astah?
 - UI Drafting
-	- Libo Draw?
 	- Balsamiq Mockup
+	- ev. LiBo Draw
+- Frameworks
+	- Adapter.js
+	- Ember.js
+	- jQuery
 - Testing
 	- JsUnit?
 		- Als testsystem muss ein realer Browser vorhanden sein. Browsersimulationen unterstützen vermutlich WebRTC noch nicht.
 	- http://stackoverflow.com/questions/300855/javascript-unit-test-tools-for-tdd
-	- JUnit für die Serverkomponente
+	- JUnit für allfällige Serverkomponenten
 - Building
 	- Build System wie Ant ist nicht nötig für ein 2-Mann Projekt.
-- Entwicklungsumgebung
-	- Jedem das seine.
+- Entwicklungsumgebung / Tools
+	- Jedem das seine. (Aptana, Bluefish, Netbeans, Gedit, Kwrite ...)
 - RunTime
 	- WebRTC kompatibler Browser (Firefox, Chrome(ium))
 
 
 Meetings
 ========
-Jeweils vor dem erreichen eines Milestones und danach (jede bis jede 2. Woche).
+Jeweils vor dem erreichen eines Milestones (jede 2. Woche).
 
 
 Intellectual Property Declaration
 =================================
-???
-
-
+- WebRTC: Html5 Rocks, WebRTC Doku
+- SIP: PDF Dokument

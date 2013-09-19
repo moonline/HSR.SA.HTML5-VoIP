@@ -2,7 +2,7 @@
 Projektplanung grob
 ===================
 
-- Start: Woche 38
+- Start: 16.09.13 (Woche 38)
 - Abgabe Kurzfassung & Poster: 16.Dez (Woche 51)
 - Abgabetermin: 20.Dez (Woche 51)
 
@@ -26,7 +26,7 @@ I1 MS EOI - Woche 38
 - Festlegen von Tools und Infrastruktur
 - Planung
 - Tools einrichten
-- Doku initialisieren
+- Dokumentation Initialisierung
 - WebRTC Einarbeitung
 
 
@@ -68,12 +68,12 @@ I2 - MS lauffähiger Prototyp - Woche 42
 
 I3 - Woche 44
 .............
-- UI verfeinern
+- UI Verfeinerung
 
 I4 - MS EOC - 29.November (Woche 48)
 ....................................
-- Domain Implementierung abschliessen
-- UI abschliessen
+- Domain Implementierung Endphase
+- UI Endphase
 - Performance Testing
 - Optimierungen
 - Code Freeze
@@ -90,7 +90,7 @@ I1 - Woche 49
 
 I2 - MS EOT - 13. Dez (Woche 50)
 ................................
-- Präsentation?
+- Präsentation falls es eine gibt
 - Abgabe
 
 
@@ -101,14 +101,14 @@ Arbeitsteilung Grob
 Nächste Aufgaben:
 -----------------
 - Gedanken machen über Telefonbuchschnittstelle / Architektur
-- Expoerimentieren mit WebRTC / Prototyp
+- Experimentieren mit WebRTC / Prototyp
 
 Beat:
 .....
 - JsUnit anschauen
 
 Tobias:
-......
+.......
 - Redmine aufsetzen
 
 
@@ -120,7 +120,7 @@ Infrastruktur
 -------------
 - Persönliches Notebook / HSR Rechner
 - Zugewiesene SA Arbeitsplätze (1.262)
-- Raum mit Beamer für die Abschlusspräsentation (gibt es eine?)
+- Raum mit Beamer für die Abschlusspräsentation, falls es eine gibt.
 - Falls vorhanden: Handy mit WebRTC fähigem Browser zum experimentieren (Android Firefox und Android Chrome sollten WebRTC bereits unterstützen)
 - Server für Vermittlungskomponente falls kein SIP / XAMPP
 - Server für Projektmanagementtool
@@ -128,18 +128,19 @@ Infrastruktur
 Tools
 -----
 - Projektmanagement
-	- Redmine?
+	- Redmine
 		- HSR bietet fertige Redmine Installs (falls noch so wie beim SE Projekt).
-		- Redmine Supported Git integration
-	- Tobias kennt Redmine von der Firma und vom SE2 Projekt
+		- Redmine supportet Git integration
+		- Tobias kennt Redmine von der Firma und vom SE2 Projekt
 - Dokumentation
 	- Dokumente: latex
 	- Notizen, Meetingsprotokolle, ... : rst, txt, md, ...
 	- Opendocument nur wenn notwendig (z.B. Draw Diagramme, Skizzen, ...) weil nicht versionierbar über Git
 - Versionverwaltung
-	- git / github private repo
+	- git
+	- github private repo
 - Modelling
-	- Astah?
+	- Astah
 - UI Drafting
 	- Balsamiq Mockup
 	- ev. LiBo Draw
@@ -148,9 +149,9 @@ Tools
 	- Ember.js
 	- jQuery
 - Testing
-	- JsUnit?
+	- JsUnit
 		- Als testsystem muss ein realer Browser vorhanden sein. Browsersimulationen unterstützen vermutlich WebRTC noch nicht.
-	- http://stackoverflow.com/questions/300855/javascript-unit-test-tools-for-tdd
+		- http://stackoverflow.com/questions/300855/javascript-unit-test-tools-for-tdd
 	- JUnit für allfällige Serverkomponenten
 - Building
 	- Build System wie Ant ist nicht nötig für ein 2-Mann Projekt.
@@ -167,5 +168,5 @@ Jeweils vor dem erreichen eines Milestones (jede 2. Woche).
 
 Intellectual Property Declaration
 =================================
-- WebRTC: Html5 Rocks, WebRTC Doku
-- SIP: PDF Dokument
+- WebRTC: Html5 Rocks, WebRTC Dokumentation
+- SIP: PDF Dokument der NTU, CN2 Unterlagen

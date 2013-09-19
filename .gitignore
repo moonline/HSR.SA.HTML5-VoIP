@@ -5,6 +5,9 @@
 *.swp
 *.*-swp
 
+# ignore files
+*.ign.*
+
 # latex trash and temp files
 *.aux
 *.aux

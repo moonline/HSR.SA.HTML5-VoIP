@@ -4,20 +4,101 @@
 		<title>WebRTC Experiment 1</title>
 		<meta charset="utf-8" />
 		<style>
+			* { box-sizing: border-box; -moz-box-sizing: border-box; font-size: 1em; }
 
+			html, body { margin: 0; padding: 0; }
+			
+			.controlls { background: black; color: white; background: linear-gradient(gray, black); padding: 0.5em; }
+
+			.video { margin: 2em 0; background: silver; }
+			.foreignVideo, .myVideo { display: inline-block; min-height: 10em;  vertical-align: top; padding: 0.5em; border-radius: 0.5em; }
+
+			#foreignVideo { width: 70%; margin: 1em; background: cornflowerblue; }
+			#myVideo { width: 20%; margin: 1em; background: teal; }
+			#foreignVideoFrame, #myVideoFrame { width: 100%; height: auto; }
+			span.audio, span.video { display: inline-block; background: none; font-weight: normal; }
 		</style>
+		<script src="http://code.jquery.com/jquery-2.0.3.js"></script>
 		<script>
+			jQuery(document).ready(function($) {
+				userMedia = navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
+				// video frames
+				var foreignVideoFrame = $('#foreignVideoFrame').get(0);
+				var myVideoFrame = $('#myVideoFrame').get(0);
+
+				/**
+				 * connect local video camera
+				 */
+				$('#connect').click(function() {
+					// get constraints from option panel
+					var constraints = { audio: ($('#optionAudio').val() === 'true'), video: ($('#optionVideo').val() ==='true') };
+					var video = myVideoFrame;
+
+					function successCallback(stream) {
+						if (window.URL) {
+							video.src = window.URL.createObjectURL(stream);
+						} else {
+							video.src = stream;
+						}
+						video.play();
+
+						if(constraints.audio) {
+							$('#myVideo h2 span.audio').html('(&#x266B;)');
+						} else {
+							$('#myVideo h2 span.audio').html('&nbsp;');
+						}
+
+						if(constraints.video) {
+							$('#myVideo h2 span.video').html('(&nbsp;[&#x2659]&nbsp;)');
+						} else {
+							$('#myVideo h2 span.video').html('&nbsp;');
+						}
+					}
+
+					function errorCallback(error){
+						console.log("navigator.getUserMedia error: ", error);
+					}
+
+					navigator.getUserMedia(constraints, successCallback, errorCallback);
+				});
+			});
 		</script>
 	</head>
 	<body>
-		<div id="constrolls">
+		<div class="controlls" id="constrolls">
 			<form>
-				<input type="text" name="ip" id="ip" value="127.0.0.1" />
+				<label for="optionAudio">Audio</label>
+				<select name="optionAudio" id="optionAudio">
+					<option value="true" >true</option>
+					<option value="false" >false</option>
+				</select>
+				<label for="optionVideo">Video</label>
+				<select name="optionVideo" id="optionVideo">
+					<option value="true" >true</option>
+					<option value="false" >false</option>
+				</select>
+				<input type="button" name="connect" id="connect" value="activate my media stream" />
+
+				<!--<br /><br />
+				<label for="foreignIp">foreign ip</label>
+				<input type="text" name="foreignIp" id="foreignIp" value="127.0.0.1" />
+				<input type="button" name="connectForeign" id="connectForeign" value="connect foreign" />-->
 			</form>
 		</div>
-		<div id="video">
+		<div class="video">
+			<div class="foreignVideo" id="foreignVideo">
+				<h2>foreign video</h2>
+				<video class="foreignVideoFrame" id="foreignVideoFrame">
 
+				</video>
+			</div>
+			<div class="myVideo" id="myVideo">
+				<h2>my video <span class="audio">&nbsp;</span><span class="video">&nbsp;</span></h2>
+				<video class="myVideoFrame" id="myVideoFrame">
+
+				</video>
+			</div>
 		</div>
 	</body>
 </html> 

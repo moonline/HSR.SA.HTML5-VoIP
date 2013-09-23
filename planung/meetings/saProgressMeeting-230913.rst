@@ -22,7 +22,68 @@ Traktanden
 Protokoll
 =========
 
+Administratives
+---------------
+Zulassung Beat ist noch offen, sollte sich Ende diese Woche klären.
 
+1. Stand der Inception
+----------------------
+
+Bericht von Beat:
+.................
+- JsUnit ist sehr einfach zu benutzen. Zum Ausführen wird ein Browserstart benötigt. Syntax ist einfach und intuitiv.
+- SIP Server fast fertig aufgesetzt. VSPHARE Web tool ausgesperrt. Kein Reboot möglich. -> Mail an VSPHARE Admin.
+- Mobile Geräte organisiert.
+
+
+Bericht von Tobias:
+...................
+- Redmine eingerichtet.
+- Projektplan initiert.
+
+
+Nächste Schritte:
+.................
+- Redmine: Noch einen Account für L. Bläser einrichten.
+- Projektplan bis nächste Woche detailierter aufstellen. So schnell wie möglich Arbeitspakete für Elaboration festlegen.
+
+Meeting Nächste Woche
+.....................
+Terminverschiebung: Do, 11.00 statt Mo.
+
+
+2. Stand Einarbeitung WebRTC
+----------------------------
+
+- WebRTC Demo läuft auf dem Android Phone mit der neusten Version von Chrome.
+- Material zur Verfügung gstellt (WebRTC Tutorial).
+
+
+3. Projektplan & Requirements
+-----------------------------
+
+Projektplan Soll-Inhalte
+........................
+
+- Risikos(Machbarkeiten)
+- Meilensteine
+- Tools
+
+
+Requirements
+............
+Keine Use Cases. Besser Konzentration auf Non-Functional Anfordernugen wie z.B.:
+
+- Welche Umgebungen
+- Fehlertoleranz
+- Security
+- Skalierbares UI
+
+Kurz und Knapp.
+
+Ergebnisse
+..........
+Bei Untersuchungen was funktioniert und was nicht: immer Resultate dokumentieren! (Stichworte reichen).
 
 
 ------------

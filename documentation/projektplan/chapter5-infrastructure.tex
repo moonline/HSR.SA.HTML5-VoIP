@@ -1,0 +1,93 @@
+\chapter{Infrastruktur}
+
+\section{Hardware}
+\begin{itemize}
+	\setlength{\itemsep}{-\parsep}
+	\item Persönliche Entwicklungsgeräte für jedes Teammitglied, bevorzugt Laptop
+	\item Zugewiesene Arbeitsplätze im Zimmer 1.262
+	\item Mobile Devices mit WebRTC fähigem Browser
+	\item Virtual Server für Projektmanagement
+	\item SIP Service (z.B. sipcall.ch) oder SIP Server
+\end{itemize}
+
+\section{Tools}
+\subsection{Projektmanagement}
+Das Projektmanagementtool Redmine bietet sich aus folgenden Gründen an:
+\begin{itemize}
+	\setlength{\itemsep}{-\parsep}
+	\item Redmine ist bekannt vom SE2 Projekt
+	\item Redmine lässt sich auf den Virtual Servern der HSR leicht installieren
+	\item Redmine bietet den benötigten Funktionumfang und ist einfach zu bedienen
+	\item Redmine bietet Git Repository Integration falls dies gewünscht ist
+\end{itemize}
+
+
+\subsection{Versionsverwaltung}
+\subsubsection{Git}
+Git ist ein bewährtes Versionierungstool, das den Vorteil von lokalen Repositories bietet, sehr schlank ist und eine gute Merge-Automatik mitbringt.
+
+\subsubsection{GitHub}
+Mit GitHub besitzen die Studenten bereits von andern Projekten Erfahrung. Als Studenten haben sie Zugriff auf kostenlose ``Private-Repository''. Zudem Bietet GitHub noch zusätzliche Funktionen wie Wiki, RST und MD Viewer und online Arbeiten am Repositories.
+
+
+\subsection{Dokumentation}
+\subsubsection{Für grosse Dokumentationen und Abgabedokumente: \LaTeX}
+\LaTeX ist perfekt geeignet für grosse, gemeinsam zu erarbeitende Dokumente, weil die Source-Dateien über Git versioniert und gemergt werden können, wenig Platz verbrauchen und ein sehr kleiner Fehlerrisiko / Risiko auf Dokumentenverlust besteht.
+
+\subsubsection{Für Notizen \& Meetingsprotokolle: Restructured Text (rst), txt, Markdown (md)}
+Für Notizen und kleine Dokumente reicht RST oder MD vollständig aus. Es ist schlank, bietet nur das notwendigste, kann versioniert und gemergt werden weil es nur Textfiles sind und wird von GitHub Document preview unterstützt.
+
+\subsubsection{Für Diagramme, Skizzen: Libreoffice Draw (Opendocument)}
+Wo es nicht anders geht wird Opendocument eingesetzt. Dabei wird berücksichtigt, dass es über Git nicht inkrementell versioniert und nicht gemergt werden kann.
+
+
+\subsection{Modelling}
+Als Modelling Tool wird Astah gewählt, weil es das beste den Studenten bekannte Tool ist.
+Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image und PDF Export.
+
+\section{UI Drafting}
+\begin{itemize}
+	\setlength{\itemsep}{-\parsep}
+	\item Balsamiq Mockup für UI Drafts
+	\item ev. Libreoffice Draw für UI Design Final
+\end{itemize}
+
+
+\subsection{Frameworks}
+\subsubsection{Adapter.js}
+Adapter.js abstrahiert die verschiedenen Browserschnittstellen von WebRTC und vereinfacht die Entwicklung. Zudem muss bei einer Schnittstellenanpassung browserseitig nur der Adapter aktualisiert werden und nichts an der App geändert werden.
+
+\subsubsection{Ember.js}
+Ember.js ist ein bekanntes MVC und Templating Framework, das eine saubere Trennung von Logik und Darstellung ermöglicht.
+
+\subsubsection{jQuery}
+jQuery als eine der besten Javascript Bibliotheken bietet sehr einfache Elementselektoren und viele Funktionen, die das Entwickeln vereinfachen.
+
+
+\subsection{Testing}
+Testing Framework Anforderungen:
+\begin{itemize}
+	\setlength{\itemsep}{-\parsep}
+	\item Testing mit realem Browser. Browsersimulationen unterstützen vermutlich WebRTC noch nicht.
+	\item Einfach einzubinden.
+	\item Einfach zu erweitern.
+	\item Bekannte Benutzung mit Tests und Asserts.
+	\item Möglichkeit zur Anbindung eines Build Tools
+\end{itemize}
+
+\subsubsection{JsUnit}
+JsUnit arbeitet mit einem realen Browser, ist einfach handzuhaben und bietet die bekannte Syntax.
+
+
+\subsection{Building}
+Ein Build Server wie Ant ist nicht nötig für dieses Projekt. JsUnit bietet zwar eine Anbindungsmöglichkeit. Für unsern Anwendungsfall und die nicht sehr komplexe Tool-Umgebung lohnt sich der Aufwand eines Build Servers jedoch nicht.
+
+
+\subsection{Entwicklungsumgebung}
+Jeder Entwickler verwendet seine eigene bevorzugte Entwicklungsumgebung.
+
+
+\subsection{RunTime Environment}
+Als RunTime Environment wird ein WebRTC kompatibler Browser (Firefox, Chrome(ium)) benötigt.
+
+

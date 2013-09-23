@@ -21,6 +21,7 @@ Mögliche Anbindungen
 - Directory mit .tha files
 - LDAP
 - XML
+- JsSchnittstelle zum lokalen Telefonbuch
 
 - die Felder sollten jeweils konfigurierbar sein, um den Import anpassen zu können
 
@@ -32,4 +33,6 @@ pro:
 kontra:
 	- möglicherweise gleicher Eintrag mehrfach vorhanden wenn Person unterschiedliche sip Adressen besitzt (lässt sich auch im Single Interface Mode nicht vermeiden)
 
-
+UI Optionen
+===========
+Wie bei Android: ein Tab mit "Alle" und einzelne Tabs für die verschiedenen Adressbücher.

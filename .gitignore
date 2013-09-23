@@ -28,8 +28,7 @@
 # exclude pdf, except as image or in special directories
 *.pdf
 !planung/*.pdf    # allow pdfs in directory "planung"
-!*/img/*.pdf      # allow pdf as images
-!*/images/*.pdf
+!documentation/projektplan/media/*.pdf
 !material/*.pdf
 
 # mac trash

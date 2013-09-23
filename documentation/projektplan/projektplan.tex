@@ -7,6 +7,9 @@
 \usepackage{pdflscape}
 \usepackage{lscape}
 
+%pdf include
+\usepackage{pdfpages}
+
 %Deutsche Umlaute, Schriftart, Deutsche Bezeichnungen
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -102,7 +105,7 @@ urlcolor=black
 	
 	\begin{figure}[htp]
 		\centering
-		%\includegraphics[scale=0.60]{../../logo.png}
+		\includegraphics[scale=0.60]{../img/icon-js-voip.png}
 	\end{figure}		
 	\vspace*{20mm}
 	
@@ -121,6 +124,7 @@ urlcolor=black
 		\textbf{Version} & \textbf{Änderung} & \textbf{Autor} & \textbf{Datum}\\
 		\hline
 		1.0 & Dokumentenentwurf & Tobias Blaser & 23.09.13\\
+		1.1 & Infrastruktur, Arbeitspakete & Tobias Blaser & 23.09.13\\
 		\hline
 \end{tabularx}
 
@@ -128,12 +132,9 @@ urlcolor=black
 \tableofcontents
 
 \input{chapter1-einfuehrung}
-%\input{chapter2-uebersicht}
-\input{chapter3-projektorganisation}
-%\input{chapter4-managementablaeufe}
-%\input{chapter5-risikomanagement}
-%\input{chapter6-arbeitspakete}
-%\input{chapter7-infrastructure}
-%\input{chapter8-quality}
+\input{chapter2-projektorganisation}
+\input{chapter3-risikomanagement}
+\input{chapter4-arbeitspakete}
+\input{chapter5-infrastructure}
 
 \end{document}

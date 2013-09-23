@@ -1,0 +1,44 @@
+\chapter{Infrastruktur}
+
+\section{Entwicklung}
+Erforderliche Hard- und Software:
+\begin{itemize}
+	\setlength{\itemsep}{-\parsep}
+	\item Persönliche Entwicklungsgeräte für jedes Teammitglied, bevorzugt Laptop
+	\item Entwicklungsumgebung
+	\item \ac{SVN} Server
+	\item Redmine Projektmanagement Tool
+	\item Tex-Editor oder Tex-Suite inkl. Vorschau (z.B. Gummi) zum Verfassen der Dokumentation
+	\item Tex-Umgebung zum kompilieren der Tex-Files
+\end{itemize}
+
+\subsection{Entwicklungsumgebung}
+Zum Entwickeln wird eine Entwicklungsumgebung, bevorzugt Eclipse oder eine darauf aufbauende Umgebung benötigt. Die Entwicklungsumgebung soll folgende Anforderungen erfüllen:
+\begin{itemize}
+	\setlength{\itemsep}{-\parsep}
+	\item Coding Unterstützung der Sprache Java
+	\item Refactoring Tools
+	\item Integrierte \ac{JVM}
+	\item SVN Unterstützung
+\end{itemize}
+
+\subsection{SVN Server}
+Zur Versionsverwaltung des Programmcodes und der Dokumentationsource wird ein externer Versionierungsserver benötigt. Die Dokumentation wird in \LaTeX\ verfasst, daher drängt es sich auf, die Tex-Sourcefiles ebenfalls zu versionieren. Bevorzug wird \ac{SVN}, weil das Projektteam die Integration in Eclipse bereits kennt und mit dem entsprechenden Eclipse Plugin Erfahrungen besitzt.
+
+\subsection{Projektmanagement Tool}
+Zur Koordination des Projekts und der Vereinfachung der Zusammenarbeit wird Redmine verwendet. SVN wird in Redmine eingebunden, sodass auch über Redmine direkt auf das Repository zugegriffen werden kann und Zugriff auf die Sourcefiles der Dokumentation besteht.
+
+\section{Betrieb}
+Zum Betrieb von "<PhipS"> werden folgende Geräte benötigt:
+\begin{itemize}
+	\setlength{\itemsep}{-\parsep}
+	\item Desktop-Rechner mit JVM Version 1.6 oder 1.7 sowie einer Internetverbindung.
+	\item Repository-Server
+\end{itemize}
+
+\subsection{Ausführungsplattform}
+Zum Ausführen von "<PhipS"> wird ein Desktop Rechner mit einer JVM benötigt. Internetverbindung ist von Vorteil für den Zugriff auf Repositories oder das Analysieren von externen Webseiten. Auf dem Rechner sollten einige Megabyte Speicherplatz frei sein für die Applikation selbst und die Checks, die aus dem Repository heruntergeladen werden.
+
+\subsection{Repository Server}
+Nebst den selbst definierbaren Repositories wird es ein Standard-Repository für Checks geben. Dazu ist ein Repository Ordner auf einem allgemein zugänglichen Server nötig. Die Nutzer können direkt keine Checks hochladen, Lesezugriff ist ausreichend. Möchten Nutzer Checks andern Nutzern zur Verfügung stellen, so werden diese durch die Repositorybetreiber geprüft und von diesen Hochgeladen. Dazu wird ein \ac{SFTP} Client benötigt.
+

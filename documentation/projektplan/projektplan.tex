@@ -1,0 +1,139 @@
+%Pakete;
+%A4, Report, 12pt
+\documentclass[ngerman,a4paper,12pt]{scrreprt}
+\usepackage[a4paper, right=20mm, left=20mm,top=30mm, bottom=30mm, marginparsep=5mm, marginparwidth=5mm, headheight=7mm, headsep=15mm,footskip=15mm]{geometry}
+
+%Papierausrichtungen
+\usepackage{pdflscape}
+\usepackage{lscape}
+
+%Deutsche Umlaute, Schriftart, Deutsche Bezeichnungen
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+%quellcode
+\usepackage{listings}
+
+%tabellen
+\usepackage{tabularx}
+
+%listen und aufzählungen
+\usepackage{paralist}
+
+%farben
+\usepackage[svgnames,table,hyperref]{xcolor}
+
+%font
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+%Abkürzungsverzeichnisse
+\usepackage[printonlyused]{acronym}
+
+%Bilder
+\usepackage{graphicx} %Bilder
+\usepackage{float}	  %"Floating" Objects, Bilder, Tabellen...
+
+%Dokumenteigenschaften
+\providecommand{\project}{WebRTC VoIP Applikation}
+\providecommand{\documentType}{Projektplan}
+\title{\documentType \project}
+\author{Tobias Blaser, Beat Gutzwiller}
+\providecommand{\teacher}{Luc Bläser}
+\providecommand{\room}{1.267}
+\providecommand{\versionnumber}{1.0}
+\date{\today{}, Rapperswil}
+
+
+%Kopf- /Fusszeile
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+\fancyhead[L]{Semester Arbeit} %Kopfzeile links
+\fancyhead[C]{\project} %Kopfzeile mitte
+\fancyhead[R]{Seite \thepage/\pageref{LastPage}} %Kopfzeile rechts
+\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+\fancyfoot[L]{\jobname} %Fusszeile links
+\fancyfoot[C]{Version: \versionnumber} %Fusszeile mitte
+\fancyfoot[R]{\today{}} %Fusszeile rechts
+\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+
+%Kopf-/ Fusszeile auf chapter page
+\fancypagestyle{plain} {
+	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+	\fancyhead[L]{Semester Arbeit} %Kopfzeile links
+	\fancyhead[C]{\project} %Kopfzeile mitte
+	\fancyhead[R]{Seite \thepage/\pageref{LastPage}} %Kopfzeile rechts
+	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+	\fancyfoot[L]{\jobname} %Fusszeile links
+	\fancyfoot[C]{Version: \versionnumber} %Fusszeile mitte
+	\fancyfoot[R]{\today{}} %Fusszeile rechts
+	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+}
+
+\usepackage{changepage}
+
+%links, verlinktes Inhaltsverzeichnis, PDF Inhaltsverzeichnis
+\usepackage[bookmarks=true,
+bookmarksopen=true,
+bookmarksnumbered=true,
+breaklinks=true,
+colorlinks=true,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black,
+filecolor=black,
+menucolor=black,
+pagecolor=black,
+urlcolor=black
+]{hyperref} % Paket muss unbedingt als letzes eingebunden werden!
+
+\begin{document}
+
+%Titel und Inhaltsverzeichnis
+\thispagestyle{empty}
+\begin{titlepage}
+	\begin{center}
+
+	\vspace*{40mm}
+	
+	\begin{figure}[htp]
+		\centering
+		%\includegraphics[scale=0.60]{../../logo.png}
+	\end{figure}		
+	\vspace*{20mm}
+	
+	{\fontsize{40}{48} \selectfont \project \\[10mm]}
+	{\fontsize{40}{48} \selectfont \documentType \\[5mm]}	
+	\vspace*{20mm}
+	Tobias Blaser, Beat Gutzwiller
+
+\end{center}
+\end{titlepage}
+\clearpage
+
+\chapter*{Änderungsnachweis}
+\begin{tabularx}{\textwidth}{|cXlr|} % Versionstabelle, Rahmen links und rechts
+		\hline
+		\textbf{Version} & \textbf{Änderung} & \textbf{Autor} & \textbf{Datum}\\
+		\hline
+		1.0 & Dokumentenentwurf & Tobias Blaser & 23.09.13\\
+		\hline
+\end{tabularx}
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+\input{chapter1-einfuehrung}
+%\input{chapter2-uebersicht}
+\input{chapter3-projektorganisation}
+%\input{chapter4-managementablaeufe}
+%\input{chapter5-risikomanagement}
+%\input{chapter6-arbeitspakete}
+%\input{chapter7-infrastructure}
+%\input{chapter8-quality}
+
+\end{document}

@@ -30,6 +30,8 @@ Besprechung der Aufgabenstellung.
 
 Die Aufgabenstellung ist nicht allzu eng zu verstehen. Je nach Entwicklung während der Arbeit besteht Spielraum, die Schwerpunkte anders zu gewichten.
 
+Die Erweiterung der Applkation für mehr als zwei Teilnehmer wird als optional deklariert.
+
 
 2. Projektplan
 --------------
@@ -62,12 +64,12 @@ Entscheidungen unbedingt Dokumentieren. Insbesondere warum wie getestet wird und
 4. Meetings
 -----------
 Meetings finden wöchentlich am Mo 15.00 im IFS statt.
-Die Studenten erstellen vorab eine Agenda und führen Protokoll, welches teil der Dokumentation ist.
+Die Studenten erstellen vorab eine Agenda und führen Protokoll, welches Teil der Dokumentation ist.
 
 
 5. Intellectual Property Declaration
 ------------------------------------
-Urheber sind die Studenten, die Software soll unter eine Opensource Lizenz gestellt werden.
+Urheber sind die Studenten, die Software wird unter eine Opensource Lizenz gestellt.
 
 Die Vereinbarung über die Urheber- und Nutzungsrechte wird erstellt und unterzeichnet.
 

@@ -3,7 +3,7 @@
 \section{Hardware}
 \begin{itemize}
 	\setlength{\itemsep}{-\parsep}
-	\item Persönliche Entwicklungsgeräte für jedes Teammitglied, bevorzugt Laptop
+	\item Persönliche Entwicklungsgeräte für jedes Teammitglied, bevorzugt Laptop (eigene Geräte)
 	\item Zugewiesene Arbeitsplätze im Zimmer 1.262
 	\item Mobile Devices mit WebRTC fähigem Browser
 	\item Virtual Server für Projektmanagement
@@ -12,30 +12,33 @@
 
 \section{Tools}
 \subsection{Projektmanagement}
-Das Projektmanagementtool Redmine bietet sich aus folgenden Gründen an:
+Das Projektmanagementtool Redmine bietet sich aus verschiedenen Gründen an:
 \begin{itemize}
 	\setlength{\itemsep}{-\parsep}
-	\item Redmine ist bekannt vom SE2 Projekt
-	\item Redmine lässt sich auf den Virtual Servern der HSR leicht installieren
-	\item Redmine bietet den benötigten Funktionumfang und ist einfach zu bedienen
-	\item Redmine bietet Git Repository Integration falls dies gewünscht ist
+	\item Redmine ist bekannt vom SE2 Projekt.
+	\item Redmine lässt sich auf den Virtual Servern der HSR leicht installieren.
+	\item Redmine bietet den benötigten Funktionumfang und ist einfach zu bedienen.
+	\item Redmine bietet Git Repository Integration falls dies gewünscht ist.
 \end{itemize}
 
 
 \subsection{Versionsverwaltung}
 \subsubsection{Git}
-Git ist ein bewährtes Versionierungstool, das den Vorteil von lokalen Repositories bietet, sehr schlank ist und eine gute Merge-Automatik mitbringt.
+Git ist ein bewährtes Versionsverwaltungstool, bietet den Vorteil von lokalen Repositories, ist sehr schlank und bringt eine gute Merge-Automatik mit.
 
 \subsubsection{GitHub}
-Mit GitHub besitzen die Studenten bereits von andern Projekten Erfahrung. Als Studenten haben sie Zugriff auf kostenlose ``Private-Repository''. Zudem Bietet GitHub noch zusätzliche Funktionen wie Wiki, RST und MD Viewer und online Arbeiten am Repositories.
+Mit GitHub besitzen die Studenten durch andere Projekte bereits Erfahrung. Als Studenten haben sie Zugriff auf kostenlose ``Private-Repositories''. Zudem Bietet GitHub noch zusätzliche Funktionen wie Wiki, RST und MD Viewer sowie Repository Zugriff und Dateibearbeitung über Webinterface.
+
+\subsubsection{Backup}
+Ein zusätzliches Backup ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist. Somit ist das gesammte Projekt dreifach abgelegt (bei den Entwicklern sowie bei GitHub).
 
 
 \subsection{Dokumentation}
 \subsubsection{Für grosse Dokumentationen und Abgabedokumente: \LaTeX}
-\LaTeX ist perfekt geeignet für grosse, gemeinsam zu erarbeitende Dokumente, weil die Source-Dateien über Git versioniert und gemergt werden können, wenig Platz verbrauchen und ein sehr kleiner Fehlerrisiko / Risiko auf Dokumentenverlust besteht.
+\LaTeX ist perfekt geeignet für grosse, gemeinsam zu erarbeitende Dokumente, weil die Source-Dateien über Git versioniert und gemergt werden können und wenig Platz verbrauchen. Zudem besteht ein sehr kleines Risiko auf Dokumentenverlust bzw. Dokumentenfehler durch die Software, weil \LaTeX die Source-Dateien gar nicht verändert im Unterschied zu einer Office Applikation.
 
 \subsubsection{Für Notizen \& Meetingsprotokolle: Restructured Text (rst), txt, Markdown (md)}
-Für Notizen und kleine Dokumente reicht RST oder MD vollständig aus. Es ist schlank, bietet nur das notwendigste, kann versioniert und gemergt werden weil es nur Textfiles sind und wird von GitHub Document preview unterstützt.
+Für Notizen und kleine Dokumente reichen RST, TXT oder MD vollständig aus. Sie sind schlank, bieten nur das notwendigste, können versioniert und gemergt werden weil es nur Textfiles sind und werden von "GitHub Document Preview" unterstützt.
 
 \subsubsection{Für Diagramme, Skizzen: Libreoffice Draw (Opendocument)}
 Wo es nicht anders geht wird Opendocument eingesetzt. Dabei wird berücksichtigt, dass es über Git nicht inkrementell versioniert und nicht gemergt werden kann.
@@ -45,11 +48,11 @@ Wo es nicht anders geht wird Opendocument eingesetzt. Dabei wird berücksichtigt
 Als Modelling Tool wird Astah gewählt, weil es das beste den Studenten bekannte Tool ist.
 Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image und PDF Export.
 
-\section{UI Drafting}
+\subsection{UI Drafting}
 \begin{itemize}
 	\setlength{\itemsep}{-\parsep}
 	\item Balsamiq Mockup für UI Drafts
-	\item ev. Libreoffice Draw für UI Design Final
+	\item ev. Libreoffice Draw für UI Design Finals
 \end{itemize}
 
 
@@ -58,7 +61,7 @@ Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image und PDF
 Adapter.js abstrahiert die verschiedenen Browserschnittstellen von WebRTC und vereinfacht die Entwicklung. Zudem muss bei einer Schnittstellenanpassung browserseitig nur der Adapter aktualisiert werden und nichts an der App geändert werden.
 
 \subsubsection{Ember.js}
-Ember.js ist ein bekanntes MVC und Templating Framework, das eine saubere Trennung von Logik und Darstellung ermöglicht.
+Ember.js ist ein bekanntes MVC und Templating Framework, das eine saubere Trennung von Logik und Darstellung ermöglicht. Ember.js bindet darüber hinaus Properties im Template direkt an Objektproperties, wodurch in vielen Fällen eigene Observerimplementierungen überflüssig sind.
 
 \subsubsection{jQuery}
 jQuery als eine der besten Javascript Bibliotheken bietet sehr einfache Elementselektoren und viele Funktionen, die das Entwickeln vereinfachen.
@@ -68,15 +71,15 @@ jQuery als eine der besten Javascript Bibliotheken bietet sehr einfache Elements
 Testing Framework Anforderungen:
 \begin{itemize}
 	\setlength{\itemsep}{-\parsep}
-	\item Testing mit realem Browser. Browsersimulationen unterstützen vermutlich WebRTC noch nicht.
-	\item Einfach einzubinden.
-	\item Einfach zu erweitern.
-	\item Bekannte Benutzung mit Tests und Asserts.
+	\item Testing mit realem Browser, Browsersimulationen unterstützen vermutlich WebRTC noch nicht
+	\item Einfach einzubinden
+	\item Einfach zu erweitern
+	\item Bekannte Benutzung mit Tests und Asserts
 	\item Möglichkeit zur Anbindung eines Build Tools
 \end{itemize}
 
 \subsubsection{JsUnit}
-JsUnit arbeitet mit einem realen Browser, ist einfach handzuhaben und bietet die bekannte Syntax.
+JsUnit arbeitet mit einem realen Browser, ist einfach handzuhaben und bietet typische Assert-Syntax.
 
 
 \subsection{Building}

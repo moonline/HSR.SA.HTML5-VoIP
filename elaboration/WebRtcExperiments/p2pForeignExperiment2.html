@@ -91,7 +91,7 @@
 					function setDescriptionOfLocalPeer(desc){
 						$('#sdpLocal').text(desc.sdp);
 						localConnection.setLocalDescription(desc);
-						foreignConnection.setRemoteDescription(desc);
+						foreignConnection.setRemoteDescription(new RTCSessionDescription($('#sdpLocal').text()));
 						foreignConnection.createAnswer(setDescriptionOfForeignPeer, failed);
 					}
 
@@ -107,7 +107,7 @@
 					function setDescriptionOfForeignPeer(desc){
 						$('#sdpForeign').text(desc.sdp);
 						foreignConnection.setLocalDescription(desc);
-						localConnection.setRemoteDescription(desc);
+						localConnection.setRemoteDescription(new RTCSessionDescription($('#sdpForeign').text()));
 					}
 
 					function display(event){

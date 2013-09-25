@@ -40,4 +40,25 @@ Erkenntnisse
 - RTCPeerConnection funktioniert nur, wenn eine aktive Netzwerkverbindung besteht (auch wenn die P2P Connection lokal ist).
 
 
+p2pForeignExperiment.html
+=========================
+
+Ziel
+----
+- P2PConnection auf dem gleichen Host aber extern zugeführte Session Description
+
+Schwierigkeiten
+---------------
+- Die Verbindung wird nicht über IP Adresse und Port sondern über eine Description (Session Description Protocoll) definiert.
+
+
+
+Irgendwannmal
+=============
+
+Ziel
+----
+- Im gleichen Netzwerk (ohne NAT und deren Probleme) eine P2P Verbindung mit RTCPeerConnection aufbauen
+
+
 

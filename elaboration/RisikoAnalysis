@@ -1,0 +1,75 @@
+Risiko Analyse
+==============
+
+Technische Risiken
+------------------
+
+1. Connection Management
+
+  1.1 Verhalten bei Verlust der Verbindung muss geregelt werden.
+    1.1.1 Verbindung aufrecht erhalten und somit unnötige Reconnect verhindern.
+      Risiko: Implementation noch unbekannt. Möglicherweise technische Limitierungen.
+      - Wahrscheinlichkeit: Mittel. 
+      - Auswirkung: Mittel, Zeitverlust möglich falls Versuche durch technische Möglichkeiten nicht
+                    Umgesetzt werden können, aber andere Methoden sind vorhanden.
+      Bewertung: Mittleres Risiko
+    
+    1.1.2 Verbindung möglichst schnell neu Aufbauen (JS lädt schnell)            / Sekundärlösung
+      Risiko: Könnte zu vielen Reconnects führen falls die Verbindung schlecht ist.
+              Zugriffsbestätigung auf Webcam/Audio die vom Browser verlangt wird kann nicht sicher 
+              umgangen werden, was einen schnellen Wiederaufbau unmöglich macht. (Chrome erlaubt das bei HTTPS)
+      - Wahrscheinlichkeit: Mittel
+      - Auswirkung: Keine - Hoch. Lösungsansatz 1.1 ist zu bevorzugen. Falls beides nicht geht, 
+                    ist die Auswirkung hoch.
+      Bewertung: Möglicherweise hohes Risiko!
+    
+
+Qualitative Risiken
+-------------------
+
+1. Verbindungsqualität und Geschwindigkeit
+
+  1.1 Die Software muss auch bei schlechten Verbindungen noch Kommunikation ermöglichen.
+    1.1.1 Videoauflösung skalieren, Priorität auf Audio legen.
+      Risiko: Bei Schwankungen in der Verbindungsperformance darf die Videoqualität nicht 
+              im Sekundentakt angepasst werden.
+      - Wahrscheinlichkeit: Tief, andere Dienste nutzen Skalierungen schon einige Zeit erfolgreich.
+      - Auswirkung: Mittel, Im Notfall kann die Videoübertragung auch ganz gestoppt werden, 
+                    und Audio priorisiert werden.
+      Bewertung: Kleines Risiko
+  
+  1.2 Alle Browser müssen das Video flüssig auf allen Endgeräten wiedergeben können.
+    1.2.1 Videoauflösung skalieren, priorität auf Audio.
+      Risiko: Keine empirischn Daten über die Performance von Browsern und WebRTC
+      - Wahrscheinlichkeit: Tief, Videoanwendungen auch auf Smartphones schon lange Standart.
+                            Demo lässt flüssige Wiedergabe vermuten.
+      - Auswirkung: Tief, Keine möglichkeit hier etwas im Rahmen der SA zu verbessern. 
+                    Muss unter Umständen hingenommen werden.
+      Bewertung: Kleines Risiko
+      Kommentar: Sollte nach der Implementation getestet und dokumentiert werden.
+  
+  1.3 Konferenzschaltugnen erfordern sehr viel Traffic
+    1.3.1 Auch hier Skalierung von der Auflösung und Priorisieren von Audio nötigt.
+      Risiko: Wir bestitzen keine Leistungsdaten über WebRTC oder die Browser.
+              Generierter Traffic unbekannt.
+      - Wahrscheinlichkeit: Hoch, irgendwann kommt entweder der Browser oder die Verbingung nicht mehr mit
+      - Auswirkung: Keine, optionales Feature.
+      Bewertung: kein Risiko
+      Kommentar: Nach der implementation sollte festgestellt werden ab wie vielen Teilnehmern wo,
+                 und unter welchen Bedingungen ein Engpass ensteht.
+                 
+                 
+Kompotenz Risiken
+-----------------
+
+1. Verbinungsaufbau
+
+  1.1 Verbindungsaufbau muss über externes Protokoll erfolgen, in welchen uns Erfahrungen fehlen.
+    1.1.1 SIP
+      Risiko: SIP server sind mittlerweile multifunktional und nicht immer einfach in der Integration.
+              Könnte viel Zeit in Anspruch nehmen.
+      - Wahrscheinlichkeit: Mittel
+      - Auswirkung: Hoch, Keine Verbindung über NAT ohne externes Protokoll.
+      Bewertung: mittleres Risiko
+      Chance: Eine vollständige SIP Integration sollte es eigentlich auch erlauben, 
+              mit WebRTC auf das Festnetz zu gelangen.

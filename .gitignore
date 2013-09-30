@@ -36,3 +36,4 @@
 
 # linux trash
 *.lock
+*.bak

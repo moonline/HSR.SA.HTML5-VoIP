@@ -40,7 +40,7 @@ Erkenntnisse
 - RTCPeerConnection funktioniert nur, wenn eine aktive Netzwerkverbindung besteht (auch wenn die P2P Connection lokal ist).
 
 
-p2pForeignExperiment.html
+p2pForeignExperiment2.html
 =========================
 
 Ziel
@@ -50,7 +50,7 @@ Ziel
 Schwierigkeiten
 ---------------
 - Die Verbindung wird nicht über IP Adresse und Port sondern über eine Description (Session Description Protocoll) definiert.
-
+- Die Connectiondescription, die die SDP enthält muss ausgelagert werden und vor dem Verbinden wieder abgefragt werden, damit eine externe Zuführung simuliert werden kann.
 
 
 Irgendwannmal

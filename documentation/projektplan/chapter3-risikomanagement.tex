@@ -18,9 +18,84 @@
 	Massnahmen	& Zusätzliche Entwicklungszeit, um das Problem zu lösen \\
 	\hline
 	\end{tabular}
+	
+	\begin{tabular}{|p{0.3\textwidth} | p{0.7\textwidth} |}
+	\hline	
+	Risiko-ID & 2 \\
+	\hline
+	Titel & Verbindungsverlust \\
+	Beschreibung & Kurze Unterbrüche in der Verbindung könnten die ganze Session beenden \\
+	max. Schaden	& 8h \\
+	Eintrittswahrscheinlichkeit & 0.9 \\
+	Gewichteter Schaden	& 7.2h \\
+	Vorbeugung	& Einarbeitung in SIP Connection Management \\
+	Massnahmen	& Session bei kleinen Unterbrüchen aufrecht erhalten, und einen schnellen Reconnect einrichten \\
+	\hline
+	\end{tabular}
+	
+	\begin{tabular}{|p{0.3\textwidth} | p{0.7\textwidth} |}
+	\hline	
+	Risiko-ID & 3 \\
+	\hline
+	Titel & Browserperformance \\
+	Beschreibung & Video und Audio müssen flüssig wiedergegeben werden\\
+	max. Schaden	& 3h \\
+	Eintrittswahrscheinlichkeit & 0.1 \\
+	Gewichteter Schaden	& 0.3h \\
+	Vorbeugung	& Performance-Tests mit Prototypen \\
+	Massnahmen	& Skalierung der Videoqualität, notfalls priorisierung auf Audio \\
+	\hline
+	\end{tabular}
+	
+	\begin{tabular}{|p{0.3\textwidth} | p{0.7\textwidth} |}
+	\hline	
+	Risiko-ID & 4 \\
+	\hline
+	Titel & Langsame Verbindung \\
+	Beschreibung & Bei langsamen Verbindungen kann es zu Problemen in der Wiedergabe führen \\
+	max. Schaden	& 8h \\
+	Eintrittswahrscheinlichkeit & 0.8 \\
+	Gewichteter Schaden	& 6.4h \\
+	Vorbeugung	& Performance-Tests mit Prototyp und künstlicher Traffic \\
+	Massnahmen	& Skalierung der Videoqualität, notfalls priorisierung auf Audio \\
+	\hline
+	\end{tabular}
+	
+	\begin{tabular}{|p{0.3\textwidth} | p{0.7\textwidth} |}
+	\hline	
+	Risiko-ID & 5 \\
+	\hline
+	Titel & Konferenzschaltung \\
+	Beschreibung & Hohe teilnehmerzahl führt zu hoher Anzahl Verbindungen \\
+	max. Schaden	& 1h \\
+	Eintrittswahrscheinlichkeit & 1.0 \\
+	Gewichteter Schaden	& 1h \\
+	Vorbeugung	& Performance-Tests mit Prototypen \\
+	Massnahmen	& Maximale Anzahl Teilnehmer festlegen \\
+	\hline
+	\end{tabular}
+	
+	\begin{tabular}{|p{0.3\textwidth} | p{0.7\textwidth} |}
+	\hline	
+	Risiko-ID & 6 \\
+	\hline
+	Titel & Kompetenzmangel SIP \\
+	Beschreibung & Erfahrung mit SIP mangelt. Unbekannte Probleme möglich \\
+	max. Schaden	& 14h \\
+	Eintrittswahrscheinlichkeit & 0.7 \\
+	Gewichteter Schaden	& 9.8h \\
+	Vorbeugung	& Frühe einarbeitung in SIP \\
+	Massnahmen	& Zusätzliche Entwicklungszeit \\
+	\hline
+	\end{tabular}
 \end{table}
 
 
 \clearpage	
 
 \section{Umgang mit Risiken}
+\hline
+Um die Riskien möglichst kalkulierbar zu halten, ist es für diese Projekt entscheidend, möglichst früh
+Evaluationen durchzuführen. Besonders die frühe Einarbeitung in SIP, sowie die Bereitstellung eines ersten
+Prototypen mit SIP verbindung muss gewährleistet werden. Sobald Prototypen vorhanden sind müssen erste
+Performance-Test durchgeführt werden. Weiterhin sollten die Risiken laufend neu beurteilt werden.

@@ -10,7 +10,6 @@
 
 # latex trash and temp files
 *.aux
-*.aux
 *.log
 *.nav
 *.out
@@ -37,3 +36,6 @@
 # linux trash
 *.lock
 *.bak
+
+# ide trash
+/.idea/

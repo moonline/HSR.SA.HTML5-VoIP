@@ -1,5 +1,5 @@
-Protokoll SA Kickoff Meeting
-============================
+Protokoll SA Progress Meeting
+=============================
 
 :Daum: Do 23.09.13
 :Zeit: 15.00 - 15:30

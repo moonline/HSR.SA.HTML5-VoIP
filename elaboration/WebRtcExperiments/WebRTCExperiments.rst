@@ -41,7 +41,7 @@ Erkenntnisse
 
 
 p2pForeignExperiment2.html
-=========================
+==========================
 
 Ziel
 ----
@@ -51,6 +51,29 @@ Schwierigkeiten
 ---------------
 - Die Verbindung wird nicht über IP Adresse und Port sondern über eine Description (Session Description Protocoll) definiert.
 - Die Connectiondescription, die die SDP enthält muss ausgelagert werden und vor dem Verbinden wieder abgefragt werden, damit eine externe Zuführung simuliert werden kann.
+
+
+p2pForeignExperiment2.html
+==========================
+
+Ziel
+----
+- P2P Connection in 3 Calls zerlegen: Offer erzeugen, Offer einlesen und Answer erzeugen, Answer einlesen
+
+
+p2pForeignExperiment3.html
+==========================
+
+Ziel
+----
+- 2 Browserfenster, einer spielt Caller (offer erzeugen, Answer von Callee verarbeiten), einer Callee (Offer verarbeiten, Answer erzeugen)
+- Manuelle Übertragung der SDP's zwischen den Peers (Browserwindows) durch Kopieren
+
+Schwierigkeiten
+---------------
+- Offer und Answer können erzeugt werden, die Streams erreichen den Empfänger jedoch nicht.
+
+
 
 
 Irgendwannmal

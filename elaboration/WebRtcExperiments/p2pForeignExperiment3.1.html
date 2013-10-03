@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+	<head>
+		<title>WebRTC Experiment 3</title>
+		<meta charset="utf-8" />
+		<style>
+			* { box-sizing: border-box; -moz-box-sizing: border-box; font-size: 1em; }
+
+			html, body { margin: 0; padding: 0; }
+
+			.controlls { background: black; color: white; background: linear-gradient(gray, black); padding: 0.5em; }
+
+			.video { margin: 2em 0; background: silver; }
+			.foreignVideo, .myVideo { display: inline-block; min-height: 10em;  vertical-align: top; padding: 0.5em; border-radius: 0.5em; }
+
+			#foreignVideo { width: 70%; margin: 1em; background: cornflowerblue; }
+			#myVideo { width: 20%; margin: 1em; background: teal; }
+			#foreignVideoFrame, #myVideoFrame { width: 100%; height: auto; }
+			span.audio, span.video { display: inline-block; background: none; font-weight: normal; }
+
+			#sdpLocal, #sdpForeign { min-width: 50%; }
+			.connection fieldset { display: inline-block; width: 49%; margin: 0; vertical-align: top; }
+			.connection textarea { width: 100%; }
+			textarea[readonly="readonly"] { background: gainsboro; border: none; border-radius: 0.25em; padding: 0.25em; }
+		</style>
+		<script src="jQuery.2.0.3.js"></script>
+		<script src="Adapter.js"></script>
+		<script>
+			function failed(code) {
+				console.log("Failure callback: " + code);
+			}
+
+
+			jQuery(document).ready(function($) {
+
+				// video frames
+				var foreignVideoFrame = $('#foreignVideoFrame').get(0);
+				var myVideoFrame = $('#myVideoFrame').get(0);
+
+				var localstream;
+
+				/**
+				 * connect local video camera
+				 */
+				$('#connect').click(function() {
+					// get constraints from option panel
+					var constraints = { audio: ($('#optionAudio').val() === 'true'), video: ($('#optionVideo').val() ==='true') };
+					var video = myVideoFrame;
+
+
+					function successCallback(stream) {
+						localstream = stream;
+						attachMediaStream(video,stream);
+
+						if(constraints.audio) {
+							$('#myVideo h2 span.audio').html('(&#x266B;)');
+						} else {
+							$('#myVideo h2 span.audio').html('&nbsp;');
+						}
+
+						if(constraints.video) {
+							$('#myVideo h2 span.video').html('(&nbsp;[&#x2659]&nbsp;)');
+						} else {
+							$('#myVideo h2 span.video').html('&nbsp;');
+						}
+					}
+
+					function errorCallback(error){
+						console.log("navigator.getUserMedia error: ", error);
+					}
+
+					getUserMedia(constraints, successCallback, errorCallback);
+				});
+
+				// p2p connection local peer
+				var config = null;
+				var localConnection = new RTCPeerConnection(config);
+
+				/**
+				 * caller: create offer
+				 */
+				$('#createOffer').click(function() {
+					localConnection.addStream(localstream);
+					localConnection.createOffer(function(sessionDescription) {
+						localConnection.setLocalDescription(sessionDescription);
+						$('#sdpLocal').text(JSON.stringify(sessionDescription));
+					}, failed);
+				});
+
+				/**
+				 * callee: create answer to offer
+				 */
+				$('#createAnswer').click(function() {
+					localConnection.setRemoteDescription(new RTCSessionDescription(JSON.parse(document.getElementById('sdpForeign').value)));
+					localConnection.createAnswer(function(sessionDescription) {
+						localConnection.setLocalDescription(sessionDescription);
+						$('#sdpForeignAnswer').text(JSON.stringify(sessionDescription));
+					}, failed);
+					localConnection.onaddstream = function(event) {
+						attachMediaStream(foreignVideoFrame,event.stream);
+					};
+				});
+
+				/**
+				 * caller: receive answer
+				 */
+				$('#receiveAnswer').click(function() {
+					localConnection.onaddstream = function(event) {
+						attachMediaStream(foreignVideoFrame,event.stream);
+					};
+					localConnection.setRemoteDescription(new RTCSessionDescription(JSON.parse(document.getElementById('sdpLocalAnswer').value)));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="controlls" id="constrolls">
+			<form>
+				<label for="optionAudio">Audio</label>
+				<select name="optionAudio" id="optionAudio">
+					<option value="false" >false</option>
+					<option value="true" >true</option>
+				</select>
+				<label for="optionVideo">Video</label>
+				<select name="optionVideo" id="optionVideo">
+					<option value="true" >true</option>
+					<option value="false" >false</option>
+				</select>
+				<input type="button" name="connect" id="connect" value="activate my media stream" />
+
+				<div class="connection">
+					<fieldset>
+						<legend>Caller</legend>
+						<input type="button" name="createOffer" id="createOffer" value="create offer" />
+						</br>
+						<label for="sdpLocal">SDP local offer</label>
+						<br />
+						<textarea id="sdpLocal" name="sdpLocal" readonly="readonly"></textarea>
+
+						<hr />
+						<label for="sdpLocalAnswer">SDP local answer</label>
+						<br />
+						<textarea id="sdpLocalAnswer" name="sdpLocalAnswer"></textarea>
+						<input type="button" name="receiveAnswer" id="receiveAnswer" value="receive answer" />
+					</fieldset>
+
+					<fieldset>
+						<legend>Callee</legend>
+						<label for="sdpForeign">SDP foreign offer</label>
+						<br />
+						<textarea id="sdpForeign" name="sdpForeign"></textarea>
+
+						<hr />
+						<label for="sdpForeignAnswer">SDP foreign answer</label>
+						<textarea id="sdpForeignAnswer" name="sdpForeignAnswer" readonly="readonly"></textarea>
+						<input type="button" name="createAnswer" id="createAnswer" value="create answer" />
+					</fieldset>
+				</div>
+			</form>
+		</div>
+
+		<div class="video">
+			<div class="foreignVideo" id="foreignVideo">
+				<h2>foreign video</h2>
+				<video class="foreignVideoFrame" id="foreignVideoFrame" autoplay="true" >
+
+				</video>
+			</div>
+			<div class="myVideo" id="myVideo">
+				<h2>my video <span class="audio">&nbsp;</span><span class="video">&nbsp;</span></h2>
+				<video class="myVideoFrame" id="myVideoFrame" autoplay="true" >
+
+				</video>
+			</div>
+		</div>
+	</body>
+</html> 

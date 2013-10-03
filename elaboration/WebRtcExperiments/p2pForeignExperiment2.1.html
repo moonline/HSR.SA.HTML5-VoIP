@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>WebRTC Experiment 2</title>
+		<title>WebRTC Experiment 2.1</title>
 		<meta charset="utf-8" />
 		<style>
 			* { box-sizing: border-box; -moz-box-sizing: border-box; font-size: 1em; }
@@ -71,24 +71,12 @@
 				/**
 				 * send media stream to foreign
 				 */
-				/**
-				 * send media stream to foreign
-				 */
-				$('#connectToForeign').click(function() {
+				$('#createOffer').click(function() {
 					//var foreignConstraints = {'mandatory': { 'OfferToReceiveAudio':($('#optionAudio').val() === 'true'), 'OfferToReceiveVideo':($('#optionVideo').val() === 'true') }};
 
 					config = null;
 					var localConnection;
 					var foreignConnection;
-
-
-					/* local
-					function setDescriptionOfLocalPeer(desc){
-						$('#sdpLocal').text(JSON.stringify(desc));
-						localConnection.setLocalDescription(new RTCSessionDescription(JSON.parse($('#sdpLocal').text())));
-						//foreignConnection.setRemoteDescription(desc);
-						//foreignConnection.createAnswer(setDescriptionOfForeignPeer, failed);
-					}*/
 
 					// create local P2P connection and add local stream					
 					localConnection = new RTCPeerConnection(config);
@@ -98,47 +86,21 @@
 
 					// create offer, export local description
 					localConnection.createOffer(function(description) {
-						$('#sdpLocal').text(JSON.stringify(description));
-
+						$('#offerLocal').text(JSON.stringify(description));
                         localConnection.setLocalDescription(description);
-						foreignConnection.setRemoteDescription(description);
 
-						foreignConnection.createAnswer(function(description) {
-							$('#sdpForeign').text(JSON.stringify(description));
+                        $('#createAnswer').click(function(){
+                            foreignConnection.setRemoteDescription(new RTCSessionDescription(JSON.parse(document.getElementById('offerLocal').value)));
+                            foreignConnection.createAnswer(function(description) {
+                                $('#answerRemote').text(JSON.stringify(description));
+                                foreignConnection.setLocalDescription(description);
 
-							$('#connectFromForeign').click(function(){
-                                foreignConnection.setLocalDescription(new RTCSessionDescription(JSON.parse(document.getElementById('sdpForeign').value)));
-								localConnection.setRemoteDescription(new RTCSessionDescription(JSON.parse(document.getElementById('sdpForeign').value)));
-								console.log(JSON.parse(document.getElementById('sdpForeign').value));
-							});
-						}, failed);
+                                $('#receiveAnswer').click(function(){
+                                    localConnection.setRemoteDescription(new RTCSessionDescription(JSON.parse(document.getElementById('answerRemote').value)));
+                                });
+                            }, failed);
+                        });
 					}, failed);
-
-					/*foreignConnection.createAnswer(function(description) {
-						console.log(description.sdp);
-						$('#sdpForeign').text(JSON.stringify(description));
-					}, failed);*/
-
-					/*$('#sdpLocal, #sdpForeign').change(function() {
-						if($('#sdpForeign').text().length > 0 && $('#sdpForeign').text().length > 0) {
-							console.log("set descriptions");
-							//localConnection.setLocalDescription(new RTCSessionDescription(JSON.parse($('#sdpLocal').text())));
-							localConnection.setRemoteDescription(new RTCSessionDescription(JSON.parse($('#sdpForeign').text())));
-
-							foreignConnection.setLocalDescription(new RTCSessionDescription(JSON.parse($('#sdpForeign').text())));
-							//foreignConnection.setRemoteDescription(new RTCSessionDescription(JSON.parse($('#sdpLocal').text())));
-						}
-					});*/
-
-					
-					
-
-					/* remote 
-					function setDescriptionOfForeignPeer(desc){
-						$('#sdpForeign').text(desc.sdp);
-						foreignConnection.setLocalDescription(desc);
-						localConnection.setRemoteDescription(desc);
-					}*/
 
 					// create foreign P2P connection and display video when local stream is added
 					//foreignConnection = new RTCPeerConnection(config);
@@ -169,13 +131,23 @@
 				</select>
 				<input type="button" name="connect" id="connect" value="activate my media stream" />
 				
+				<hr />
+                <input type="button" name="createOffer" id="createOffer" value="create offer" />
+                <br/>
+                <label for="offerLocal">local offer</label>
+                <textarea id="offerLocal" name="offerLocal"></textarea>
 
-				<!--<br /><br />
-				<label for="foreignIp">foreign ip</label>
-				<input type="text" name="foreignIp" id="foreignIp" value="127.0.0.1" />-->
-				<!--<input type="button" name="generateDesc" id="generateDesc" value="generate SDP description" />-->
-			
-				<br /><br />
+                <hr />
+                <input type="button" name="createAnswer" id="createAnswer" value="create answer" />
+                <br/>
+                <label for="answerRemote">local offer</label>
+                <textarea id="answerRemote" name="answerRemote"></textarea>
+
+                <hr />
+                <input type="button" name="receiveAnswer" id="receiveAnswer" value="receive answer" />
+
+
+<!--
 				<input type="button" name="connectToForeign" id="connectToForeign" value="send my mediastream to foreign" />
 				</br>
 				<label for="sdpLocal">SDP local</label>
@@ -186,6 +158,9 @@
 				<textarea id="sdpForeign" name="sdpForeign"></textarea>
 				<br />
 				<input type="button" name="connectFromForeign" id="connectFromForeign" value="receive media stream" />
+                <hr />
+                <label for="sdpLocalReceive">SDP local receive (copy to here)</label>
+                <textarea id="sdpLocalReceive" name="sdpLocalReceive"></textarea>-->
 			</form>
 		</div>
 		<div class="video">

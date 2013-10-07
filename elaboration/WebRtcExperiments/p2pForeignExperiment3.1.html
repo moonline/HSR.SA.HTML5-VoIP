@@ -20,6 +20,7 @@
 			#foreignVideo { width: 72%; margin: 1em 1%; background: cornflowerblue; }
 			#myVideo { width: 22%; margin: 1em 1%; background: teal; }
 			#foreignVideoFrame, #myVideoFrame { width: 100%; height: auto; border-bottom-left-radius: 0.5em; border-bottom-right-radius: 0.5em; display: block; }
+            #myVideoFrame { -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH"; }
 
 			#sdpLocal, #sdpForeign { min-width: 50%; }
 			.connection fieldset { display: inline-block; width: 49%; margin: 0; vertical-align: top; }

@@ -1,0 +1,8 @@
+/*select { border: none; border-radius: 0.5em; background: white; background: linear-gradient(white, silver); color: black; padding: 0.25em; }
+
+option { background: white; padding: 0.25em; }*/
+
+input[type="button"] { border: 1px solid rgb(0,50,0); border-radius: 0.5em; background: seagreen; background: linear-gradient(mediumseagreen, darkgreen);
+    color: white; font-weight: bold; padding: 0.25em; box-shadow: 0 0 0.25em darkslategray; }
+input[type="button"][disable="disable"] { background: white; background: linear-gradient(silver,white); color: gray; border: 1px solid gray; box-shadow: none; }
+input[type="button"].error { background: red; background: linear-gradient(red,maroon); border: 1px solid maroon; }

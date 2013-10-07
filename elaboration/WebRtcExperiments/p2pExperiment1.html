@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+	<head>
+		<title>WebRTC P2P Experiment 1</title>
+		<meta charset="utf-8" />
+		<style>
+			* { box-sizing: border-box; -moz-box-sizing: border-box; font-size: 1em; }
+
+			html, body { margin: 0; padding: 0; }
+
+			.controlls { background: blue; color: white; background: linear-gradient(cornflowerblue, navy); padding: 0.5em; }
+
+			.video { margin: 2em 0; background: silver; }
+			.foreignVideo, .myVideo { display: inline-block; min-height: 10em;  vertical-align: top; padding: 0.5em; border-radius: 0.5em; }
+
+			#foreignVideo { width: 70%; margin: 1em; background: cornflowerblue; }
+			#myVideo { width: 20%; margin: 1em; background: teal; }
+			#foreignVideoFrame, #myVideoFrame { width: 100%; height: auto; }
+			span.audio, span.video { display: inline-block; background: none; font-weight: normal; }
+
+			#sdpLocal, #sdpForeign { min-width: 50%; }
+			.connection fieldset { display: inline-block; width: 49%; margin: 0; vertical-align: top; }
+			.connection textarea { width: 100%; }
+			textarea[readonly="readonly"] { background: gainsboro; border: none; border-radius: 0.25em; padding: 0.25em; }
+		</style>
+		<script src="jQuery.2.0.3.js"></script>
+		<script src="muazkhRTCPeerConnection-v1.5.js"></script>
+		<script>
+            navigator.getMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+
+            var attachMediaStream= null;
+            if (navigator.mozGetUserMedia) {
+                attachMediaStream = function(element, stream) {
+                    element.mozSrcObject = stream;
+                    element.play();
+                };
+            } else if (navigator.webkitGetUserMedia) {
+                attachMediaStream = function(element, stream) {
+                    element.src = webkitURL.createObjectURL(stream);
+                };
+            }
+
+
+            jQuery(document).ready(function($) {
+
+                var localstream;
+                var constraints;
+                var peer;
+                var peerConfig = null;
+                var started = false;
+                var caller = false;
+
+
+                function receiveMessage(messageType) {
+                    var response = '';
+                    var recType = (caller) ? "caller" : "callee";
+
+                    $.ajax({ type: "GET",
+                        url: 'http://colvarim.ch/service/messageQueue/messageQueue.php?getMessage&receiverType='+recType,
+                        async: false,
+                        success : function(text)
+                        {
+                            response = text;
+                        }
+                    });
+                    if(response != "0") {
+                        console.log('receive message: '+response);
+                        processReceiveMessage(response);
+                    }
+                }
+
+                function sendMessage(m) {
+                    console.log('send message: '+m);
+                    var recType = (caller) ? 'callee' : 'caller';
+                    $.post("http://colvarim.ch/service/messageQueue/messageQueue.php?setMessage&receiverType="+recType, { message: m });
+                }
+
+                function receiveLoop() {
+                    receiveMessage();
+                    setTimeout(receiveLoop, 2000);
+                }
+
+                function processReceiveMessage(message) {
+                    var msg = JSON.parse(message);
+
+                    if (msg.type === 'offer') {
+                        // Callee creates PeerConnection
+                        if (!caller && !started) {
+                            calleeCreateAnswer(msg);
+                        }
+                    } else if (msg.type === 'answer' && started) {
+                        callerReceiveAnswer(msg);
+                    } else if (msg.type === 'candidate' && started) {
+                        var candidate = new RTCIceCandidate({sdpMLineIndex:msg.label, candidate:msg.candidate});
+                        peer.addIceCandidate(candidate);
+                    }
+                }
+
+
+				// video frames
+				var foreignVideoFrame = $('#foreignVideoFrame').get(0);
+				var myVideoFrame = $('#myVideoFrame').get(0);
+
+				/**
+				 * connect local video camera
+				 */
+				$('#connect').click(function() {
+					// get constraints from option panel
+					var constraints = { audio: ($('#optionAudio').val() === 'true'), video: ($('#optionVideo').val() ==='true') };
+
+					navigator.getMedia(constraints, function(stream) {
+                        localstream = stream;
+                        attachMediaStream(myVideoFrame,stream);
+                    },
+                    function(error){
+                        console.log("navigator.getUserMedia error: ", error);
+                    });
+
+                    // start receiving loop
+                    receiveLoop();
+				});
+
+
+				/**
+				 * caller: create offer
+				 */
+				$('#callerCreateOffer').click(function() {
+                    callerCreateOffer();
+                });
+
+                function callerCreateOffer() {
+                    console.log('caller create offer');
+                    caller = true;
+                    started = true;
+                    peer = muazkhRTCPeerConnection({
+                        attachStream : localstream,
+                        onICE : function (candidate) {
+                            sendMessage(JSON.stringify(candidate));
+                        },
+                        onRemoteStream : function (stream) {
+                            console.log('remote stream added');
+                            attachMediaStream(foreignVideoFrame,stream);
+                        },
+                        onOfferSDP : function(sdp) {
+                            sendMessage(JSON.stringify(sdp));
+                        }
+                    });
+				}
+
+				/**
+				 * callee: create answer to offer
+				 */
+				$('#calleeCreateAnswer').click(function() {
+                    calleeCreateAnswer();
+                });
+
+                function calleeCreateAnswer(offer) {
+                    console.log('callee create answer');
+                    started = true;
+                    peer = muazkhRTCPeerConnection({
+                        /* you need to pass offer sdp sent by offerer */
+                        attachStream: localstream,
+                        offerSDP: offer,
+                        onAnswerSDP: function(sdp) {
+                            sendMessage(JSON.stringify(sdp));
+                        },
+                        onICE : function (candidate) {
+                            sendMessage(JSON.stringify(candidate))
+                        },
+                        onRemoteStream : function (stream) {
+                            console.log('remote stream added');
+                            attachMediaStream(foreignVideoFrame,stream);
+                        }
+                    });
+                }
+
+				/**
+				 * caller: receive answer
+				 */
+				$('#callerReceiveAnswer').click(function() {
+                    callerReceiveAnswer();
+                });
+
+                function callerReceiveAnswer(answer) {
+                    console.log('caller receive answer');
+                    peer.addAnswerSDP(answer);
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="controlls" id="constrolls">
+			<form>
+				<label for="optionAudio">Audio</label>
+				<select name="optionAudio" id="optionAudio">
+					<option value="false" >false</option>
+					<option value="true" >true</option>
+				</select>
+				<label for="optionVideo">Video</label>
+				<select name="optionVideo" id="optionVideo">
+					<option value="true" >true</option>
+					<option value="false" >false</option>
+				</select>
+				<input type="button" name="connect" id="connect" value="activate my media stream" />
+                <input type="button" name="callerCreateOffer" id="callerCreateOffer" value="Caller create offer" />
+                <input type="button" name="calleeCreateAnswer" id="calleeCreateAnswer" value="Callee create answer" />
+                <input type="button" name="callerReceiveAnswer" id="callerReceiveAnswer" value="Caller receive answer" />
+			</form>
+		</div>
+
+		<div class="video">
+			<div class="foreignVideo" id="foreignVideo">
+				<h2>foreign video</h2>
+				<video class="foreignVideoFrame" id="foreignVideoFrame" autoplay="true" >
+
+				</video>
+			</div>
+			<div class="myVideo" id="myVideo">
+				<h2>my video <span class="audio">&nbsp;</span><span class="video">&nbsp;</span></h2>
+				<video class="myVideoFrame" id="myVideoFrame" autoplay="true" >
+
+				</video>
+			</div>
+		</div>
+	</body>
+</html> 

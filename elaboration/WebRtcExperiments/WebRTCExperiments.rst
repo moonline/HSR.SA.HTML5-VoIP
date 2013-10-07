@@ -53,7 +53,7 @@ Schwierigkeiten
 - Die Connectiondescription, die die SDP enthält muss ausgelagert werden und vor dem Verbinden wieder abgefragt werden, damit eine externe Zuführung simuliert werden kann.
 
 
-p2pForeignExperiment2.html
+p2pForeignExperiment2.1.html
 ==========================
 
 Ziel
@@ -74,14 +74,34 @@ Schwierigkeiten
 - Offer und Answer können erzeugt werden, die Streams erreichen den Empfänger jedoch nicht.
 
 
+p2pExperiment1.html
+===================
+
+Ziel
+----
+- WebRTC mit dem Framework muazkhRTCPeerConnection-v1.5.js umsetzen.
+- Einfaches Signalling mit einem serverseitigen PHP Snippet. (Polling beim Receiver)
+
+Schwierigkeiten
+---------------
+- Serverseitige Messagequeue muss zwischen Caller und Callee unterscheiden können, weil jeder sonst möglicherweise seine eigenen Messages erhält
+- WebRTC Verbindung will auch hier nicht zu Stande kommen. Der Mit dem Wireshark mitgeschnittene Verkehr scheint zwar in Ordnung zu sein (in beide Richtungen läuft ein UDP Video Stream) doch im entsprechenden Videoelement auf der Empfängerseite scheint das Video nicht anzukommen. AttachStream wird nicht aufgerufen.
+- Analysieren des Paketverkehrs mit Wireshark ist mühsam, weil die modernen Webbrowser dauernd irgendwas machen und damit noch andern Verkehr generieren, der das Fenster füllt.
+
+Erkenntnisse
+------------
+- ICECandidates scheinen nur unter Chrome zu funktionieren (Firefox packt sie ev. direkt in das sdp), scheinen aber für die Funktion der apprtc.appspot.com Demo App nicht ein Problem darzustellen.
+- das Framework von muazkh scheint einige Unsauberkeiten zu haben und ist entsprechend auch nicht zum Laufen zu kriegen.
 
 
-Irgendwannmal
-=============
+p2pForeignExperiment3.1.html
+==========================
 
 Ziel
 ----
 - Im gleichen Netzwerk (ohne NAT und deren Probleme) eine P2P Verbindung mit RTCPeerConnection aufbauen
 
-
+Erkenntnisse
+------------
+- Die RTCPeerConnection darf erst erzeugt werden, wenn sie benötigt wird (caller: beim Call, callee: bei offer receive) und der lokale Stream darf erst nach dem erzeugen attacht werden.
 

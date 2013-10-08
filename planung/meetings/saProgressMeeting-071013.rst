@@ -25,7 +25,7 @@ Organisatorisches
 -----------------
 - Aufgabenstellung wurde angepasst für das neue Team.
 - IP Deklaration wurde angepasst für das neue Team.
-- L Bläser Zugriff auf auf das Git Repository ermöglichen.
+- ToDo: L. Bläser Zugriff auf auf das Git Repository ermöglichen.
 
 
 1. WebRTC Demo

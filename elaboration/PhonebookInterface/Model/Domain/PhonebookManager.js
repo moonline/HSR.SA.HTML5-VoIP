@@ -7,7 +7,7 @@ Domain.PhonebookManager = function() {
 	var phonebooks = new Array();
 
 	this.add = function(phonebook) {
-		if(typeof phonebook.getEntries() == 'function' && typeof phonebook.count() == 'function') {
+		if(typeof phonebook.getEntries() === 'function' && typeof phonebook.count() === 'function') {
 			phonebooks.push(phonebook);
 		}
 	}

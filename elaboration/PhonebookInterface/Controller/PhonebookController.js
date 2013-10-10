@@ -40,8 +40,7 @@ Controller.PhonebookController = function() {
 
 		panel.appendChild(entryCounter);
 
-		for(var i in jsonPhonebook.getEntries()) {
-			var bookEntry = jsonPhonebook.getEntries()[i];
+		jsonPhonebook.getEntries().forEach(function(bookEntry, i) {
 
 			var entry = document.createElement('div');
 			entry.setAttribute('class','entry');
@@ -66,6 +65,6 @@ Controller.PhonebookController = function() {
 			entry.appendChild(sip);
 
 			phonebookElement.appendChild(entry);
-		}
+		});
 	}
 }

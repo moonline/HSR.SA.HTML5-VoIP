@@ -12,21 +12,18 @@ Phonebook.PhonebookJson = function(jsonData) {
 
 	var initialize = (function() {
 		var inputData;
-		if(typeof jsonData == 'object') {
+		if(typeof jsonData === 'object') {
 			inputData = jsonData;
 		} else {
 			inputData = JSON.parse(prompt('Please insert phonebook data in JSON Style with fields "sip", "name", "photo"'));
 		}
 
-		for(var i in inputData) {
-			var dataRow = inputData[i];
-			console.log(dataRow);
-
+		inputData.forEach(function(dataRow, i) {
 			if(dataRow.hasOwnProperty('sip') && dataRow.hasOwnProperty('name') && dataRow.hasOwnProperty('photo')) {
 				var entry = new Domain.PhonebookEntry(dataRow.sip, dataRow.name, dataRow.photo);
 				data.push(entry);
 			}
-		}
+		});
 	})();
 
 	this.getEntries = function() {

@@ -1,50 +1,53 @@
 \chapter{Weitere Anforderungen}
 
 \section{Qualitätsmerkmale}
-
+Die Applikation soll intuitiv bedienbar sein und die Video- und Audio Auflösung soll abhängig von der Verbindungsqualität skaliert werden.
 
 
 \subsection{Functionality}
 \begin{itemize}
-	\item[Korrektheit:] 
-	\item[Angemessenheit:] 
-	\item[Interoperabilität:] 
-	\item[Sicherheit:] 
+	%\item[Korrektheit:] 
+	%\item[Angemessenheit:] 
+	\item[Interoperabilität:] Die Applikation soll auf existierende Standards setzen und wo eigene Standards nötig sind, diese offen dokumentieren.
+	\item[Sicherheit:] Die Audio- und Videokommunikation sowie die Verbindung zum Server soll nach Möglichkeit verschlüsselt erfolgen.
 \end{itemize}
 
-\subsection{Efficiency}
-\begin{itemize}
-	\item[Wirtschaftlichkeit:] 
-	\item[Zeitverhalten:] 
-\end{itemize}
+%\subsection{Efficiency}
+%\begin{itemize}
+%	\item[Wirtschaftlichkeit:] 
+%	\item[Zeitverhalten:] 
+%\end{itemize}
 
 \subsection{Usability}
 \begin{itemize}
-	\item[Verständlichkeit:] 
-	\item[Bedienbarkeit:] 
-	\item[Robustheit:]
+	\item[Verständlichkeit:] Die Benutzeroberfläche soll selbsterklärend aufgebaut sein. Knöpfe und Labels sollen sprechend bezeichnet sein.
+	%\item[Bedienbarkeit:] 
+	\item[Robustheit:] Die Oberfläche soll nicht hängen bleiben bei länger dauernden Operationen und auf Fehler angemessen reagieren.
 \end{itemize}
 
-\subsection{Reliability}
-\begin{itemize}
-	\item[Reife:] RC 1
-	\item[Fehlertoleranz:] 
-	\item[Wiederherstellbarkeit:] 
-\end{itemize}
+%\subsection{Reliability}
+%\begin{itemize}
+%	\item[Reife:] RC 1
+%	\item[Fehlertoleranz:] 
+%	\item[Wiederherstellbarkeit:] 
+%\end{itemize}
 
 \subsection{Portability}
 \begin{itemize}
-	\item[Anpassbarkeit:] 
-	\item[Installierbarkeit:] 
-	\item[Austauschbarkeit:]
+	\item[Anpassbarkeit:] Die Applikation soll so gestaltet werden, das sich die Unterstützung für weitere Technologien einfach hinzufügen lässt.
+	\item[Installierbarkeit:] Die Applikation soll auf jedem WebRTC fähigen modernen Browser laufen, der sich an die Standard Darfts hält.
+	\item[Austauschbarkeit:] Die Oberfläche soll durch eigene Styles einfach umgestaltet und angepasst werden können.
 \end{itemize}
 
-\subsection{Maintainability}
-\begin{itemize}
-	\item[Analysierbarkeit:] 
-\end{itemize}
+%\subsection{Maintainability}
+%\begin{itemize}
+%	\item[Analysierbarkeit:] 
+%\end{itemize}
 
 \section{Schnittstellen}
 
+\subsection{Signalling Schnittstelle}
+Die Applikation soll als Signalling Technologie einen offenen Standard (z.B. SIP oder XAMPP) verwenden.
 
-\subsection{GUI Schnittstelle}
+\subsection{Telefonbuchschnittstelle}
+Die Telefonbuchschnittstelle soll offene und verbreitete Standardformate unterstützen (z.B. vcard, csv, json, ...).

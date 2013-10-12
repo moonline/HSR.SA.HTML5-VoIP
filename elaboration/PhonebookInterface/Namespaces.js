@@ -5,8 +5,20 @@ App = {
 	Model: {
 		Interfaces:{},
 		Domain:{
-			Phonebook:{}
-		}
+			Phonebook:{},
+			Channel:{}
+		},
+		Controller:{},
+		Service:{}
 	},
-	Controller:{}
+	Lib: {
+		QUnit: {}
+	},
+	Test: {
+		Model: {
+			Domain:{
+				Channel:{}
+			}
+		}
+	}
 };

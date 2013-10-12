@@ -1,7 +1,7 @@
 /**
  * Created by tobias on 10/8/13.
  */
-var Controller = App.Controller;
+var Controller = App.Model.Controller;
 var Domain = App.Model.Domain;
 var Phonebook = App.Model.Domain.Phonebook;
 

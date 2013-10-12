@@ -4,6 +4,7 @@
 *~
 *.swp
 *.*-swp
+*.tmp.*
 
 # ignore files
 *.ign.*

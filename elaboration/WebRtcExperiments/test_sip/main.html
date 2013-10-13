@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+	<head>
+		<title>WebRTC Experiment 1</title>
+		<meta charset="utf-8" />
+		<style>
+			* { box-sizing: border-box; -moz-box-sizing: border-box; font-size: 1em; }
+
+			html, body { margin: 0; padding: 0; }
+
+			.controlls { background: black; color: white; background: linear-gradient(gray, black); padding: 0.5em; }
+
+			.video { margin: 2em 0; background: silver; }
+			.foreignVideo, .myVideo { display: inline-block; min-height: 10em;  vertical-align: top; padding: 0.5em; border-radius: 0.5em; }
+
+			#foreignVideo { width: 70%; margin: 1em; background: cornflowerblue; }
+			#myVideo { width: 20%; margin: 1em; background: teal; }
+			#foreignVideoFrame, #myVideoFrame { width: 100%; height: auto; }
+			span.audio, span.video { display: inline-block; background: none; font-weight: normal; }
+		</style>
+		<script src="libs/jQuery.2.0.3.js"></script>
+		<script src="libs/Adapter.js"></script>
+		<script src="libs/jssip-0.3.0.js"></script>
+		<script src="libs/SIPml-api.js"></script>
+		<!--<script src="classes/sconnect.js"></script>-->
+		<script>
+			function failed(code) {
+				log("Failure callback: " + code);
+			}
+
+
+			jQuery(document).ready(function($) {
+				
+
+				/*connection.setOptions('ws://ns313841.ovh.net:13060',"sip:oswaldo12@ekiga.net","hsrwebrtc12");
+				connection.addListenerConnected(connectedTest);
+				connection.start();*/
+				var readyCallback = function(e){
+                createSipStack(); // see next section
+            };
+            var errorCallback = function(e){
+                console.error('Failed to initialize the engine: ' + e.message);
+            }
+            SIPml.init(readyCallback, errorCallback);
+
+
+				var sipStack;
+				var eventsListener = function(e){
+					if(e.type == 'started'){
+						login();
+					}
+					else if(e.type == 'i_new_message'){ // incoming new SIP MESSAGE (SMS-like)
+						acceptMessage(e);
+					}
+					else if(e.type == 'i_new_call'){ // incoming audio/video call
+						acceptCall(e);
+					}
+				}
+				var registerSession;
+				var eventsListener = function(e){
+                console.info('session event = ' + e.type);
+                if(e.type == 'connected' && e.session == registerSession){
+                  //  makeCall();
+                  //  sendMessage();
+                  //  publishPresence();
+                  //  subscribePresence('johndoe'); // watch johndoe's presence status change
+					}
+				}
+				var login = function(){
+					registerSession = sipStack.newSession('register', {
+						events_listener: { events: '*', listener: eventsListener } // optional: '*' means all events
+					});
+					registerSession.register();
+				}
+            
+					function createSipStack(){
+						sipStack = new SIPml.Stack({
+								realm: 'ekiga.net', // mandatory: domain name
+								impi: 'oswaldo12', // mandatory: authorization name (IMS Private Identity)
+								impu: 'sip:oswaldo12@ekiga.net', // mandatory: valid SIP Uri (IMS Public Identity)
+								password: 'hsrwebrtc12', // optional
+								// display_name: 'Bob legend', // optional
+								//websocket_proxy_url: 'wss://sipml5.org:10062', // optional
+								outbound_proxy_url: 'udp://p.sippp.com:80', // optional
+								enable_rtcweb_breaker: false, // optional
+								// events_listener: { events: '*', listener: eventsListener }, // optional: '*' means all events
+								sip_headers: [ // optional
+										{ name: 'User-Agent', value: 'IM-client/OMA1.0 sipML5-v1.0.0.0' },
+										{ name: 'Organization', value: 'Doubango Telecom' }
+								]
+							}
+						);
+					}
+					sipStack.start();
+
+			  
+
+
+			var callSession;
+            var eventsListener = function(e){
+                console.info('session event = ' + e.type);
+            }
+            var makeCall = function(){
+                callSession = sipStack.newSession('call-audiovideo', {
+                    video_local: document.getElementById('myVideoFram'),
+                    video_remote: document.getElementById('foreignVideoFrame'),
+                    audio_remote: document.getElementById('audio-remote'),
+                    events_listener: { events: '*', listener: eventsListener } // optional: '*' means all events
+                });
+                callSession.call('sip:oswaldo.linphone.com');
+            }
+
+				function connectedTest(e){
+					
+				}
+				// video frames
+				var foreignVideoFrame = $('#foreignVideoFrame').get(0);
+				var myVideoFrame = $('#myVideoFrame').get(0);
+
+				var localstream;
+
+				/**
+				 * connect local video camera
+				 */
+				$('#connect').click(function() {
+					makeCall();
+				});
+
+				/**
+				 * send media stream to foreign
+				 */
+				$('#connectForeign').click(function() {
+					//var foreignConstraints = {'mandatory': { 'OfferToReceiveAudio':($('#optionAudio').val() === 'true'), 'OfferToReceiveVideo':($('#optionVideo').val() === 'true') }};
+
+					config = null;
+					var localConnection;
+					var foreignConnection;
+
+
+					/* local */
+					function setDescriptionOfLocalPeer(desc){
+						localConnection.setLocalDescription(desc);
+						foreignConnection.setRemoteDescription(desc);
+						foreignConnection.createAnswer(setDescriptionOfForeignPeer, failed);
+					}
+
+					// create local P2P connection and add local stream
+					localConnection = new RTCPeerConnection(config);
+					localConnection.addStream(localstream);
+
+					// create offer, set it as local description for local and remote description for foreign
+					localConnection.createOffer(setDescriptionOfLocalPeer, failed);
+
+
+					/* remote */
+					function setDescriptionOfForeignPeer(desc){
+						foreignConnection.setLocalDescription(desc);
+						localConnection.setRemoteDescription(desc); 
+					}
+
+					function display(event){
+						if (window.URL) {
+							foreignVideoFrame.src = window.URL.createObjectURL(event.stream);
+						} else {
+							foreignVideoFrame.src = event.stream;
+						}
+						foreignVideoFrame.play();
+					}
+
+					// create foreign P2P connection and display video when local stream is added
+					foreignConnection = new RTCPeerConnection(config);
+					foreignConnection.onaddstream = function(event) {
+						if (window.URL) {
+							foreignVideoFrame.src = window.URL.createObjectURL(event.stream);
+						} else {
+							foreignVideoFrame.src = event.stream;
+						}
+						foreignVideoFrame.play();
+					};
+				});				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="controlls" id="constrolls">
+			<form>
+				<label for="optionAudio">Audio</label>
+				<select name="optionAudio" id="optionAudio">
+					<option value="true" >true</option>
+					<option value="false" >false</option>
+				</select>
+				<label for="optionVideo">Video</label>
+				<select name="optionVideo" id="optionVideo">
+					<option value="true" >true</option>
+					<option value="false" >false</option>
+				</select>
+				<input type="button" name="connect" id="connect" value="activate my media stream" />
+
+				<br /><br />
+				<!--<label for="foreignIp">foreign ip</label>
+				<input type="text" name="foreignIp" id="foreignIp" value="127.0.0.1" />-->
+				<input type="button" name="connectForeign" id="connectForeign" value="send my mediastream to foreign" />
+			</form>
+		</div>
+		<div class="video">
+			<div class="foreignVideo" id="foreignVideo">
+				<h2>foreign video</h2>
+				<video class="foreignVideoFrame" id="foreignVideoFrame" autoplay="true" >
+
+				</video>
+			</div>
+			<div class="myVideo" id="myVideo">
+				<h2>my video <span class="audio">&nbsp;</span><span class="video">&nbsp;</span></h2>
+				<video class="myVideoFrame" id="myVideoFrame" autoplay="true" >
+
+				</video>
+			</div>
+		</div>
+	</body>
+</html> 

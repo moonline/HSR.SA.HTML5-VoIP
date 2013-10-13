@@ -19,7 +19,7 @@ Phonebook.PhonebookJson = function(jsonData) {
 		}
 
 		inputData.forEach(function(dataRow, i) {
-			if(dataRow.hasOwnProperty('sip') && dataRow.hasOwnProperty('name') && dataRow.hasOwnProperty('photo')) {
+			if(dataRow.hasOwnProperty('sip') && dataRow.hasOwnProperty('name')) {
 				var entry = new Domain.PhonebookEntry(dataRow.sip, dataRow.name, dataRow.photo);
 				data.push(entry);
 			}

@@ -32,38 +32,70 @@
 		<div class="video">
 			<div class="foreignVideo" id="foreignVideo">
 				<h2>foreign video</h2>
-				<audio id="audio" autoplay></audio>
-				<video class="foreignVideoFrame" id="foreignVideoFrame" autoplay></video>
+				<audio id="foreignAudio" autoplay></audio>
+				<video class="foreignVideoFrame" id="foreignVideoFrame" autoplay hidden=true></video>
 			</div>
 			<div class="myVideo" id="myVideo">
 				<h2>my video</h2>
-				<video class="myVideoFrame" id="myVideoFrame" autoplay muted=true></video>
+				<video class="myVideoFrame" id="myVideoFrame" autoplay muted=true hidden=true></video>
 			</div>
 		</div>
 		
-		<script src="libs/jssip-0.3.0.js"></script>
+		<script src="libs/SIPml-api.js"></script>
 		<script>
-            var phone = new JsSIP.UA({
-				'ws_servers': 'ws://sip:8080',
-				'uri': 'sip:netzhuffle@sip',
-				'password': 'netzhuffle'
-            });
-            phone.on('connected', function(e) {
-            	console.log('connected', e);
-            });
-            phone.on('disconnected', function(e) {
-            	console.log('disconnected', e);
-            });
-            phone.on('registered', function(e) {
-            	console.log('registered', e);
-            });
-            phone.on('unregistered', function(e) {
-            	console.log('unregistered', e);
-            });
-            phone.on('registrationFailed', function(e) {
-            	console.log('registrationFailed', e);
-            });
-            phone.start();
+            var remoteView = document.getElementById('foreignVideoFrame');
+            var remoteAudio = document.getElementById('foreignAudio');
+            var selfView = document.getElementById('myVideoFrame');
+            var sip;
+            
+            // call from console
+            function register(name) {
+            	SIPml.init(function() {
+            		sip = new SIPml.Stack({
+                        realm: 'sip',
+                        impi: 'netzhuffle', // authorization name (IMS Private Identity)
+                        impu: 'sip:netzhuffle@sip', // SIP URI (IMS Public Identity)
+                        password: 'netzhuffle',
+                        websocket_proxy_url: 'ws://sip:8080',
+                        enable_rtcweb_breaker: false,
+                        events_listener: {
+                        	events: '*',
+                        	listener: function(e) {
+                        		if (e.type == 'started') {
+                        			var registerSession = sip.newSession('register', {
+                        				events_listener: {
+                        					events: '*',
+                        					listener: function(e) {
+                        						if (e.type == 'connected') {
+                        							console.info('You may call call(name) now');
+                        						}
+                        					}
+                        				}
+                        			});
+                        			registerSession.register();
+                        		} else if (e.type == 'i_new_call') {
+                        			e.newSession.accept();
+                        		}
+                        	}
+                        }
+                    });
+                    sip.start();
+            	}, function(e) {
+            		console.error('error at SIPml.init(): ' + e.message);
+            	});
+            }
+            
+            // call from console
+            function call(name) {
+            	var callSession = sip.newSession('call-audiovideo', {
+            		video_local: selfView,
+            		video_remote: remoteView,
+            		audio_remote: remoteAudio
+            	});
+            	callSession.call(name);
+            }
+            
+            console.info('You may call register(name) now');
 		</script>
 	</body>
 </html> 

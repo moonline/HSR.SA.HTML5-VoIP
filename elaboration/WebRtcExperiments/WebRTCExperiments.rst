@@ -95,7 +95,7 @@ Erkenntnisse
 
 
 p2pForeignExperiment3.1.html
-==========================
+============================
 
 Ziel
 ----
@@ -105,3 +105,14 @@ Erkenntnisse
 ------------
 - Die RTCPeerConnection darf erst erzeugt werden, wenn sie benötigt wird (caller: beim Call, callee: bei offer receive) und der lokale Stream darf erst nach dem erzeugen attacht werden.
 
+
+p2pMultipleExperiment1.html
+===========================
+
+Ziel
+----
+- Von einem Endpunkt mit zwei weiteren Endpunkten verbinden um Möglichkeit für Konferenzschaltung zu zeigen
+
+Erkenntnisse
+------------
+- Konferenzschaltungen sind möglich, es muss jedoch jeder Peer einzeln mit jedem verbunden werden (Echt P2P)

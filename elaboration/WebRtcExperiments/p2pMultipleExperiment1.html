@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+	<head>
+		<title>WebRTC Experiment 3</title>
+		<meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style/button.css">
+		<style>
+			* { box-sizing: border-box; -moz-box-sizing: border-box; font-size: 1em; }
+
+			html, body { margin: 0; padding: 0; }
+
+			.controlls { background: black; color: white; background: linear-gradient(gray, black); padding: 0.5em; }
+
+			.video { margin: 2em 0; background: none; width: 60%; margin: 0 20%; }
+			.foreignVideo, .myVideo { display: inline-block; min-height: 10em;  vertical-align: top; padding: 0.5em; border-radius: 0.5em; padding: 0; }
+
+            .video h2 { padding: 0.5em; background: black; background: linear-gradient(gray, black); color: white; margin: 0;
+                border-top-left-radius: 0.5em; border-top-right-radius: 0.5em; }
+
+			#foreignVideo { width: 72%; margin: 1em 1%; background: cornflowerblue; }
+			#myVideo { width: 22%; margin: 1em 1%; background: teal; }
+			.videoFrame, #myVideoFrame { width: 100%; height: auto; border-bottom-left-radius: 0.5em; border-bottom-right-radius: 0.5em; display: block; }
+            #myVideoFrame { -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH"; }
+
+			#sdpLocal, #sdpForeign { min-width: 50%; }
+			.connection fieldset { display: inline-block; width: 49%; margin: 0; vertical-align: top; }
+			.connection textarea { width: 100%; }
+			textarea[readonly="readonly"] { background: gainsboro; border: none; border-radius: 0.25em; padding: 0.25em; }
+		</style>
+		<script src="libs/jQuery.2.0.3.js"></script>
+		<script src="libs/Adapter.js"></script>
+		<script>
+			function failed(code) {
+				console.log("Failure callback: " + code);
+			}
+
+			jQuery(document).ready(function($) {
+                var localstream;
+                var constraints;
+                var peerConnection;
+                var peerConnections = [];
+                var peerConfig = null;
+                var started = false;
+                var caller = false;
+                var connectionState = false;
+                var connectionNumber = 0;
+
+
+                function receiveMessage(messageType) {
+                    var response = '';
+                    var recType = (caller) ? "caller" : "callee";
+
+                    $.ajax({ type: "GET",
+                        url: 'http://colvarim.ch/service/messageQueue/messageQueue.php?getMessage&receiverType='+recType,
+                        async: false,
+                        success : function(text) {
+                            response = text;
+                        }
+                    });
+                    if(response != "0") {
+                        console.log('receive message: '+response);
+                        processReceiveMessage(response);
+                    }
+                }
+
+                function sendMessage(m) {
+                    console.log('send message: '+m);
+                    var recType = (caller) ? 'callee' : 'caller';
+                    $.post("http://colvarim.ch/service/messageQueue/messageQueue.php?setMessage&receiverType="+recType, { message: m });
+                }
+
+                function receiveLoop() {
+                    receiveMessage();
+                    if(!connectionState || (caller && connectionState)) {
+                        setTimeout(receiveLoop, 2000);
+                    } else {
+                        console.log('stop receive loop');
+                    }
+                }
+
+                function processReceiveMessage(message) {
+                    var msg = JSON.parse(message);
+
+                    if(!connectionState || (caller && connectionState)) {
+                        if (msg.type === 'offer') {
+                            // Callee creates PeerConnection
+                            if (!caller && !started) {
+                                calleeCreateAnswer(msg);
+                            }
+                        } else if (msg.type === 'answer' && started) {
+                            callerReceiveAnswer(msg);
+                        } else if (msg.type === 'candidate' && started) {
+                            var candidate = new RTCIceCandidate({sdpMLineIndex:msg.label, candidate:msg.candidate});
+                            //peerConnection.addIceCandidate(candidate);
+                            peerConnections[connectionNumber].addIceCandidate(candidate);
+                        }
+                    } else {
+                        console.log("connection etablished yet. No message processing.")
+                    }
+                }
+
+
+			    var myVideoFrame = document.getElementById('myVideoFrame');
+
+
+				/**
+				 * connect local video camera
+				 */
+                $('#connect').click(function() {
+                    // get constraints from option panel
+                    var constraints = { audio: ($('#optionAudio').val() === 'true'), video: ($('#optionVideo').val() ==='true') };
+
+                    getUserMedia(constraints, function(stream) {
+                            localstream = stream;
+                            attachMediaStream(myVideoFrame,stream);
+                            $('#connect').attr('disable','disable');
+                        },
+                        function(error){
+                            console.log("navigator.getUserMedia error: ", error);
+                        }
+                    );
+
+                    // start receiving loop
+                    receiveLoop();
+                });
+
+
+				// p2p connection local peer
+
+
+
+				/**
+				 * caller: create offer
+				 */
+                $('#call').click(function() {
+                    callerCreateOffer();
+                });
+
+				function callerCreateOffer() {
+                    console.log('caller create offer');
+                    caller = true;
+                    started = true;
+
+                    var config = null; //{"iceServers": [{"url":"stun:stun.services.mozilla.com"}]};
+                    // peerConnection = new RTCPeerConnection(config);
+                    peerConnections[connectionNumber] = new RTCPeerConnection(config);
+                    //peerConnection.addStream(localstream);
+                    peerConnections[connectionNumber].addStream(localstream);
+
+                    //peerConnection.onicecandidate = function(event) {
+                    peerConnections[connectionNumber].onicecandidate = function(event) {
+                        if (event.candidate) {
+                            sendMessage(JSON.stringify(event.candidate));
+                        } else {
+                            console.log("End of candidates.");
+                        }
+                    }
+
+                    //peerConnection.onaddstream = function(event) {
+                    peerConnections[connectionNumber].onaddstream = function(event) {
+                        console.log('stream added to p2p connection, attach remote stream');
+                        attachMediaStream(document.querySelectorAll('video.videoFrame')[connectionNumber],event.stream);
+
+                        connectionState = true;
+                        connectionNumber++;
+                    };
+
+                    // peerConnection.createOffer(function(sdpOffer) {
+					peerConnections[connectionNumber].createOffer(function(sdpOffer) {
+						// peerConnection.setLocalDescription(sdpOffer);
+                        peerConnections[connectionNumber].setLocalDescription(sdpOffer);
+                        sendMessage(JSON.stringify(sdpOffer));
+					}, failed);
+				}
+
+
+				function calleeCreateAnswer(offer) {
+                    $("#call").attr('disable','disable');
+                    console.log('callee create answer');
+                    started = true;
+
+                    var config = null; //{"iceServers": [{"url":"stun:stun.services.mozilla.com"}]};
+                    //peerConnection = new RTCPeerConnection(config);
+                    peerConnections[connectionNumber] = new RTCPeerConnection(config);
+                    //peerConnection.addStream(localstream);
+                    peerConnections[connectionNumber].addStream(localstream);
+
+                    // peerConnection.onicecandidate = function(event) {
+                    peerConnections[connectionNumber].onicecandidate = function(event) {
+                        if (event.candidate) {
+                            sendMessage(JSON.stringify(event.candidate));
+                        } else {
+                            console.log("End of candidates.");
+                        }
+                    }
+
+                    //peerConnection.onaddstream = function(event) {
+                    peerConnections[connectionNumber].onaddstream = function(event) {
+                        console.log('stream added to p2p connection, attach remote stream');
+                        attachMediaStream(document.querySelectorAll('video.videoFrame')[connectionNumber],event.stream);
+
+                        connectionState = true;
+                        connectionNumber++;
+                    };
+
+                    // peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
+                    peerConnections[connectionNumber].setRemoteDescription(new RTCSessionDescription(offer));
+
+                    // peerConnection.createAnswer(function(sdpAnswer) {
+                    peerConnections[connectionNumber].createAnswer(function(sdpAnswer) {
+                        // peerConnection.setLocalDescription(sdpAnswer);
+                        peerConnections[connectionNumber].setLocalDescription(sdpAnswer);
+                        sendMessage(JSON.stringify(sdpAnswer));
+					}, failed);
+				}
+
+
+				function callerReceiveAnswer(sdpAnswer) {
+                    $("#call").attr('value','Call another peer');
+                    console.log('caller receive answer');
+                    // peerConnection.setRemoteDescription(new RTCSessionDescription(sdpAnswer));
+                    peerConnections[connectionNumber].setRemoteDescription(new RTCSessionDescription(sdpAnswer));
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="controlls" id="constrolls">
+			<form>
+				<label for="optionAudio">Audio</label>
+				<select name="optionAudio" id="optionAudio">
+                    <option value="true" >true</option>
+					<option value="false" >false</option>
+				</select>
+				<label for="optionVideo">Video</label>
+				<select name="optionVideo" id="optionVideo">
+					<option value="true" >true</option>
+					<option value="false" >false</option>
+				</select>
+				<input type="button" name="connect" id="connect" value="start my media" />
+				<input type="button" name="call" id="call" value="call other peer" />
+			</form>
+		</div>
+
+		<div class="video">
+			<div class="foreignVideo" id="foreignVideo">
+				<h2>foreign video 1</h2>
+				<video class="videoFrame" id="videoFrame0" autoplay="true" >
+
+				</video>
+                <h2>foreign video 2</h2>
+                <video class="videoFrame" id="videoFrame1" autoplay="true" >
+
+                </video>
+			</div>
+			<div class="myVideo" id="myVideo">
+				<h2>my video</h2>
+				<video class="myVideoFrame" id="myVideoFrame" autoplay="true" >
+
+				</video>
+			</div>
+		</div>
+	</body>
+</html> 

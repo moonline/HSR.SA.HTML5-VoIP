@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+	<head>
+		<title>WebRTC SIP-Experiment</title>
+		<meta charset="utf-8">
+        <link rel="stylesheet" href="style/button.css">
+		<style>
+			* { box-sizing: border-box; -moz-box-sizing: border-box; font-size: 1em; }
+
+			html, body { margin: 0; padding: 0; }
+
+			.controlls { background: black; color: white; background: linear-gradient(gray, black); padding: 0.5em; }
+
+			.video { margin: 2em 0; background: none; width: 60%; margin: 0 20%; }
+			.foreignVideo, .myVideo { display: inline-block; min-height: 10em;  vertical-align: top; padding: 0.5em; border-radius: 0.5em; padding: 0; }
+
+            .video h2 { padding: 0.5em; background: black; background: linear-gradient(gray, black); color: white; margin: 0;
+                border-top-left-radius: 0.5em; border-top-right-radius: 0.5em; }
+
+			#foreignVideo { width: 72%; margin: 1em 1%; background: cornflowerblue; }
+			#myVideo { width: 22%; margin: 1em 1%; background: teal; }
+			#foreignVideoFrame, #myVideoFrame { width: 100%; height: auto; border-bottom-left-radius: 0.5em; border-bottom-right-radius: 0.5em; display: block; }
+            #myVideoFrame { -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH"; }
+
+			#sdpLocal, #sdpForeign { min-width: 50%; }
+			.connection fieldset { display: inline-block; width: 49%; margin: 0; vertical-align: top; }
+			.connection textarea { width: 100%; }
+			textarea[readonly="readonly"] { background: gainsboro; border: none; border-radius: 0.25em; padding: 0.25em; }
+		</style>
+	</head>
+	<body>
+		<div class="video">
+			<div class="foreignVideo" id="foreignVideo">
+				<h2>foreign video</h2>
+				<audio id="foreignAudio" autoplay></audio>
+				<video class="foreignVideoFrame" id="foreignVideoFrame" autoplay hidden=true></video>
+			</div>
+			<div class="myVideo" id="myVideo">
+				<h2>my video</h2>
+				<video class="myVideoFrame" id="myVideoFrame" autoplay muted=true hidden=true></video>
+			</div>
+		</div>
+		
+		<script src="libs/SIPml-api.js"></script>
+		<script>
+            var remoteView = document.getElementById('foreignVideoFrame');
+            var remoteAudio = document.getElementById('foreignAudio');
+            var selfView = document.getElementById('myVideoFrame');
+            var sip;
+            
+            // call from console
+            function register(name) {
+            	SIPml.init(function() {
+            		sip = new SIPml.Stack({
+                        realm: 'sip',
+                        impi: 'netzhuffle', // authorization name (IMS Private Identity)
+                        impu: 'sip:netzhuffle@sip', // SIP URI (IMS Public Identity)
+                        password: 'netzhuffle',
+                        websocket_proxy_url: 'ws://sip:8080',
+                        enable_rtcweb_breaker: false,
+                        events_listener: {
+                        	events: '*',
+                        	listener: function(e) {
+                        		if (e.type == 'started') {
+                        			var registerSession = sip.newSession('register', {
+                        				events_listener: {
+                        					events: '*',
+                        					listener: function(e) {
+                        						if (e.type == 'connected') {
+                        							console.info('You may call call(name) now');
+                        						}
+                        					}
+                        				}
+                        			});
+                        			registerSession.register();
+                        		} else if (e.type == 'i_new_call') {
+                        			e.newSession.accept({
+										video_local: selfView,
+										video_remote: remoteView,
+										audio_remote: remoteAudio
+									});
+                        		}
+                        	}
+                        }
+                    });
+                    sip.start();
+            	}, function(e) {
+            		console.error('error at SIPml.init(): ' + e.message);
+            	});
+            }
+            
+            // call from console
+            function call(name) {
+            	var callSession = sip.newSession('call-audiovideo', {
+            		video_local: selfView,
+            		video_remote: remoteView,
+            		audio_remote: remoteAudio
+            	});
+            	callSession.call(name);
+            }
+            
+            console.info('You may call register(name) now');
+		</script>
+	</body>
+</html> 

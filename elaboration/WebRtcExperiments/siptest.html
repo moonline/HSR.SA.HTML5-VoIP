@@ -74,7 +74,11 @@
                         			});
                         			registerSession.register();
                         		} else if (e.type == 'i_new_call') {
-                        			e.newSession.accept();
+                        			e.newSession.accept({
+										video_local: selfView,
+										video_remote: remoteView,
+										audio_remote: remoteAudio
+									});
                         		}
                         	}
                         }

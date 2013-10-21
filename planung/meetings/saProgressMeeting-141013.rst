@@ -38,8 +38,8 @@ Todo C1
 - Architektur weiter ausdenken
 - **ToDo:** Downsampling Prototyp (J) (wichtig) -> Redmine Issue erfassen
 - **ToDo:** Konferenzschaltung Prototyp (nur zeigen, das mit der aktuellen Architektur grundsätzlich möglich) (T) -> Redmine Issue
-- In Domain Möglichkeit für Settings
-- MS EC2 Meeting: Zwischenstand Dokumentation anschauen.
+- In Domain Möglichkeit für Settings einfügen
+- MS C2 Meeting: Zwischenstand Dokumentation anschauen.
 - **ToDo:** Stand der Src zippen (Aussortieren, was von Beat und was von mir). (T)
 - Später: Reviews aus Redmine in Qualitätsdokument einfügen
 - **ToDo:** Nach jeder Iteration einen Export des Gantt machen und grosse Beschlüsse / Änderungen festhalten.

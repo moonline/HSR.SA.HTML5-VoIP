@@ -18,3 +18,15 @@ Probleme
 
 Erkenntnisse
 ------------
+
+
+Beschlüsse
+----------
+
+Architektur
+...........
+- Client-/Server vs. Client: Entscheidung für reine Client App aus folgenden Gründen:
+	- open
+	- keine Abhänigkeiten / proprietäre Schnittstelle
+	- Bald depricated
+	- Erweiterbarkeit (Channel, Phonebook)

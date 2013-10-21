@@ -13,6 +13,7 @@ Probleme
 - Ember.js stellt keine einfachen Events zur Verfügung
 - SIP Proyxies sind zu umständlich -> eigenen SIP Server
 - SIP Server Kamailio hat keine vorkonfigurierten WebSockets -> Konfiguration aufwendig
+- Mehr Arbeitspakete eingeplant als möglich -> Features in C2 verschoben.
 
 Erkenntnisse
 ------------

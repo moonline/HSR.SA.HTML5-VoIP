@@ -5,9 +5,9 @@ var Controller = App.Model.Controller;
 var Domain = App.Model.Domain;
 var Phonebook = App.Model.Domain.Phonebook;
 
-Controller.PhonebookController = function() {
+Controller.AddressbookController = function() {
 	//var phonebookManager = new Domain.PhonebookManager();
-	//phonebookManager.add(new Phonebook.PhonebookJson());
+	//phonebookManager.add(new Addressbook.PhonebookJson());
 
 	this.list = function() {
 		document.querySelector('#importFile').addEventListener('change', function(event) {

@@ -30,13 +30,13 @@
 
 \section{Architektur Designmotivations}
 	\subsection{Client/Server vs. reine Client Applikation}
-		Vorteile Client-/Server Umsetzung:
+		\subsubsection{Vorteile Client-/Server Umsetzung}
 		\begin{itemize}
 			\item Schlanker Client
 			\item Es wird nur eine Schnittstelle benötigt zwischen Client und Server, der gesammte Verkehr kann über HTTP abgewickelt werden.
 			\item Nur der Server muss die Schnittstellen zu andern Diensten unterstützen. Keine zusätzlichen Schnittstellenanforderungen an den Client
 		\end{itemize}
-		Nachteile:
+		\subsubsection{Nachteile}
 		\begin{itemize}
 			\item Redundanzen, da Funktionalität zwischen dem Client und Server durch ein eigene Protokoll erneut übersetzt wird und damit auf beiden Seiten Teile der gleichen Funktionalität umgesetzt werden müssen.
 			\item Ein Anwender ist an den Server, bzw. diese Serverimplementation gebunden. Die Applikation läuft nicht ohne den Server.
@@ -45,22 +45,22 @@
 		\end{itemize}
 
 
-		Vorteile reine Client Lösung:
+		\subsubsection{Vorteile reine Client Lösung}
 		\begin{itemize}
 			\item Es wird kein Server benötigt
 			\item Anwender können einen beliebigen Kommunikationsserver (SIP) verwenden, bzw. sogar eine eigene Channelimplementation hinzufügen um z.B. über XMPP das Signalling durchzuführen
 			\item Um die Applikation für weitere Schnittstellen zu erweitern sind keine Kenntnisse der Servertechnologie notwendig
 			\item Die Applikation insgesammt ist weniger aufwändig aufgebaut weil sie weniger Redundanzen beinhaltet
 		\end{itemize}
-		Nachteile:
+		\subsubsection{Nachteile}
 		\begin{itemize}
 			\item Die möglichen Schnittstellen sind auf Browserfunktionalität begrenzt (HTTP, WebSockets, RTSP). Dadurch muss ein SIP oder XMPP Provider WebSockets unterstützen, damit er für das Signalling benutzt werden kann.
 			\item Der Client wird etwas umfangreicher
 		\end{itemize}
 
-
-		Aufgrund geringerer Abhängigkeiten und der Wahrscheinlichkeit, das SIP Server Provider irgendwann WebSockets unterstützen, wird die Lösung ``reine Client Applikation'' gewählt.
-		Für die Kommunikation mit Signallingservern wie SIP oder XMPP werden WebSockets eingesetzt, für Signalling über XHR wird mit der Option ``Allow Cross Origin'' gearbeitet.
+		\subsubsection{Fazit}
+			Aufgrund geringerer Abhängigkeiten und der Wahrscheinlichkeit, das SIP Server Provider irgendwann WebSockets unterstützen, wird die Lösung ``reine Client Applikation'' gewählt.
+			Für die Kommunikation mit Signallingservern wie SIP oder XMPP werden WebSockets eingesetzt, für Signalling über XHR wird mit der Option ``Allow Cross Origin'' gearbeitet.
 
 	\subsection{STUN Service}
 		STUN Services sind zwingend notwendig um die nach aussen sichtbare IP Adresse des Clients herauszufinden. Nebst der Möglichkeit selbst einen STUN Service aufzusetzen, gibt es frei verfügbare STUN Services, z.B. von Mozilla oder Google.

@@ -22,3 +22,4 @@ Erkenntnisse
 Beschlüsse
 ----------
 - Es gibt keine frei verfügbaren SIP Proxies oder SIP Server im Netz mit WebSocket Support, weil die Technologie noch zu neu ist. Anstelle eines SIP Proxies wird ein Kamailio SIP Server aufgesetzt. Da mit WebSockets gearbeitet wird müssen von der HSR IT keine Ports freigeschaltet werden.
+- Ember.js wird nicht verwendet. Ev. werden die Ember zu Grunde liegenden Handlebars eingesetzt.

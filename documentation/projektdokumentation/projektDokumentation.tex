@@ -33,7 +33,8 @@
 		\hline
 		\textbf{Version} & \textbf{Änderung} & \textbf{Autor} & \textbf{Datum}\\
 		\hline
-		1.0 & Dokumentenentwurf & Tobias Blaser & 04.10.13\\
+		1.0 & Dokumentenentwurf & Tobias Blaser & 04.11.13\\
+		1.0 & Hinzufügen zusätzlicher Dokumente & Tobias Blaser & 07.11.13\\
 		\hline
 \end{tabularx}
 
@@ -43,15 +44,17 @@
 % vision
 \input{../vision/vision}
 
-% architektur analyse
-\input{../architekturanalayse/1-einfuehrung}
-\input{../architekturanalayse/2-domainmodell}
+% projektorganisation
+\input{../projektplan/chapter2-projektorganisation}
 
 % requirements
-% \input{requirements-short}
+\input{../requirements/requirements-short}
+
+% architektur analyse
+\input{../architekturanalayse/2-domainmodell}
 
 % performance analyse
-%\input{../performanceanalyse/performance}
+\input{../performanceAnalaysis/performance}
 
 % Qualitätsmanagement
 
@@ -67,12 +70,21 @@
 \input{../requirements/4-weitere-anforderungen}
 
 % projektplan
-\input{../projektplan/chapter2-projektorganisation}
 \input{../projektplan/chapter3-risikomanagement}
 \input{../projektplan/chapter4-arbeitspakete}
 \input{../projektplan/chapter5-infrastructure}
 
 % ui drafts
+\label{uiDrafts} 
 \input{../ui/uiDraft}
+
+% Performanceanalyse
+\chapter{Performanceanalyse}
+\label{performanceanalyse} 
+\includepdf[pages=1-10]{../performanceAnalaysis/media/performanceAnalysis1.pdf}
+
+
+
+
 
 \end{document}

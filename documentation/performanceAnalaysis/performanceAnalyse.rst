@@ -21,7 +21,7 @@ Setup
 Environment
 ...........
 
-.. image:: http://www.asus.com/media/global/products/NOzAOtadWyTCclA9/3MbMbDqygfotHWOZ_480.jpg
+.. image:: devices/asusux21.png
 	:scale: 30 %
 	:align: left
 	
@@ -37,13 +37,17 @@ Environment
 Resultate
 .........
 
-.. image:: img/messung1.2.1.1.png
-   :scale: 50 %
+.. figure:: img/messung1.2.1.1.png
+   :scale: 75 %
    :align: left
    
-.. image:: img/messung1.2.1.2.png
-   :scale: 50 %
+   CPU Leistung für einen Stream.
+   
+.. figure:: img/messung1.2.1.2.png
+   :scale: 75 %
    :align: left
+   
+   Vollständige Rückgabe der CPU an andere Prozesse nach dem Ende der Übertragung.
    
 - Zunahme CPU Auslastung mit einem Channel: ca 20%
 - Zunahme Memory Verbrauch: ca 1-2%
@@ -51,7 +55,8 @@ Resultate
 - Video Qualität: 
 	- flüssig
 	- genug Frames für angenehme Bewegungsdarstellung
-	
+
+- Die Übertragung wird sauber beendet, keine weitere Leistungsaufnahme sobald der Stream beendet wird.
 
 2 Remote
 ========
@@ -70,7 +75,7 @@ Setup
 Environment
 ...........
 
-.. image:: http://www.asus.com/media/global/products/NOzAOtadWyTCclA9/3MbMbDqygfotHWOZ_480.jpg
+.. image:: devices/asusux21.png
 	:scale: 30 %
 	:align: left
 	
@@ -83,7 +88,7 @@ Environment
 		- Betriebsystem: Ubuntu 12.04, 64Bit
 		- Browser: Firefox 25
 		
-.. image:: http://www.tabletsnlaptops.com/laptop-images/samsung-mini-np-nc10-1.jpg
+.. image:: devices/samsungnc10.jpg
 	:scale: 50 %
 	:align: left
 	
@@ -103,9 +108,11 @@ Resultate
 Netbook
 ^^^^^^^
 
-.. image:: img/messung2.2.1.1.png
-	:scale: 50 %
+.. figure:: img/messung2.2.1.1.png
+	:scale: 75 %
 	:align: left
+	
+	Das Netbook ist bis an die Leistungsgrenze ausgelastet.
 	
 - Zunahme CPU Auslastung: ca 50%
 - Zunahme Memory Verbrauch: nicht spürbar
@@ -140,9 +147,11 @@ Resultate
 Netbook
 ^^^^^^^
 
-.. image:: img/messung2.2.2.2.png
-	:scale: 50 %
+.. figure:: img/messung2.2.2.2.png
+	:scale: 75 %
 	:align: left
+	
+	CPU Belastung des Netbooks durch Audioübertragung
 	
 - Zunahme CPU Auslastung: ca 20%
 - Zunahme Memory Verbrauch: nicht spürbar
@@ -152,11 +161,13 @@ Netbook
 Ultrabook
 ^^^^^^^^^
 
-.. image:: img/messung2.2.2.1.png
-	:scale: 50 %
-	:align: left	
+.. figure:: img/messung2.2.2.1.png
+	:scale: 75 %
+	:align: left
 	
-- Zunahme CPU Auslastung: ca 10%
+	CPU Belastung des Ultrabooks durch Audioübertragung
+	
+- Zunahme CPU Auslastung: ca. 10%
 - Zunahme Memory Verbrauch: nicht spürbar
 - Zunahme Netzwerk Trafic: 8 KiB/s out, 7KiB/s in, Abbruch des Streams nach 30s
 
@@ -175,7 +186,7 @@ Setup
 Environment
 ...........
 
-.. image:: http://www.asus.com/media/global/products/NOzAOtadWyTCclA9/3MbMbDqygfotHWOZ_480.jpg
+.. image:: devices/asusux21.png
 	:scale: 30 %
 	:align: left
 
@@ -188,7 +199,7 @@ Environment
 		- Betriebsystem: Ubuntu 12.04, 64Bit
 		- Browser: Firefox 25
 
-.. image:: http://images.apple.com/macbook-pro/design-retina/images/fluidgallery/gallery1_2256.jpg
+.. image:: devices/macbookpro.jpg
 	:scale: 30 %
 	:align: left		
 
@@ -206,11 +217,13 @@ Resultate
 .........
 
 Ultrabook
-^^^^^^^
+^^^^^^^^^
 
-.. image:: img/messung2.3.1.png
-	:scale: 50 %
+.. figure:: img/messung2.3.1.png
+	:scale: 75 %
 	:align: left
+	
+	Ansteigende Datenrate, da beide Geräte entsprechende Videoauflösungen liefern können.
 	
 - Zunahme CPU Auslastung: ca 20%
 - Zunahme Memory Verbrauch: nicht spürbar
@@ -242,7 +255,7 @@ Setup
 Environment
 ...........
 
-.. image:: http://www.asus.com/media/global/products/NOzAOtadWyTCclA9/3MbMbDqygfotHWOZ_480.jpg
+.. image:: devices/asusux21.png
 	:scale: 30 %
 	:align: left
 
@@ -255,8 +268,8 @@ Environment
 		- Betriebsystem: Ubuntu 12.04, 64Bit
 		- Browser: Firefox 25
 		
-.. image:: http://www.samsung.com/global/microsite/galaxytab/10.1/images/b_image09.jpg
-	:scale: 40 %
+.. image:: devices/samsunggalaxy101.jpg
+	:scale: 30 %
 	:align: left
 	
 - Tablet:
@@ -297,7 +310,7 @@ Setup
 Environment
 ...........
 
-.. image:: http://www.asus.com/media/global/products/NOzAOtadWyTCclA9/3MbMbDqygfotHWOZ_480.jpg
+.. image:: devices/asusux21.png
 	:scale: 30 %
 	:align: left
 
@@ -310,7 +323,7 @@ Environment
 		- Betriebsystem: Ubuntu 12.04, 64Bit
 		- Browser: Firefox 25
 		
-.. image:: http://cdn.androidbeat.com/wp-content/uploads/2013/11/NExus-4.jpg
+.. image:: devices/googlenexus4.jpg
 	:scale: 30 %
 	:align: left
 	
@@ -332,3 +345,57 @@ Qualität
 - Video kann sowohl auf dem Phone wie auf dem Desktop einigermassen flüssig wiedergegeben werden
 - Die video Auflösung ist relativ gering
 - Geeignet für Bewegungsdarstellung
+
+
+3.3 Messung
+-----------
+
+Setup
+.....
+
+- 1 Smartphone, 1 Ultrabook
+
+
+Environment
+...........
+
+Gleich wie bei 3.2.
+	
+	
+Resultate
+.........
+
+Ultrabook
+^^^^^^^^^
+
+.. figure:: img/messung3.3.1.png
+	:scale: 75 %
+	:align: left
+	
+	Zur Sekunde 25 wird das Smartphone von Widescreen Ausrichtung nach Portrait gedreht. Dabei wird die Datenrate auf das bereits mehrfach beobachtete minimum von 40KiB/s gedrosselt und anschliessend langsam hochgefahren.
+	
+.. figure:: img/messung3.3.2.png
+	:scale: 75 %
+	:align: left
+	
+	Die Datenrate wird bis auf 300KiB/s hochgefahren, wenn die Geräte dies liefern können. Zur 15. Sekunde findet eine Neuausrichtung des Smartphones statt.
+	
+.. figure:: img/messung3.3.3.png
+	:scale: 75 %
+	:align: left
+	
+	Drehung des Smartphone nach Widescreen. Nach 40s erreicht die Auflösung wieder die ursprüngliche Auflösung.
+	
+.. figure:: img/messung3.3.4.png
+	:scale: 75 %
+	:align: left
+	
+	Ein Kurzer Pufferunterlauf zur Sekunde 40 führt daraufhin zu einem Peak. Anschliessend pendelt sich die Datenrate bei 300 KiB/s ein.
+	
+
+Qualität
+^^^^^^^^
+- Wird das Smartphone gedreht, so verändert die Kamera die Auflösung und refreshed den Stream.
+- Der Stream wird jeweils neu aufgebaut. Dabei wird er auf 40KiB/s gedrosselt und langsam hochgefahren.
+- Dieses automatische Quality Scaling funktioniert nur, wenn das Gerät dies unterstützt.
+- Das Smartphone wird während der Kommunikation ziemlich warm und warnt bald vor schrumpfender Akkuleistung.

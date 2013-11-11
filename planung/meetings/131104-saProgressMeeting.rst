@@ -1,7 +1,7 @@
 Protokoll SA Progress Meeting
 =============================
 
-:Daum: Do 04.11.13
+:Daum: Mo 04.11.13
 :Zeit: 15.00 - 16:00
 :Ort: Rapperswil, HSR, IFS, 6.108
 :Anwesende:
@@ -45,7 +45,7 @@ Todo: Gesammtdokumentation initialisieren
 - Performanceanalyse
 - Qualitätsmanagement
 - Erkenntnisse
-- AUsblick für die Zukunft
+- Ausblick für die Zukunft
 - Was gibt es schon für Technologien
 - Tipps & Tricks
 - Schluss

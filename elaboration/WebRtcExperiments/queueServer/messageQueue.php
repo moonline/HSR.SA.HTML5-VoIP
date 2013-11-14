@@ -21,6 +21,7 @@
                  if(is_file($directory.$entry)) {
                  	$typeOk = true;
 
+					// is file for receiver?
                  	if(isset($receiverType)) {
                  		if(strpos($entry,$receiverType) === false) {
                  			$typeOk = false;
@@ -28,12 +29,16 @@
                  	}
 
                  	if($typeOk) {
-						if($oldest == 0) {
-							$oldest = filemtime($directory.$entry);
-							$oldestFile = $directory.$entry;
-						} else if(filemtime($directory.$entry) < $oldest) {
-							$oldest = filemtime($directory.$entry);
-							$oldestFile = $directory.$entry;
+						$fileParts = split('-',$entry);
+						if(count($fileParts) >= 2 && isset($fileParts[1])) {
+							$timeStamp = intval($fileParts[1]);
+							if($oldest == 0) {
+								$oldest = $timeStamp;
+								$oldestFile = $directory.$entry;
+							} else if($timeStamp < $oldest) {
+								$oldest = $timeStamp;
+								$oldestFile = $directory.$entry;
+							}
 						}
 					}
                  }
@@ -69,9 +74,9 @@
 	if(isset($_GET["setMessage"])) {
 		$message;
 		if(isset($_GET["receiverType"])) {
-			$fileName = $folder.'/'.$_GET["receiverType"].'-'.$file.round(microtime(true) * 1000).$fileType;
+			$fileName = $folder.'/'.$_GET["receiverType"].'_'.$file.'-'.round(microtime(true) * 1000).'-message'.$fileType;
 		} else {
-			$fileName = $folder.'/'.$file.round(microtime(true) * 1000).$fileType;
+			$fileName = $folder.'/'.$file.'-'.round(microtime(true) * 1000).'-message'.$fileType;
 		}
 
 		if(isset($_POST["message"])) {

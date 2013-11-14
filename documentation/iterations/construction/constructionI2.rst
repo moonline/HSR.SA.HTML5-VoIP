@@ -11,12 +11,12 @@ Arbeiten
 Probleme
 --------
 - SIP Server Bug konnte nicht behoben werden. -> Funktion konnte nicht fertig gestellt werden
-- Downsampling nicht möglich -> Probleme mit der Qualität
 - VCard Parser (Struktur von VCard gwöhnungsbedürftig)
 
 Erkenntnisse
 ------------
 - VCard Format lässt sich nicht ohne weiteres in eine hierarchische Struktur bringen -> Verzicht auf einige Eigenschaften
+- Downsampling nicht möglich -> Probleme mit der Qualität
 
 Beschlüsse
 ----------

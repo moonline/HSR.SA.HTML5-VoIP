@@ -205,12 +205,12 @@ Environment
 
 - Macbook:
 	- Hardware:
-		- Macbook Pro ??
-		- Prozessor: Intel ??
+		- Macbook Pro 2012
+		- Prozessor: Intel Core i7 4x 2.3 GHz
 		- Memory: ?? GiB
 	- Software:
-		- Betriebsystem: Mac OS X ??
-		- Browser: Firefox ??
+		- Betriebsystem: Mac OS X 10.9 Mavericks
+		- Browser: Firefox 24
 		
 		
 Resultate
@@ -399,3 +399,105 @@ Qualität
 - Der Stream wird jeweils neu aufgebaut. Dabei wird er auf 40KiB/s gedrosselt und langsam hochgefahren.
 - Dieses automatische Quality Scaling funktioniert nur, wenn das Gerät dies unterstützt.
 - Das Smartphone wird während der Kommunikation ziemlich warm und warnt bald vor schrumpfender Akkuleistung.
+
+
+4. Out of Network
+=================
+
+4.1 Messung
+-----------
+
+Setup
+.....
+
+.. figure:: img/messung4.1setup1.jpg
+	:scale: 75 %
+	:align: left
+	
+	freegeoip.net zeigt, das das Ultrabook über die HSR verbunden ist und das Smartphone direkt im lokalen Wlan hängt.
+	
+	
+- 1 Smartphone, 1 Ultrabook
+- Smartphone direkt über Home Wlan angebunden
+- Ultrabook über Home Wlan über HSR VPN angebunden
+
+
+Environment
+...........
+
+.. image:: devices/asusux21.png
+	:scale: 30 %
+	:align: left
+
+- Ultrabook:
+	- Hardware:
+		- Asus UX 31
+		- Prozessor: Intel Core i7 2x 1.8 GHz
+		- Memory: 3.8 GiB
+	- Software:
+		- Betriebsystem: Ubuntu 12.04, 64Bit
+		- Browser: Firefox 25
+		
+		
+.. image:: devices/googlenexus4.jpg
+	:scale: 30 %
+	:align: left
+	
+- Smartphone:
+	- Hardware:
+		- Google Nexus 4
+		- Prozessor: Qualcomm Snapdragon S4 Pro 2x 1.5 GHz
+		- Memory: 2GB
+	- Software:
+		- Betriebsystem: Android 4.3 32 Bit
+		- Browser: Firefox 25
+	
+	
+Resultate
+.........
+
+Ultrabook
+^^^^^^^^^
+
+Versuch 4.1.1
+.............
+
+.. figure:: img/messung4.1.1.png
+	:scale: 75 %
+	:align: left
+	
+	Das Ultrabook kann einige wenige KiB/s liefern, das Smartphone sogar nut 1KiB/s.
+	
+- Zunahme CPU Auslastung: ca 20%
+- Zunahme Memory Verbrauch: nicht spürbar
+- Zunahme Netzwerk Trafic: 1-5KiB/s
+- Sprache teilweise unverständlich
+
+Versuch 4.1.2
+.............
+
+.. figure:: img/messung4.1.3.1.jpg
+	:scale: 75 %
+	:align: left
+	
+.. figure:: img/messung4.1.2png
+	:scale: 75 %
+	:align: left
+	
+	Die Datenrate fährt hoch bis über 100 KiB/s. Drehung des Smartphones zur Sekunde 55.
+	
+- Zunahme CPU Auslastung: ca 20%
+- Zunahme Memory Verbrauch: nicht spürbar
+- Zunahme Netzwerk Trafic: Bis 120KiB/s
+- Sprache gut verständlich
+
+Qualität
+^^^^^^^^
+- Video stockend oder flüssig, je nach dem ob die Pakete gut durchkommen oder nicht.
+- Video Verzögerung von bis zu ca. 4s
+- Smartphone wird etwas warm
+- Sprache verständlich oder unverständlich, je nach dem wie gut die Übertragungsrate ist.
+
+
+
+

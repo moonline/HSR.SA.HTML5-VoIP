@@ -71,6 +71,14 @@ Todo: Gesammtdokumentation initialisieren
 - Performance Messungen
 
 
+Zentrale Aufgaben diese Iteration
+---------------------------------
+- Performanceanalyse
+- Firewall Testing
+- SIP Server Connect
+- User Management
+
+
 ------------
 
 | Rapperswil, 04.11.13,

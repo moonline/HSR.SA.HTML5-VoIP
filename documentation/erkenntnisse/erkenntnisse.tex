@@ -1,0 +1,39 @@
+\chapter{Erkenntnisse}
+	\section{Media Streaming}
+		\subsection{Verbindungsabbruch}
+			Bricht die Verbindung ab, so bleibt die Video- und Audiowiedergabe stehen, bis die Verbindung wieder da ist und die UDP Pakete wieder ankommen.
+		
+		\subsection{Downsampling}
+	 		Der Mediastream wird automatisch mit Minimalqualität gestartet und abhängig von Prozessorleistung und Bandbreite hochgefahren bis zu einer Datenrate von etwa 300MiB/s.
+	 		
+	 	\subsection{Resolution Properties}
+	 		Obwohl die Spezifikation für getUserMedia eine Möglichkeit zur Festlegung der gewünschten Auflösung definiert, ist dies in den Browsern bisher nicht implementiert.
+	 		
+	 	\subsection{Audio/Video attach/detach}
+	 		Hinzufügen und Entfernen von Streams sollte eigentlich möglich sein. Die Browser implementieren dies bisher jedoch nicht. Gemäss dem Mozilla Blog soll dieses Feature jedoch demnächst umgesetzt werden.	 	
+	 	
+	 \section{Peerconnection}
+	 	Eine Peer Connection kann nur durch den Austausch von SDP Descriptions aufgebaut werden. Innerhalb der SDP werden Parameter für die Peerconnection sowie IP und allenfalls Endpunktkandidaten übertragen. 
+	 	
+	 	\subsection{Endpunktkandidaten}
+	 	Je nach Implementation übertragen die Browser die Candidates einzeln. Ist die Verbindung noch nicht initialisiert worden, so müssen diese zwischengespeichert werden bis die Verbindung so weit ist.
+
+		\subsection{Verschlüsselung}
+	 	
+	 
+	 \section{Filezugriff}
+	 	Dateizugriff ist in Javascript nur über einen User Event möglich (Upload Field oder Drag/Drop). Daher ist es nicht möglich, Adressbücher auf die Festplatte abzulegen und wieder zu öffnen ohne den User dazu aufzufordern.
+	 	
+	 
+	 \section{Offline Einschränkungen}
+	 	\section{Stun Services}
+	 	
+	 	
+	 		
+	 \section{SIP}
+	 	\subsection{Websockets}
+	 		Obwohl der OpenSource SIP Server Kamailio WebSocket als Feature aufführt, ist die Implementation noch nicht vollständig, sodass SIP Kommunikation über WebSockets noch unmöglich ist.
+
+
+	\section{Tipps \& Tricks für WebRTC Applikationsentwickler}
+		

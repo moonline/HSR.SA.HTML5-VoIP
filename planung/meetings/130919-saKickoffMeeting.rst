@@ -53,7 +53,7 @@ Tools
 .....
 Besprechung der notwendigen Tools.
 
-Für eine allfälligen Serverteil soll bevorzugt Java genutzt werden, da es den Studenten vertraut ist. Eine Alternative wäre Node.JS.
+Für einen allfälligen Serverteil soll bevorzugt Java genutzt werden, da es den Studenten vertraut ist. Eine Alternative wäre Node.JS.
 
 Berichte / Dokumentation
 ........................

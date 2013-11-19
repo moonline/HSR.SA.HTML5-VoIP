@@ -32,7 +32,7 @@ Zulassung Beat ist noch offen, sollte sich Ende diese Woche klären.
 Bericht von Beat:
 .................
 - JsUnit ist sehr einfach zu benutzen. Zum Ausführen wird ein Browserstart benötigt. Syntax ist einfach und intuitiv.
-- SIP Server fast fertig aufgesetzt. VSPHARE Web tool ausgesperrt. Kein Reboot möglich. -> Mail an VSPHARE Admin.
+- Redmine Server fast fertig aufgesetzt.
 - Mobile Geräte organisiert.
 
 
@@ -65,14 +65,14 @@ Terminverschiebung: Do, 11.00 statt Mo.
 Projektplan Soll-Inhalte
 ........................
 
-- Risikos(Machbarkeiten)
+- Risiko (Machbarkeiten)
 - Meilensteine
 - Tools
 
 
 Requirements
 ............
-Keine Use Cases. Besser Konzentration auf Non-Functional Anfordernugen wie z.B.:
+Keine Use Cases. Besser Konzentration auf Non-Functional Anforderungen wie z.B.:
 
 - Welche Umgebungen
 - Fehlertoleranz

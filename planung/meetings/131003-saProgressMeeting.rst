@@ -30,7 +30,7 @@ Beat hat seine Zulassung zurückgezogen, wird das Team jedoch nächste Woche noc
 
 2. Teamfusion mit Jannis Grimm
 ------------------------------
-Die Teamfusion wurde bereits Anfang WOche in die Wege geleitet und Jannis Grimm mit allen wichtigen Informationen versorgt.
+Die Teamfusion wurde bereits Anfang Woche in die Wege geleitet und Jannis Grimm mit allen wichtigen Informationen versorgt.
 
 
 3. Stand der Arbeiten

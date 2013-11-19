@@ -50,6 +50,9 @@
 % requirements
 \input{../requirements/requirements-short}
 
+% Risiken
+
+
 % architektur analyse
 \input{../architekturanalayse/2-domainmodell}
 
@@ -58,9 +61,12 @@
 
 % Qualitätsmanagement
 
+
 % Erkenntnisse
 
+
 % Schluss
+
 
 
 \appendix
@@ -82,11 +88,23 @@
 \chapter{Performanceanalyse}
 \label{performanceanalyse} 
 \IfFileExists{../performanceAnalaysis/media/performanceAnalysis.pdf}{
-	\includepdf[pages=1-10]{../performanceAnalaysis/media/performanceAnalysis.pdf}
+	\includepdf[pages=-]{../performanceAnalaysis/media/performanceAnalysis.pdf}
 }{
 	\fcolorbox{red}{red}{there is no pdf file. please run }
 	\newline\noindent
 	\fcolorbox{red}{red}{\textbf{rst2pdf ..\/performanceAnalaysis\/performanceAnalyse.rst -o ..\/performanceAnalaysis\/media\/performanceAnalysis.pdf}}
+	\newline\noindent
+	\fcolorbox{red}{red}{in the current folder}
+}
+
+\chapter{Firewall Tests}
+\label{firewalltests} 
+\IfFileExists{../performanceAnalaysis/media/firewallTesting.pdf}{
+	\includepdf[pages=-]{../performanceAnalaysis/media/firewallTesting.pdf}
+}{
+	\fcolorbox{red}{red}{there is no pdf file. please run }
+	\newline\noindent
+	\fcolorbox{red}{red}{\textbf{rst2pdf ..\/performanceAnalaysis\/firewallTesting.rst -o ..\/performanceAnalaysis\/media\/firewallTesting.pdf}}
 	\newline\noindent
 	\fcolorbox{red}{red}{in the current folder}
 }

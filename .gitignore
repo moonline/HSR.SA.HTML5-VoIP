@@ -16,6 +16,7 @@
 *.out
 *.snm
 *.toc
+*.synctex.gz
 
 # office files
 *.doc
@@ -42,3 +43,4 @@
 /.idea/
 .settings
 .project
+.texlipse

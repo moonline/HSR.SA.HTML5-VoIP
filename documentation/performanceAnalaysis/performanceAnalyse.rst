@@ -13,9 +13,9 @@ Setup
 .....
 
 - 1 Browser
-- Sender und Empfänger Instanz laufen jeweils in einem Tab
-- Datenverkehr macht roundtripp über Netzwerkkarte
-- Externe Services wie STUN Service und Signalling Channel
+- Sender- und Empfänger-Instanz laufen jeweils in einem Tab
+- Datenverkehr macht Roundtripp über Netzwerkkarte
+- Externe Services wie STUN-Service und Signalling Channel
 
 
 Environment
@@ -47,16 +47,16 @@ Resultate
    :scale: 75 %
    :align: left
    
-   Vollständige Rückgabe der CPU an andere Prozesse nach dem Ende der Übertragung.
+   Vollständige Rückgabe der CPU an andere Prozesse nach Ende der Übertragung.
    
-- Zunahme CPU Auslastung mit einem Channel: ca 20%
-- Zunahme Memory Verbrauch: ca 1-2%
-- Zunahme Netzwerk Trafic: keine da local loop
+- Zunahme CPU-Auslastung mit einem Channel: ca 20%
+- Zunahme Memory-Verbrauch: ca 1-2%
+- Zunahme Netzwerk-Traffic: keine, da local loop
 - Video Qualität: 
 	- flüssig
 	- genug Frames für angenehme Bewegungsdarstellung
 
-- Die Übertragung wird sauber beendet, keine weitere Leistungsaufnahme sobald der Stream beendet wird.
+- Die Übertragung wird sauber beendet, keine weitere Leistungsaufnahme, sobald der Stream beendet wird.
 
 2 Remote
 ========
@@ -69,7 +69,7 @@ Setup
 
 - 1 Ultrabook, 1 Netbook
 - Jeweils gleicher Browser
-- Datenverkehr läuft über HSR Wlan (Problemlos bis zu 10.547 kbit/s (1.318 kByte/s) möglich)
+- Datenverkehr läuft über HSR-WLAN (Problemlos bis zu 10.547 kbit/s (1.318 kByte/s) möglich)
 
 
 Environment
@@ -114,9 +114,9 @@ Netbook
 	
 	Das Netbook ist bis an die Leistungsgrenze ausgelastet.
 	
-- Zunahme CPU Auslastung: ca 50%
-- Zunahme Memory Verbrauch: nicht spürbar
-- Zunahme Netzwerk Trafic: 10KiB/s out, 15KiB/s in
+- Zunahme CPU-Auslastung: ca 50%
+- Zunahme Memory-Verbrauch: nicht spürbar
+- Zunahme Netzwerk-Traffic: 10KiB/s out, 15KiB/s in
 
 
 Qualität
@@ -151,11 +151,11 @@ Netbook
 	:scale: 75 %
 	:align: left
 	
-	CPU Belastung des Netbooks durch Audioübertragung
+	CPU-Belastung des Netbooks durch Audioübertragung
 	
-- Zunahme CPU Auslastung: ca 20%
-- Zunahme Memory Verbrauch: nicht spürbar
-- Zunahme Netzwerk Trafic: 7KiB/s in/out
+- Zunahme CPU-Auslastung: ca 20%
+- Zunahme Memory-Verbrauch: nicht spürbar
+- Zunahme Netzwerk-Traffic: 7KiB/s in/out
 
 
 Ultrabook
@@ -165,11 +165,11 @@ Ultrabook
 	:scale: 75 %
 	:align: left
 	
-	CPU Belastung des Ultrabooks durch Audioübertragung
+	CPU-Belastung des Ultrabooks durch Audioübertragung
 	
-- Zunahme CPU Auslastung: ca. 10%
-- Zunahme Memory Verbrauch: nicht spürbar
-- Zunahme Netzwerk Trafic: 8 KiB/s out, 7KiB/s in, Abbruch des Streams nach 30s
+- Zunahme CPU-Auslastung: ca. 10%
+- Zunahme Memory-Verbrauch: nicht spürbar
+- Zunahme Netzwerk-Trafic: 8 KiB/s out, 7KiB/s in, Abbruch des Streams nach 30s
 
 
 2.3 Messung
@@ -178,9 +178,9 @@ Ultrabook
 Setup
 .....
 
-- 1 Ultrabook, 1 Macbook
+- 1 Ultrabook, 1 MacBook
 - Jeweils gleicher Browser
-- Datenverkehr läuft über HSR Wlan (Problemlos bis zu 10.547 kbit/s (1.318 kByte/s) möglich)
+- Datenverkehr läuft über HSR-WLAN (Problemlos bis zu 10.547 kbit/s (1.318 kByte/s) möglich)
 
 
 Environment
@@ -205,11 +205,11 @@ Environment
 
 - Macbook:
 	- Hardware:
-		- Macbook Pro 2012
+		- MacBook Pro Retina, 2012
 		- Prozessor: Intel Core i7 4x 2.3 GHz
-		- Memory: ?? GiB
+		- Memory: 16 GiB
 	- Software:
-		- Betriebsystem: Mac OS X 10.9 Mavericks
+		- Betriebsystem: OS X 10.9 Mavericks
 		- Browser: Firefox 24
 		
 		
@@ -225,18 +225,18 @@ Ultrabook
 	
 	Ansteigende Datenrate, da beide Geräte entsprechende Videoauflösungen liefern können.
 	
-- Zunahme CPU Auslastung: ca 20%
-- Zunahme Memory Verbrauch: nicht spürbar
-- Zunahme Netzwerk Trafic: 50KiB/s, steigend bis 150KiB/s
+- Zunahme CPU-Auslastung: ca 20%
+- Zunahme Memory-Verbrauch: nicht spürbar
+- Zunahme Netzwerk-Traffic: 50KiB/s, steigend bis 150KiB/s
 
 
 Qualität
 ^^^^^^^^
-- Flüssige Video übertragung in beide Richtungen
-- Stream des Macbook's sind keine Einzelbilder sichtbar
+- Flüssige Videoübertragung in beide Richtungen
+- Stream des MacBooks zeigt keine wahrnehmbaren Einzelbilder
 - Stream des Ultrabooks zeigt bei schnellen Bewegungen Einzelbilder
 - Gut geeignet für Bewegungsdarstellung
-- Audio übertragung in guter Qualität
+- Audioübertragung in guter Qualität
 
 
 
@@ -288,13 +288,13 @@ Resultate
 Tablet
 ^^^^^^
 
-- Zunahme CPU Auslastung: 70%
+- Zunahme CPU-Auslastung: 70%
 
 
 Qualität
 ^^^^^^^^
 - Tablet kann Video vom Desktop flüssig wiedergeben, auch der Ton wird korrekt und verständlich wiedergegeben
-- Tablet bringt Leistung nicht um eigenes Video parallel zum remote zu verarbeiten -> eigenes Video freezed
+- Tablet bringt Leistung nicht um eigenes Video parallel zum Remote zu verarbeiten -> eigenes Video friert ein
 - Desktop empfängt entsprechend vom Tablet nur ein Standbild
 
 
@@ -342,8 +342,8 @@ Resultate
 
 Qualität
 ^^^^^^^^
-- Video kann sowohl auf dem Phone wie auf dem Desktop einigermassen flüssig wiedergegeben werden
-- Die video Auflösung ist relativ gering
+- Video kann sowohl auf dem Phone als auch auf dem Desktop einigermassen flüssig wiedergegeben werden
+- Die Video-Auflösung ist relativ gering
 - Geeignet für Bewegungsdarstellung
 
 
@@ -372,7 +372,7 @@ Ultrabook
 	:scale: 75 %
 	:align: left
 	
-	Zur Sekunde 25 wird das Smartphone von Widescreen Ausrichtung nach Portrait gedreht. Dabei wird die Datenrate auf das bereits mehrfach beobachtete minimum von 40KiB/s gedrosselt und anschliessend langsam hochgefahren.
+	Zur Sekunde 25 wird das Smartphone von Widescreen-Ausrichtung nach Portrait gedreht. Dabei wird die Datenrate auf das bereits mehrfach beobachtete Minimum von 40KiB/s gedrosselt und anschliessend langsam hochgefahren.
 	
 .. figure:: img/messung3.3.2.png
 	:scale: 75 %
@@ -384,13 +384,13 @@ Ultrabook
 	:scale: 75 %
 	:align: left
 	
-	Drehung des Smartphone nach Widescreen. Nach 40s erreicht die Auflösung wieder die ursprüngliche Auflösung.
+	Drehung des Smartphone nach Widescreen. Nach 40s erreicht die Auflösung wieder die ursprüngliche Grösse.
 	
 .. figure:: img/messung3.3.4.png
 	:scale: 75 %
 	:align: left
 	
-	Ein Kurzer Pufferunterlauf zur Sekunde 40 führt daraufhin zu einem Peak. Anschliessend pendelt sich die Datenrate bei 300 KiB/s ein.
+	Ein kurzer Pufferunterlauf zur Sekunde 40 führt daraufhin zu einem Peak. Anschliessend pendelt sich die Datenrate bei 300 KiB/s ein.
 	
 
 Qualität
@@ -414,12 +414,12 @@ Setup
 	:scale: 75 %
 	:align: left
 	
-	freegeoip.net zeigt, das das Ultrabook über die HSR verbunden ist und das Smartphone direkt im lokalen Wlan hängt.
+	freegeoip.net zeigt, das das Ultrabook über die HSR verbunden ist und das Smartphone direkt im lokalen WLAN hängt.
 	
 	
 - 1 Smartphone, 1 Ultrabook
-- Smartphone direkt über Home Wlan angebunden
-- Ultrabook über Home Wlan über HSR VPN angebunden
+- Smartphone direkt über Home-WLAN angebunden
+- Ultrabook über Home-WLAN über HSR-VPN angebunden
 
 
 Environment
@@ -466,11 +466,11 @@ Versuch 4.1.1
 	:scale: 75 %
 	:align: left
 	
-	Das Ultrabook kann einige wenige KiB/s liefern, das Smartphone sogar nut 1KiB/s.
+	Das Ultrabook kann einige wenige KiB/s liefern, das Smartphone sogar nur 1KiB/s.
 	
-- Zunahme CPU Auslastung: ca 20%
-- Zunahme Memory Verbrauch: nicht spürbar
-- Zunahme Netzwerk Trafic: 1-5KiB/s
+- Zunahme CPU-Auslastung: ca 20%
+- Zunahme Memory-Verbrauch: nicht spürbar
+- Zunahme Netzwerk-Traffic: 1–5KiB/s
 - Sprache teilweise unverständlich
 
 Versuch 4.1.2
@@ -486,17 +486,17 @@ Versuch 4.1.2
 	
 	Die Datenrate fährt hoch bis über 100 KiB/s. Drehung des Smartphones zur Sekunde 55.
 	
-- Zunahme CPU Auslastung: ca 20%
-- Zunahme Memory Verbrauch: nicht spürbar
-- Zunahme Netzwerk Trafic: Bis 120KiB/s
+- Zunahme CPU-Auslastung: ca 20%
+- Zunahme Memory-Verbrauch: nicht spürbar
+- Zunahme Netzwerk-Traffic: Bis 120KiB/s
 - Sprache gut verständlich
 
 Qualität
 ^^^^^^^^
-- Video stockend oder flüssig, je nach dem ob die Pakete gut durchkommen oder nicht.
-- Video Verzögerung von bis zu ca. 4s
+- Video stockend oder flüssig, je nachdem, ob die Pakete gut durchkommen oder nicht.
+- Video-Verzögerung von bis zu ca. 4s
 - Smartphone wird etwas warm
-- Sprache verständlich oder unverständlich, je nach dem wie gut die Übertragungsrate ist.
+- Sprache verständlich oder unverständlich, je nachdem, wie gut die Übertragungsrate ist.
 
 
 

@@ -3,7 +3,7 @@ Firewall testing
 ================
 
 
-1. VPN - Locale
+1. VPN–Locale
 ===============
 
 1.1 Messung
@@ -12,8 +12,8 @@ Firewall testing
 Setup
 .....
 
-- Smartphone über lokales Home-Wlan verbunden
-- Ultrabook über lokales Home-Wlan-HSR-VPN verbunden
+- Smartphone über lokales Home-WLAN verbunden
+- Ultrabook über lokales Home-WLAN–HSR-VPN verbunden
 
 
 Environment
@@ -22,23 +22,23 @@ Environment
 - Endpunkt 1:
 	- Gerät: Smartphone Google Nexus 4
 	- Netzwerkanbindung: 
-		- Local Network: Wlan
+		- Local Network: WLAN
 		- Web Connection: Cablecom 10er Leitung
 		
 - Endpunkt 2:
 	- Gerät: Ultrabook Asus UX 31
 	- Netzwerkanbindung:
-		- Local Network: Wlan
+		- Local Network: WLAN
 		- Web Connection: Cablecom 10er Leitung
 		- VPN: HSR VPN
 	
 Resultate
 .........
-- Mediastream kommt ohne Verzögerung zu Stande
+- Media-Stream kommt ohne Verzögerung zustande
 - Kein Unterschied zu Locale Round
 
 
-2. HSR - Mobile
+2. HSR–Mobile
 ===============
 
 2.1 Messung
@@ -48,7 +48,7 @@ Setup
 .....
 
 - Netbook über Mobile Network angebunden
-- Ultrabook über lokales HSR Notebook Wlan angebunden
+- Ultrabook über lokales HSR-Notebook-WLAN angebunden
 
 
 Environment
@@ -63,15 +63,15 @@ Environment
 - Endpunkt 2:
 	- Gerät: Ultrabook Asus UX 31
 	- Netzwerkanbindung:
-		- Local Network: HSR Notebook Wlan
+		- Local Network: HSR-Notebook-WLAN
 		- Web Connection: HSR
 	
 Resultate
 .........
-- Mediastream kommt nicht zu Stande
-- Im Wireshark sind keine UDP Pakete sichtbar
-- Vermutung: HSR blockt "dynamic port" - "dynamic port" Verbindungen um Filesharing zu unterbinden
-- Auch die apprtc.appspot.com Demo App kommt nicht durch
+- Media-Stream kommt nicht zustande
+- Im Wireshark sind keine UDP-Pakete sichtbar
+- Vermutung: HSR blockt "dynamic port"–"dynamic port"-Verbindungen um Filesharing zu unterbinden
+- Auch die apprtc.appspot.com-Demo-App kommt nicht durch
 
 
 

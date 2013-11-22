@@ -4,10 +4,10 @@
 \begin{itemize}
 	\setlength{\itemsep}{-\parsep}
 	\item Persönliche Entwicklungsgeräte für jedes Teammitglied, bevorzugt Laptop (eigene Geräte)
-	\item Zugewiesene Arbeitsplätze im Zimmer 1.262
-	\item Mobile Devices mit WebRTC fähigem Browser
+	\item Zugewiesene Arbeitsplätze im Zimmer 1.258
+	\item Mobile Devices mit WebRTC-fähigem Browser
 	\item Virtual Server für Projektmanagement
-	\item SIP Service (z.B. sipcall.ch) oder SIP Server mit Websocket support
+	\item SIP Service (z.B. sipcall.ch) oder SIP-Server mit WebSockets-Support
 \end{itemize}
 
 \section{Tools}
@@ -15,10 +15,10 @@
 Das Projektmanagementtool Redmine bietet sich aus verschiedenen Gründen an:
 \begin{itemize}
 	\setlength{\itemsep}{-\parsep}
-	\item Redmine ist bekannt vom SE2 Projekt.
+	\item Redmine ist bekannt vom SE2-Projekt.
 	\item Redmine lässt sich auf den Virtual Servern der HSR leicht installieren.
 	\item Redmine bietet den benötigten Funktionumfang und ist einfach zu bedienen.
-	\item Redmine bietet Git Repository Integration falls dies gewünscht ist.
+	\item Redmine bietet Git-Repository-Integration, falls dies gewünscht ist.
 \end{itemize}
 
 
@@ -27,32 +27,45 @@ Das Projektmanagementtool Redmine bietet sich aus verschiedenen Gründen an:
 Git ist ein bewährtes Versionsverwaltungstool, bietet den Vorteil von lokalen Repositories, ist sehr schlank und bringt eine gute Merge-Automatik mit.
 
 \subsubsection{GitHub}
-Mit GitHub besitzen die Studenten durch andere Projekte bereits Erfahrung. Als Studenten haben sie Zugriff auf kostenlose ``Private-Repositories''. Zudem Bietet GitHub noch zusätzliche Funktionen wie Wiki, RST und MD Viewer sowie Repository Zugriff und Dateibearbeitung über Webinterface.
+Mit GitHub besitzen die Studenten durch andere Projekte bereits Erfahrung. Als
+Studenten haben sie Zugriff auf kostenlose ``Private-Repositories''. Zudem
+bietet GitHub noch zusätzliche Funktionen wie Wiki, RST- und MD-Viewer sowie
+Repository-Zugriff und Dateibearbeitung über ein Webinterface.
 
 \subsubsection{Backup}
-Ein zusätzliches Backup ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist. Somit ist das gesammte Projekt dreifach abgelegt (bei den Entwicklern sowie bei GitHub).
+Ein zusätzliches Backup ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist. Somit ist das gesamte Projekt dreifach abgelegt (bei den Entwicklern sowie bei GitHub).
 
 
 \subsection{Dokumentation}
 \subsubsection{Für grosse Dokumentationen und Abgabedokumente: \LaTeX}
-\LaTeX ist perfekt geeignet für grosse, gemeinsam zu erarbeitende Dokumente, weil die Source-Dateien über Git versioniert und gemergt werden können und wenig Platz verbrauchen. Zudem besteht ein sehr kleines Risiko auf Dokumentenverlust bzw. Dokumentenfehler durch die Software, weil \LaTeX die Source-Dateien gar nicht verändert im Unterschied zu einer Office Applikation.
+\LaTeX\ ist perfekt geeignet für grosse, gemeinsam zu erarbeitende Dokumente,
+weil die Source-Dateien über Git versioniert und gemergt werden können und wenig
+Platz verbrauchen. Zudem besteht ein sehr kleines Risiko auf Dokumentenverlust
+bzw. Dokumentenfehler durch die Software, weil \LaTeX\ die Source-Dateien gar
+nicht verändert, im Unterschied zu einer Office-Applikation.
 
-\subsubsection{Für Notizen \& Meetingsprotokolle: Restructured Text (rst), txt, Markdown (md)}
-Für Notizen und kleine Dokumente reichen RST, TXT oder MD vollständig aus. Sie sind schlank, bieten nur das notwendigste, können versioniert und gemergt werden weil es nur Textfiles sind und werden von "GitHub Document Preview" unterstützt.
+\subsubsection{Für Notizen \& Meetingprotokolle: Restructured Text (rst), txt, Markdown (md)}
+Für Notizen und kleine Dokumente reichen RST, TXT oder MD vollständig aus. Sie
+sind schlank, bieten nur das notwendigste, können versioniert und gemergt
+werden, weil es nur Textfiles sind, und werden von "GitHub Document Preview" unterstützt.
 
-\subsubsection{Für Diagramme, Skizzen: Libreoffice Draw (Opendocument)}
-Wo es nicht anders geht wird Opendocument eingesetzt. Dabei wird berücksichtigt, dass es über Git nicht inkrementell versioniert und nicht gemergt werden kann.
+\subsubsection{Für Diagramme, Skizzen: LibreOffice Draw (OpenDocument)}
+Wo es nicht anders geht, wird OpenDocument eingesetzt. Dabei wird
+berücksichtigt, dass es über Git nicht inkrementell versioniert und nicht
+gemerged werden kann.
 
 
-\subsection{Modelling}
-Als Modelling Tool wird Astah gewählt, weil es das beste den Studenten bekannte Tool ist.
-Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image und PDF Export.
+\subsection{Modeling}
+Als Modeling-Tool wird Astah gewählt, weil es das beste den Studenten
+bekannte Tool ist.
+Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image- sowie
+PDF-Export.
 
 \subsection{UI Drafting}
 \begin{itemize}
 	\setlength{\itemsep}{-\parsep}
 	\item Balsamiq Mockup für UI Drafts
-	\item ev. Libreoffice Draw für UI Design Finals
+	\item eventuell LibreOffice Draw für UI Design Finals
 \end{itemize}
 
 
@@ -64,7 +77,8 @@ Adapter.js abstrahiert die verschiedenen Browserschnittstellen von WebRTC und ve
 Ember.js ist ein bekanntes MVC und Templating Framework, das eine saubere Trennung von Logik und Darstellung ermöglicht. Ember.js bindet darüber hinaus Properties im Template direkt an Objektproperties, wodurch in vielen Fällen eigene Observerimplementierungen überflüssig sind.
 
 \subsubsection{jQuery}
-jQuery als eine der besten Javascript Bibliotheken bietet sehr einfache Elementselektoren und viele Funktionen, die das Entwickeln vereinfachen.
+jQuery als eine der besten JavaScript-Bibliotheken, bietet sehr einfache
+Elementselektoren und viele Funktionen, die das Entwickeln vereinfachen.
 
 
 \subsection{Testing}
@@ -84,7 +98,9 @@ JsUnit wie QUnit arbeiten mit einem realen Browser, sind einfach handzuhaben und
 
 
 \subsection{Building}
-Ein Build Server wie Ant ist nicht nötig für dieses Projekt. JsUnit bietet zwar eine Anbindungsmöglichkeit. Für unsern Anwendungsfall und die nicht sehr komplexe Tool-Umgebung lohnt sich der Aufwand eines Build Servers jedoch nicht.
+Ein Build-Server wie Ant ist nicht nötig für dieses Projekt. JsUnit bietet zwar
+eine Anbindungsmöglichkeit. Für unsern Anwendungsfall und die nicht sehr
+komplexe Tool-Umgebung lohnt sich der Aufwand eines Build-Servers jedoch nicht.
 
 
 \subsection{Entwicklungsumgebung}
@@ -92,6 +108,7 @@ Jeder Entwickler verwendet seine eigene bevorzugte Entwicklungsumgebung.
 
 
 \subsection{RunTime Environment}
-Als RunTime Environment wird ein WebRTC kompatibler Browser (Firefox, Chrome(ium)) benötigt.
+Als RunTime-Environment wird ein WebRTC kompatibler Browser (Firefox,
+Chrome(ium)) benötigt.
 
 

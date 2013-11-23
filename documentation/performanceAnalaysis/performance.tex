@@ -2,9 +2,11 @@
 	\section{Zusammenfassung}
 		Die Performance hängt sehr stark von der Leistung des Prozessors ab. Videodecodierung und Verschlüsselung verbrauchen in den aktuellen Versionen von Firefox und Chrome enorm viel Leistung, mobile Geräte erwärmen sich spürbar.
 		
-		Die bevorzugten Codecs, die auf der VP8 Engine basieren, werden bisher von keinem Gerät hardwareseitig unterstützt.
+		Die bevorzugten Codecs, die auf der VP8-Engine basieren, werden bisher von
+		keinem Gerät hardwareseitig unterstützt.
 		
-		Nach der Veröffentlichung einer OpenSource Implementation des Codecs h.264 durch Cisco ist zu erwarten, das dieser Einzug in die Browser hält und durch die bereits existierenden Hardwarechips die erforderliche Rechenleistung enorm senken wird.
+		Nach der Veröffentlichung einer OpenSource-Implementation des Codecs h.264
+		durch Cisco ist zu erwarten, das dieser Einzug in die Browser hält und durch die bereits existierenden Hardwarechips die erforderliche Rechenleistung enorm senken wird.
 		
 		Ebenfalls ist zu erwarten, das zukünftige Implementation der Videocodecs ohne Hardwareunterstützung einen Teil über die GPU rendern und damit erhebliche Performanceverbesserungen bringen werden.
 		
@@ -14,15 +16,24 @@
 	
 \chapter{Firewall Testing}
 	\section{Signalling}
-		Je nach verwendetem Protokoll wird dieses in einer stark reglementierten Umgebeung geblockt. Ebenfalls kann es vorkommen, das z.B. Websocket Pakete unterwegs verworfen werden, weil Router sie nicht weiterleiten aus Policygründen.
+		Je nach verwendetem Protokoll wird dieses in einer stark reglementierten
+		Umgebung geblockt. Ebenfalls kann es vorkommen, das beispielsweise
+		WebSockets-Pakete unterwegs verworfen werden, weil Router sie aus
+		Policygründen nicht weiterleiten.
 		
-		Wird für das Signalling ein Http-basierter Mechanismus verwendet, sollten keine Pakete geblockt werden.
+		Wird für das Signalling ein HTTP-basierter Mechanismus verwendet, sollten
+		keine Pakete geblockt werden.
 
 	\section{P2P Connection}
-		Für den Aufbau der Peer-to-Peer Connection ermitteln beide Clients über einen Stun-Service ihre externe IP, tauschen diese über den Signallingchannel in einer SDP\footnote{Session Description Protocol} aus und verbinden sich direkt P2P um Parameter für die Verschlüsselung auszutauschen. Für diesen Austausch wird ebenfalls das UDP basierte Stun Protokoll verwendet. 
-		In starkt reglementierten Umgebungen werden unter Umständen diese Stun Pakete geblockt. Dadurch kann keine Verbindung zwischen den Clients aufgebaut werden.
+		Für den Aufbau der Peer-to-Peer Connection ermitteln beide Clients über einen
+		STUN-Service ihre externe IP, tauschen diese über den Signallingchannel
+		mittels SDP\footnote{Session Description Protocol} aus und verbinden sich
+		direkt P2P um Parameter für die Verschlüsselung auszutauschen. Für diesen
+		Austausch wird ebenfalls das UDP basierte STUN-Protokoll verwendet.
+		In starkt reglementierten Umgebungen werden unter Umständen diese STUN-Pakete
+		geblockt. Dadurch kann keine Verbindung zwischen den Clients aufgebaut werden.
 		
-		In gewöhnlichen Umgebungen sollten Stun Pakete jedoch nicht geblockt werden.
+		In gewöhnlichen Umgebungen sollten STUN-Pakete jedoch nicht geblockt werden.
 	
 	\section{Firewall Pass Tests}
 		Siehe Anhang \ref{firewalltests}

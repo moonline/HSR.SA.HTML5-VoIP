@@ -2,9 +2,17 @@
 	\section{Ziele}
 		\begin{itemize}
 			\item Audio- und Videokommunikation zwischen zwei Teilnehmern.
-			\item Signalling über beliebige Channels, Referenzimplementation eines Channels mit XHR
-			\item Adressbuchimport von beliebigen Quellen, Referenzimplementationen für JSON und VCARD Import sowie eines Online Adressbuches über eine JSON Schnittstelle.
+			\item Signalling\footnote{Benachrichtigen eines andern Peers über eine Verbindungsanfrage und Austausch von Verbindungsparametern} über beliebige Channels, Referenzimplementation eines Channels mit XHR\footnote{XML HTTP Request, Asynchrones nachladen von HTTP Seiten}.
+			\item Adressbuchimport von beliebigen Quellen, Referenzimplementationen für JSON
+				\footnote{Javascript Object Notation, strukturiertes mensch- und maschinenlesbares Datenaustauschformat, 
+					IETF, JSON (Stand Juli 2006)
+					\hyperlink{http://tools.ietf.org/html/rfc4627}{http://tools.ietf.org/html/rfc4627}, [Abruf am 21.11.13]
+				} und VCARD
+				\footnote{Elektronische Visitenkarte, IETF, vCard Format Spezifikation (Stand August 2011) 
+					\hyperlink{http://tools.ietf.org/html/rfc6350}{http://tools.ietf.org/html/rfc6350}, [Abruf am 21.11.13]
+				} Import sowie eines Online Adressbuches über eine JSON Schnittstelle.
 			\item Speichern von Adressbüchern und Benutzerinformationen im Browser (Local Storage).
+			\item Verschlüsselte Kommunikation zwischen den Clients. Die Kommunikation der Signalling Channel Referenzimplementation muss nicht zwingend verschlüsselt werden, da diese automatisch verschlüsselt wird sobald die Verbindung mit TLS geschützt wird.
 		\end{itemize}
 
 	
@@ -19,6 +27,7 @@
 		\begin{itemize}
 			\item Chat
 			\item Austausch von Dateien
+			\item Screensharing soweit die Browser solche Funktionalität überhaupt schon unterstützen
 		\end{itemize}
 		
 	\section{Ausführliche Anforderungen}

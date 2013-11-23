@@ -2,7 +2,7 @@
 \usepackage{csvsimple}
 
 %Dokumenteigenschaften
-\providecommand{\documentType}{Projektplan}
+\providecommand{\documentType}{Projektdokumentation}
 \providecommand{\versionnumber}{1.0}
 
 \begin{document}
@@ -53,7 +53,7 @@
 \input{../requirements/requirements-short}
 
 % Risiken
-
+\input{../projektplan/risiken-short}
 
 % architektur analyse
 \input{../architekturanalayse/2-domainmodell}
@@ -83,7 +83,6 @@
 \input{../projektplan/chapter5-infrastructure}
 
 % ui drafts
-\label{uiDrafts} 
 \input{../ui/uiDraft}
 
 % Performanceanalyse
@@ -108,12 +107,7 @@
 	\newline\noindent
 	\fcolorbox{red}{red}{\textbf{rst2pdf ..\/performanceAnalaysis\/firewallTesting.rst -o ..\/performanceAnalaysis\/media\/firewallTesting.pdf}}
 	\newline\noindent
-	\fcolorbox{red}{red}{in the current folder}
-}
-
-
-
-
+	\fcolorbox{red}{red}{in the current folder}}
 
 
 \end{document}

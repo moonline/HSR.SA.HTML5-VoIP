@@ -1,4 +1,4 @@
-\chapter{Domainmodell}
+\chapter{Architektur}
 
 \section{Architekturmodell}
 	Der logische Aufbau der Software besteht aus vier Schichten:
@@ -9,12 +9,12 @@
 	\end{figure}
 
 	\begin{landscape}
-		\section{Strukturdiagramm}
+		\section{Domain}
 			Im folgenden Diagramm sind die wichtigsten konzeptionellen Klassen und ihre Beziehungen untereinander aufgeführt.
 			\begin{figure}[h]
 				\centering
 				\includegraphics[width=1.2\textwidth]{../architekturanalayse/img/domain.png}
-				\caption{Strukturdiagramm JS VoIP App}
+				%\caption{Strukturdiagramm JS VoIP App}
 			\end{figure}
 	\end{landscape}
 	\clearpage
@@ -41,7 +41,7 @@
 		\begin{itemize}
 			\item Es wird kein Server benötigt
 			\item Anwender können einen beliebigen Kommunikationsserver (SIP\footnote{Session Initiation Protocol}) verwenden, bzw. sogar eine eigene Channelimplementation hinzufügen um z.B. über XMPP\footnote{Extensible Messaging and Presence Protocol} das Signalling durchzuführen
-			\item Um die Applikation für weitere Schnittstellen zu erweitern sind keine Kenntnisse der Servertechnologie notwendig
+			\item Um die Applikation für weitere Schnittstellen zu erweitern sind keine Kenntnisse einer Servertechnologie notwendig
 			\item Die Applikation insgesammt ist weniger aufwändig aufgebaut weil sie weniger Redundanzen beinhaltet
 			\item Keine eigene SIP / XMPP Server Implementation (Es braucht nur bereits vorhandene Serverinfrastrukturen)
 		\end{itemize}
@@ -58,7 +58,7 @@
 			Für die Kommunikation mit Signallingservern wie SIP oder XMPP werden WebSockets eingesetzt, für Signalling über XHR\footnote{XmlHTTPRequest} wird mit der Option ``Allow Cross Origin'' gearbeitet.
 
 	\subsection{STUN Service}
-		STUN\footnote{Session Traversal Utilities for NAT} Services sind zwingend notwendig um die nach aussen sichtbare IP Adresse des Clients herauszufinden. Nebst der Möglichkeit selbst einen STUN Service aufzusetzen, gibt es frei verfügbare STUN Services, z.B. von Mozilla oder Google.
+		STUN\footnote{Session Traversal Utilities for NAT} Services sind zwingend notwendig um die nach aussen sichtbare IP Adresse des Clients herauszufinden und zwischen den Clients die Peer Conntection zu etablieren. Nebst der Möglichkeit selbst einen STUN Service aufzusetzen, gibt es frei verfügbare STUN Services, z.B. von Mozilla oder Google.
 
 		Für ein Abgeschottetes Netz ist ein eigener STUN Server zwingend notwendig. Für unsern Fall reichen die frei verfügbaren. Durch anpassen der Konfiguration ist es möglich den Server festzulegen.
 
@@ -67,7 +67,7 @@
 	\subsection{SIP Proxy vs. SIP Server mit WebSockets}
 		Unterstützt ein SIP Server keine WebSockets, so kann ein SIP/WebSocket Proxy dazwischen geschaltet werden. Die Konfiguration eines SIP Proxies ist ähnlich aufwändig wie die Installation eines Kamailio\footnote{Kamailio SIP Server Project, Features (Stand: 18.03.2013). \hyperlink{http://www.kamailio.org/w/features/}{http://www.kamailio.org/w/features/}, [Abruf am 28.10.13]} SIP Servers, der in der neusten Version WebSockets unterstützt.
 
-		Aus diesem Grund wird ein eigener SIP Server dem Proxy vorgezogen.
+		Aus diesem Grund wird ein eigener SIP Server gegenüber dem Proxy bevorzugt.
 
 	\subsection{Sicherheit}
 		WebRTC Streams können nur verschlüsselt übertragen werden. Es gibt keine Möglichkeit die Verschlüsselung abzuschalten. Dies führt zwar zu einem erhöhten Rechenbedarf auf dem Client, garantiert jedoch eine verschlüsselte Verbindung unabhängig den Vorlieben des Entwicklers.

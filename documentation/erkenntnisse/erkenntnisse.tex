@@ -16,9 +16,10 @@
 	 	Eine Peer Connection kann nur durch den Austausch von SDP Descriptions aufgebaut werden. Innerhalb der SDP werden Parameter für die Peerconnection sowie IP und allenfalls Endpunktkandidaten übertragen. 
 	 	
 	 	\subsection{Endpunktkandidaten}
-	 	Je nach Implementation übertragen die Browser die Candidates einzeln. Ist die Verbindung noch nicht initialisiert worden, so müssen diese zwischengespeichert werden bis die Verbindung so weit ist.
+			Je nach Implementation übertragen die Browser die Candidates einzeln. Ist die Verbindung noch nicht initialisiert worden, so müssen diese zwischengespeichert werden bis die Verbindung so weit ist.
 
 		\subsection{Verschlüsselung}
+			Der übertragene Stream ist standardmässig verschlüsselt. Die Verschlüsselung ist Teil des Standards und kann nicht abgeschaltet werden.
 	 	
 	 
 	 \section{Filezugriff}
@@ -26,8 +27,8 @@
 	 	
 	 
 	 \section{Offline Einschränkungen}
-	 	\section{Stun Services}
-	 	
+	 	\subsection{Stun Services}
+			Ohne eigener Stun Service ist eine Internet Verbindung zwingend. Für Telefonie in einem abgeschotteten Netz wird ein eigener Stun Service benötigt. Es ist nicht möglich auf die Stun Services zu verzichten und die Adresse manuel zu setzen, weil das Stun Protokoll auch den P2P Verbindungsaufbau übernimmt.
 	 	
 	 		
 	 \section{SIP}
@@ -36,4 +37,5 @@
 
 
 	\section{Tipps \& Tricks für WebRTC Applikationsentwickler}
-		
+		\subsection{Verbindungsaufbau}
+			Ice Candidates müssen einer RTCPeerConnection attatched werden, bevor eine Offer oder eine Answer generiert wird. Ansonsten

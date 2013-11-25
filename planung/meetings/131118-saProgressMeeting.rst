@@ -38,7 +38,7 @@ Todo diese Woche
 - CSV Adapter streichen
 - UI Umsetzen
 - Bläser für Review anfragen
-- Third Party Code markieren (am Besten in eigenes File)
+- Third Party Code markieren (am Besten in eigenes File) -> Doku?
 
 ------------
 

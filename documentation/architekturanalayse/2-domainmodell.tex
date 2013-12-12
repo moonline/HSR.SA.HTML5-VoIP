@@ -1,23 +1,49 @@
 \chapter{Architektur}
 
-\section{Architekturmodell}
+\section{Architektur Übersicht}
+	Das folgende Diagramm zeigt eine Übersicht über die notwendigen Komponenten für eine Videoplattform mit JavaScript. Die Applikation ist als ``Fat-Client'' Architektur aufgebaut. Es gibt keine Serverkomponenten für die Applikation selbst. Erst für den Verbindungsaufbau werden Vermittlungsserver benötigt.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{../architekturanalayse/img/bigPicture.png}
+		\caption{Big Picture JS VoIP App}
+	\end{figure}
+	Das Diagramm zeigt die erforderlichen Komponenten anhand zweier Clients. Jeder Client besitzt ein User Interface über welches der User die Kommunikation starten und beenden kann sowie Kontakbücher verwalten kann.
+	
+	$\rightarrow$ User Interface Siehe Anhang \ref{uiDrafts}
+	
+	Jeder Client besitzt Signalling Channels, die mit einem Signalling Server interagieren. Hier wurde als Beispiel eine Message Queue auf einem Apache Server verwendet. Die Kommunikation läuft entsprechend über XHR.
+	
+	Für das Media-Handling und die P2P Kommunikation besitzt jeder Client ein Mediamanagement, das dem P2P Channel verwaltet und auf die lokale Mediaschnittstelle zugreift.
+	
+
+\section{Architektur-Detailmodell}
 	Der logische Aufbau der Software besteht aus vier Schichten:
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\textwidth]{../architekturanalayse/img/architecture.png}
 		\caption{Architekturdiagramm JS VoIP App}
 	\end{figure}
+	Im untersten Layer sind Services und Libraries enthalten, auf die die oberen Layer zugreifen.
+	Der Application layer beinhaltet ViewModels für das Userinterface und interagiert mit dem Model.
+	
 
-	\begin{landscape}
-		\section{Domain}
-			Im folgenden Diagramm sind die wichtigsten konzeptionellen Klassen und ihre Beziehungen untereinander aufgeführt.
-			\begin{figure}[h]
-				\centering
-				\includegraphics[width=1.2\textwidth]{../architekturanalayse/img/domain.png}
-				%\caption{Strukturdiagramm JS VoIP App}
-			\end{figure}
-	\end{landscape}
-	\clearpage
+\begin{landscape}
+\section{Domain}
+	Im folgenden Diagramm sind die wichtigsten konzeptionellen Klassen und ihre Beziehungen untereinander aufgeführt.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.2\textwidth]{../architekturanalayse/img/domain.png}
+		%\caption{Strukturdiagramm JS VoIP App}
+	\end{figure}
+	Herzstück der Applikation sind die Channels und die Connection sowie das Contactbookmanagement.
+	
+	Die Channels laufen im Hintergrund und verbinden den User mit einem oder mehreren Signalling-Servern. Sie werden beim Login des Benutzers gestartet und müssen entsprechend ein Channelinterface implementieren.
+	
+	Die Connection übernimmt das komplette Handling der P2P Verbindung inklusive Verbindungsauf- und abbau. Sie greift über den Host auf die lokale Kamera zu und sendet und empfängt über einen Channel ``Offers'' und ``Answers/Replies''.
+	
+	Die Kontaktverwaltung übernimmt der ContactbookManager. Er importiert Kontaktbücher anhand der Konfiguration von den Quelle ``Datei'', ``Ordner'' oder ``Online''. Für die formatspezifischen Importprozesse sind die jeweiligen Kontaktbücherzuständig. Dazu müssen alle Kontaktbücher das AddressbookInterface umsetzen.
+\end{landscape}
+\clearpage
 
 \section{Architektur-Designmotivations}
 	\subsection{Client/Server vs. reine Client-Applikation}
@@ -114,12 +140,40 @@
 	\subsection{Hosting}
 		Die JS-VoIP-App kann sowohl lokal, als auch von einem
 		Webserver ausgeliefert ausgeführt werden. Es gibt keine speziellen Voraussetzungen. Ein Webserver ist daher nicht zwingend notwendig.
+		
+
+\clearpage
+\section{Kommunikation}
+	Die Kommunikation zwischen zwei Clients, einem STUN Service und einem Signalling Service wird im folgenden Diagramm dargestellt.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../architekturanalayse/img/callDiagramm.png}
+		\label{img:deployment}
+		\caption{Clientkommunikation}
+	\end{figure}
+	Die Clients beziehen vom STUN Service ihre extern sichtbare IP und kommunizieren nach einem erfolgreichen Verbindungsaufbau direkt P2P ohne noch über den SignallingServer zu gehen.
+	
+	Der Verbindungsaufbau kann wahlweise über den SignallingServer oder direkt P2P gesendet werden.
+	
+	
+	\begin{landscape}		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[height=0.7\textwidth]{../architekturanalayse/img/connectionState.png}
+			\label{img:deployment}
+			\caption{Applikationszustände}
+		\end{figure}
+		Beim Verbindungsaufbau nimmt jeder Client entwerde die Rolle ``caller'' oder ``callee'' ein. Erlaubt der Benutzer Zugriff auf die Kamera, so wird die Verbindung aufgebaut und bleibt bestehen, bis einer der Clients die Verbindung mit einem ``bye'' beendet.
+		
+		Ungültige Messages werden ignoriert. ``bye'' führt in jedem Zustand zu einem abbrucht der Verbindung, bzw. gar keinem Aufbau, vorausgesetz das ``bye'' kommt vom andern Kommunikationspartner.
+	\end{landscape}
+		
 	
 \clearpage
 \section{Deployment}
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
-		\includegraphics[height=0.7\textwidth]{../architekturanalayse/img/deployment.png}
+		\includegraphics[width=\textwidth]{../architekturanalayse/img/deployment.png}
 		\label{img:deployment}
 		\caption{Deploymentdiagramm JS VoIP App}
 	\end{figure}

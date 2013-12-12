@@ -55,7 +55,9 @@
 \input{../projektplan/chapter2-projektorganisation}
 
 % requirements
-\input{../requirements/requirements-short}
+\input{../requirements/2-allgemeine-beschreibung}
+\input{../requirements/3-use-cases}
+\input{../requirements/4-weitere-anforderungen}
 
 % Risiken
 \input{../projektplan/risiken-short}
@@ -66,21 +68,17 @@
 % performance analyse
 \input{../performanceAnalaysis/performance}
 
-% Qualitätsmanagement
-\input{../qualityManagement/qualityManagement}
-
 % Erkenntnisse
 \input{../erkenntnisse/erkenntnisse}
 
-% Schluss
+% Schluss / Schlussfolgerung
 \input{fazit}
+%\input{schlussberichtJannis}
+%\input{SchlussberichtTobias}
 
 
 \appendix
-% requirements
-\input{../requirements/2-allgemeine-beschreibung}
-\input{../requirements/3-use-cases}
-\input{../requirements/4-weitere-anforderungen}
+
 
 % projektplan
 \input{../projektplan/chapter3-risikomanagement}
@@ -91,17 +89,16 @@
 \input{../ui/uiDraft}
 
 % Performanceanalyse
-\chapter{Performanceanalyse}
-\label{performanceanalyse} 
-\IfFileExists{../performanceAnalaysis/media/performanceAnalysis.pdf}{
-	\includepdf[pages=-]{../performanceAnalaysis/media/performanceAnalysis.pdf}
-}{
-	\fcolorbox{red}{red}{there is no pdf file. please run }
-	\newline\noindent
-	\fcolorbox{red}{red}{\textbf{rst2pdf ..\/performanceAnalaysis\/performanceAnalyse.rst -o ..\/performanceAnalaysis\/media\/performanceAnalysis.pdf}}
-	\newline\noindent
-	\fcolorbox{red}{red}{in the current folder}
-}
+\input{../performanceAnalaysis/performanceAnalysis}
+%\IfFileExists{../performanceAnalaysis/media/performanceAnalysis.pdf}{
+%	\includepdf[pages=-]{../performanceAnalaysis/media/performanceAnalysis.pdf}
+%}{
+%	\fcolorbox{red}{red}{there is no pdf file. please run }
+%	\newline\noindent
+%	\fcolorbox{red}{red}{\textbf{rst2pdf ..\/performanceAnalaysis\/performanceAnalyse.rst -o ..\/performanceAnalaysis\/media\/performanceAnalysis.pdf}}
+%	\newline\noindent
+%	\fcolorbox{red}{red}{in the current folder}
+%}
 
 \chapter{Firewall Tests}
 \label{firewalltests} 
@@ -115,6 +112,8 @@
 	\fcolorbox{red}{red}{in the current folder}
 }
 
+% Qualitätsmanagement
+\input{../qualityManagement/qualityManagement}
 
 
 

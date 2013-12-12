@@ -44,6 +44,19 @@
 	 		Obwohl der OpenSource-SIP-Server Kamailio WebSocket als Feature aufführt,
 	 		ist die Implementation noch nicht vollständig, sodass SIP-Kommunikation über
 	 		WebSockets noch unmöglich ist.
+	 		
+	\section{Browserunterschiede}
+		\subsection{Ice Candidates}
+			Firefox packt die Ice Candidates\footnote{Vorschläge für Ports} direkt in die Session Description ein. Chrome schickt sie einzeln. Da Chrome nicht auf die Reihenfolge achtet kann es passieren, das Ice Candidates vor einer Offer ankommen. Aus diesem Grund müssen ankommende Ice Candidates in einer Queue gebuffert werden, bis eine Offer ankommt.
+		
+		\subsection{DataChannel}
+			Firefox unterstützt DataChannel\footnote{P2P Datenkanal parallel zum Video- und Audiostream} bereits vollständig. Chrome unterstützt ihr zwar, Events funktionieren jedoch noch nicht.
+			
+		\subsection{Media Access}
+			Firefox erlaubt mehrfachen Kameraacces und teilt sich die Kamera auch problemlos mit andern Prozessen. So ist es im Firefox möglich, von einem Tab in einen andern anzurufen. Chrome will die Kamera komplett für sich beanspruchen und wirf eine Fehlermeldung, falls sie bereits von einem Andern Prozess genutzt wird.
+			
+		\subsection{Schnittstellenbezeichnung}
+			Die Schnittstellen unterstützen beide Browser erst mit Prefix. Die offizielle Bezeichnung wird noch nicht unterstützt. Adapter.js wurde dafür entwickelt und mappt die offiziellen Schnittstellenbezeichnungen auf die mit Prefix, sodass in der Applikation trotzdem mit den offiziellen gearbeitet werden kann und auch Kompatibilität besteht, sobald die Browser auf die definitiven Schnittstellen umstellen.
 
 
 	\section{Tipps \& Tricks für WebRTC-Applikationsentwickler}

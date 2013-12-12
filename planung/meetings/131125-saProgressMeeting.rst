@@ -44,7 +44,7 @@ Protokoll
 - Qualitätsmanagement in den Anhang verschieben
 - Erkenntnisse
 	- Auf Browser/Unterschiede eingehen
-- Schlussfolgerungen (Nicht Schlussword)
+- Schlussfolgerungen (Nicht Schlusswort)
 	- Wo sind wird zufrieden, wo nicht
 	- Open Areas
 	- Bugs (Technologische Probleme)

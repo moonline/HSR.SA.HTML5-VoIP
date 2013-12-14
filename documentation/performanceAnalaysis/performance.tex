@@ -15,18 +15,18 @@
 	
 	
 \chapter{Firewall Testing}
-	\section{Signalling}
+	\section{Signaling}
 		Je nach verwendetem Protokoll wird dieses in einer stark reglementierten
 		Umgebung geblockt. Ebenfalls kann es vorkommen, das beispielsweise
 		WebSockets-Pakete unterwegs verworfen werden, weil Router sie aus
 		Policygründen nicht weiterleiten.
 		
-		Wird für das Signalling ein HTTP-basierter Mechanismus verwendet, sollten
+		Wird für das Signaling ein HTTP-basierter Mechanismus verwendet, sollten
 		keine Pakete geblockt werden.
 
 	\section{P2P Connection}
 		Für den Aufbau der Peer-to-Peer Connection ermitteln beide Clients über einen
-		STUN-Service ihre externe IP, tauschen diese über den Signallingchannel
+		STUN-Service ihre externe IP, tauschen diese über den Signalingchannel
 		mittels SDP\footnote{Session Description Protocol} aus und verbinden sich
 		direkt P2P um Parameter für die Verschlüsselung auszutauschen. Für diesen
 		Austausch wird ebenfalls das UDP basierte STUN-Protokoll verwendet.

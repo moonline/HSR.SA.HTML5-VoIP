@@ -7,7 +7,7 @@ Arbeiten
 	- SIP
 	- Addressbook
 	- WebRTC
-	- XHR Signalling
+	- XHR Signaling
 - Risikenanalyse
 - Architekturentwurf
 

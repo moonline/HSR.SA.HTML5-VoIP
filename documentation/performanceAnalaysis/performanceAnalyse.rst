@@ -15,7 +15,7 @@ Setup
 - 1 Browser
 - Sender- und Empfänger-Instanz laufen jeweils in einem Tab
 - Datenverkehr macht Roundtripp über Netzwerkkarte
-- Externe Services wie STUN-Service und Signalling Channel
+- Externe Services wie STUN-Service und Signaling Channel
 
 
 Environment

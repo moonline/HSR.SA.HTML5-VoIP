@@ -101,17 +101,20 @@
 %	\fcolorbox{red}{red}{in the current folder}
 %}
 
-\chapter{Firewall Tests}
-\label{firewalltests} 
-\IfFileExists{../performanceAnalaysis/media/firewallTesting.pdf}{
-	\includepdf[pages=-]{../performanceAnalaysis/media/firewallTesting.pdf}
-}{
-	\fcolorbox{red}{red}{there is no pdf file. please run }
-	\newline\noindent
-	\fcolorbox{red}{red}{\textbf{rst2pdf ..\/performanceAnalaysis\/firewallTesting.rst -o ..\/performanceAnalaysis\/media\/firewallTesting.pdf}}
-	\newline\noindent
-	\fcolorbox{red}{red}{in the current folder}
-}
+% Firewall Testing
+\input{../performanceAnalaysis/firewallTesting}
+%\chapter{Firewall Tests}
+%\label{firewalltests} 
+%\IfFileExists{../performanceAnalaysis/media/firewallTesting.pdf}{
+%	\includepdf[pages=-]{../performanceAnalaysis/media/firewallTesting.pdf}
+%}{
+%	\fcolorbox{red}{red}{there is no pdf file. please run }
+%	\newline\noindent
+%	\newline\noindent
+%	\fcolorbox{red}{red}{\textbf{rst2pdf
+	% ..\/performanceAnalaysis\/firewallTesting.rst -o ..\/performanceAnalaysis\/media\/firewallTesting.pdf}}
+%	\fcolorbox{red}{red}{in the current folder}
+%}
 
 % Qualitätsmanagement
 \input{../qualityManagement/qualityManagement}

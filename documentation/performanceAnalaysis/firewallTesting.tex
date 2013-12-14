@@ -21,28 +21,37 @@
 	
 	\section{Testszenarien und Ergebnisse}
 	
-		\subsection{VPN-Locale}
+		\subsection{VPN - Home-WLAN}
 			\begin{tabularx}{1.4\textwidth}{|lXX|}
 				\hline
 				\textbf{Geräte} & \textbf{Setup} & \textbf{Ergebnisse} \\
 				\hline
 					Home-WLAN - Home-WLAN-HSR-VPN
 				&
-					• Smartphone über lokales Home-WLAN, Cablecom 10er-Leitung\newline
-					• Ultrabook über lokales Home-WLAN, Cablecom 10er-Leitung,
+					• Smartphone über Home-WLAN, Cablecom 10er-Leitung\newline
+					• Ultrabook über Home-WLAN, Cablecom 10er-Leitung,
 					Verbunden mit HSR-VPN\newline
 				& 
 					• Media-Stream kommt ohne Verzögerung zustande\newline
 					• Kein Unterschied zu Locale Round\\
 				\hline
 			\end{tabularx}
+			
+			
+		\begin{figure}[H]
+			\centering
+			\begin{minipage}[b]{0.5\linewidth}
+				\includegraphics[width=\linewidth]{{../performanceAnalaysis/img/messung4.1setup1}.jpg}
+				\caption{freegeoip.net zeigt, das das Ultrabook über die HSR verbunden ist und das Smartphone direkt im lokalen Wlan hängt.}
+			\end{minipage}
+		\end{figure}
 	
-		\subsection{HSR-Mobile}
+		\subsection{HSR - Mobile}
 			\begin{tabularx}{1.4\textwidth}{|lXX|}
 				\hline
 				\textbf{Geräte} & \textbf{Setup} & \textbf{Ergebnisse} \\
 				\hline
-					Mobile-Network - HSR-Notebook-WLAN
+					Mobile Network - HSR-Notebook-WLAN
 				&
 					• Netbook über Mobilfunk, Sunrise Mobile Prepaid (max. 256 Kbps)\newline
 					• Ultrabook über HSR-Notebook-WLAN\newline
@@ -53,6 +62,20 @@
 					Filesharing zu unterbinden\newline
 					• Auch die apprtc.appspot.com-Demo-App kommt nicht durch\\
 				\hline
+			\end{tabularx}
+			
+		\subsection{Home-WLAN - Mobile}
+			\begin{tabularx}{1.4\textwidth}{|lXX|}
+				\hline
+				\textbf{Geräte} & \textbf{Setup} & \textbf{Ergebnisse} \\
+				\hline
+					Mobile Network - Home-WLAN
+				&
+					• Netbook über UMTS (Stadt)\newline
+					• Ultrabook über Home-WLAN
+				& 	
+					• Media-Stream wird erfolgreich aufgebaut\\
+				\hline	
 			\end{tabularx}
 				
 \end{landscape}

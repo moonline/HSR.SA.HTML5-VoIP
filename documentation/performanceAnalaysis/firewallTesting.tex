@@ -1,0 +1,84 @@
+\chapter{Firewall Testing}
+	\label{firewalltesting}
+	
+	
+	\section{VPN-Locale}
+	
+		\subsection{Messung}
+		
+			\subsubsection{Setup}
+				\begin{itemize}
+					\item Smartphone über lokales Home-WLAN verbunden
+					\item Ultrabook über lokales Home-WLAN–HSR-VPN verbunden
+				\end{itemize}
+
+			\subsubsection{Environment}
+				\begin{itemize}
+					\item Endpunkt 1:
+						\begin{itemize}
+						 	\item Gerät: Smartphone Google Nexus 4
+						 	\item Netzwerkanbindung
+						 		\begin{itemize}
+						 			\item Local Network: WLAN
+						 			\item Web Connection: Cablecom 10er-Leitung
+						 		\end{itemize}
+				 		\end{itemize}
+					\item Endpunkt 2:
+						\begin{itemize}
+						 	\item Gerät: Ultrabook Asus UX 31
+						 	\item Netzwerkanbindung
+						 		\begin{itemize}
+						 			\item Local Network: WLAN
+						 			\item Web Connection: Cablecom 10er-Leitung
+						 			\item VPN: HSR-VPN
+						 		\end{itemize}
+				 		\end{itemize}
+				\end{itemize}
+				
+			\subsubsection{Resultate}
+				\begin{itemize}
+					\item Media-Stream kommt ohne Verzögerung zustande
+					\item Kein Unterschied zu Locale Round
+				\end{itemize}
+
+	
+	\section{HSR-Mobile}
+	
+		\subsection{Messung}
+		
+			\subsubsection{Setup}
+				\begin{itemize}
+					\item Netbook über Mobile Network angebunden
+					\item Ultrabook über lokales HSR-Notebook-WLAN angebunden
+				\end{itemize}
+
+			\subsubsection{Environment}
+				\begin{itemize}
+					\item Endpunkt 1:
+						\begin{itemize}
+						 	\item Gerät: Netbook Samsung NC 10
+						 	\item Netzwerkanbindung
+						 		\begin{itemize}
+						 			\item Local Network: Mobilfunk
+						 			\item Web Connection: Sunrise Mobile Prepaid (max. 256 Kbps)
+						 		\end{itemize}
+				 		\end{itemize}
+					\item Endpunkt 2:
+						\begin{itemize}
+						 	\item Gerät: Ultrabook Asus UX 31
+						 	\item Netzwerkanbindung
+						 		\begin{itemize}
+						 			\item Local Network: HSR-Notebook-WLAN
+						 			\item Web Connection: HSR
+						 		\end{itemize}
+				 		\end{itemize}
+				\end{itemize}
+				
+			\subsubsection{Resultate}
+				\begin{itemize}
+					\item Media-Stream kommt nicht zustande
+					\item Im Wireshark sind keine UDP-Pakete sichtbar
+					\item Vermutung: HSR blockt ``dynamic port''–``dynamic port''-Verbindungen
+					um Filesharing zu unterbinden
+					\item Auch die apprtc.appspot.com-Demo-App kommt nicht durch
+				\end{itemize}

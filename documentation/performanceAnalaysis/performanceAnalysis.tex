@@ -1,25 +1,34 @@
- \chapter{Performanceanalyse}
-	\label{performanceanalyse} 
+\begin{landscape}
 
+\chapter{Performanceanalyse}
+	\label{performanceanalyse} 
 	
-	\begin{landscape}
+	
 	\section{Testgeräte}
-	\begin{tabularx}{1.4\textwidth}{|l|XXX|}
-		\hline
-		\textbf{Abbildung} & \textbf{Gerät} & \textbf{Hardware} & \textbf{Software}\\
-		\hline
-		\includegraphics[width=3cm]{../performanceAnalaysis/devices/asusux21.png} & Ultrabook, Asus UX 31 & Intel Core i7 2x 1.8 GHz, 3.8GiB Memory
-& Ubuntu 12.04 64Bit, Browser: Firefox 25 \\
-		\hline
-		\includegraphics[width=3cm]{../performanceAnalaysis/devices/samsungnc10.jpg} & Netbook, Samsung NC 10 & Intel Atom 1.6 GHz, 992MiB Memory & Ubuntu 12.10 32Bit, Browser: Firefox 23 \\
-		\hline
-		\includegraphics[width=3cm]{../performanceAnalaysis/devices/macbookpro.jpg} & Mac Book Pro 2012 & Intel Core i7 4x 2.3 GHz, 16GB Memory & Mac OS X 10.9 Mavericks, Firefox 24 \\
-		\hline
-		\includegraphics[width=3cm]{../performanceAnalaysis/devices/samsunggalaxy101.jpg} & Tablet, Samsung Galaxy Tab 10.1 & Nvidia Tegra 2x 1 GHz, 1GB Memory & Android 4.2.1 32 Bit, Firefox 25 \\
-		\hline
-		\includegraphics[width=3cm]{../performanceAnalaysis/devices/googlenexus4.jpg} & Smartphone, Google Nexus 4 & NQualcomm Snapdragon S4 Pro 2x 1.5 GHz, 2GB Memory & Android 4.3 32 Bit, Firefox 25 \\
-		\hline
-	\end{tabularx}
+	
+		\subsection{Laptops}
+		\begin{tabularx}{1.4\textwidth}{|l|XXX|}
+			\hline
+			\textbf{Abbildung} & \textbf{Gerät} & \textbf{Hardware} & \textbf{Software}\\
+			\hline
+			\includegraphics[width=3cm]{../performanceAnalaysis/devices/asusux21.png} &
+			Ultrabook, Asus UX 31 & Intel Core i7 2x 1.8 GHz, 3.8GiB Memory & Ubuntu 12.04 64Bit, Browser: Firefox 25 \\
+			\hline
+			\includegraphics[width=3cm]{../performanceAnalaysis/devices/samsungnc10.jpg} & Netbook, Samsung NC 10 & Intel Atom 1.6 GHz, 992MiB Memory & Ubuntu 12.10 32Bit, Browser: Firefox 23 \\
+			\hline
+			\includegraphics[width=3cm]{../performanceAnalaysis/devices/macbookpro.jpg} & Mac Book Pro 2012 & Intel Core i7 4x 2.3 GHz, 16GB Memory & Mac OS X 10.9 Mavericks, Firefox 24 \\
+			\hline
+		\end{tabularx}
+		
+		\subsection{Mobilgeräte}
+		\begin{tabularx}{1.4\textwidth}{|l|XXX|}
+			\hline
+			\textbf{Abbildung} & \textbf{Gerät} & \textbf{Hardware} & \textbf{Software}\\
+			\includegraphics[width=3cm]{../performanceAnalaysis/devices/samsunggalaxy101.jpg} & Tablet, Samsung Galaxy Tab 10.1 & Nvidia Tegra 2x 1 GHz, 1GB Memory & Android 4.2.1 32 Bit, Firefox 25 \\
+			\hline
+			\includegraphics[width=3cm]{../performanceAnalaysis/devices/googlenexus4.jpg} & Smartphone, Google Nexus 4 & NQualcomm Snapdragon S4 Pro 2x 1.5 GHz, 2GB Memory & Android 4.3 32 Bit, Firefox 25 \\
+			\hline
+		\end{tabularx}
 	
 	
 	\section{Testszenarien und Ergebnisse}
@@ -35,7 +44,7 @@
 					• 1 Browser\newline 
 					• Sender und Empfänger Instanz laufen jeweils in einem Browsertab\newline 
 					• Datenverkehr macht roundtripp über Netzwerkkarte\newline 
-					• Externe Services wie STUN Service und Signalling Channel
+					• Externe Services wie STUN Service und Signaling Channel
 				& 
 					• Zunahme CPU Auslastung mit einem Channel: ca 20\%\newline
 					• Zunahme Memory Verbrauch: ca 1-2\%\newline
@@ -250,11 +259,8 @@ Akkuleistung.\\
 					• Sprache verständlich oder unverständlich, je nach dem wie gut die Übertragungsrate ist.\\
 				\hline				
 			\end{tabularx}
-			\begin{figure}[H]
-				\begin{minipage}[b]{0.5\linewidth}
-					\includegraphics[width=\linewidth]{{../performanceAnalaysis/img/messung4.1setup1}.jpg}
-					\caption{freegeoip.net zeigt, das das Ultrabook über die HSR verbunden ist und das Smartphone direkt im lokalen Wlan hängt.}
-				\end{minipage}
+			\begin{figure}
+				\centering
 				\begin{minipage}[b]{0.5\linewidth}
 					\includegraphics[width=\linewidth]{{../performanceAnalaysis/img/messung4.1.1}.png}
 					\caption{Das Ultrabook kann einige wenige KiB/s liefern, das Smartphone sogar nut 1KiB/s.}
@@ -314,6 +320,6 @@ Akkuleistung.\\
 				\end{minipage}
 			\end{figure}	
 	
-	\end{landscape}
+\end{landscape}
 	
 	

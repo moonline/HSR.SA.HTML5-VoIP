@@ -5,7 +5,7 @@ Arbeiten
 --------
 - Applikationskern Objektorientiert umsetzen
 	- WebRTC kommunikation
-	- Signalling
+	- Signaling
 - SIP Server aufsetzen, erste Kommunikation mit dem Server umsetzen
 
 Probleme

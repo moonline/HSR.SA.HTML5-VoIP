@@ -50,7 +50,10 @@
 			Firefox packt die Ice Candidates\footnote{Vorschläge für Ports} direkt in die Session Description ein. Chrome schickt sie einzeln. Da Chrome nicht auf die Reihenfolge achtet kann es passieren, das Ice Candidates vor einer Offer ankommen. Aus diesem Grund müssen ankommende Ice Candidates in einer Queue gebuffert werden, bis eine Offer ankommt.
 		
 		\subsection{DataChannel}
-			Firefox unterstützt DataChannel\footnote{P2P Datenkanal parallel zum Video- und Audiostream} bereits vollständig. Chrome unterstützt ihr zwar, Events funktionieren jedoch noch nicht.
+			Firefox unterstützt DataChannel\footnote{P2P-Datenkanal parallel zum Video-
+			und Audiostream} bereits vollständig. Chrome unterstützt ihn nur im Modus
+			"`reliable: false"'. Setzt man ihn auf "`reliable: true"', kommen die Events
+			nicht zuverlässig an.
 			
 		\subsection{Media Access}
 			Firefox erlaubt mehrfachen Kameraacces und teilt sich die Kamera auch problemlos mit andern Prozessen. So ist es im Firefox möglich, von einem Tab in einen andern anzurufen. Chrome will die Kamera komplett für sich beanspruchen und wirf eine Fehlermeldung, falls sie bereits von einem Andern Prozess genutzt wird.

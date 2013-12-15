@@ -30,7 +30,11 @@
 *.pdf
 !planung/*.pdf    # allow pdfs in directory "planung"
 !documentation/projektplan/media/*.pdf
+!documentation/interfacesAndProtocols/*.pdf
 !material/*.pdf
+
+# interface documentation sources
+documentation/interfacesAndProtocols/api/*
 
 # mac trash
 .DS_Store

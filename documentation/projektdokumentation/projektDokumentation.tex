@@ -3,30 +3,50 @@
 
 %Dokumenteigenschaften
 \providecommand{\documentType}{Projektdokumentation}
-\providecommand{\versionnumber}{1.8}
+\providecommand{\versionnumber}{1.9}
 
 \begin{document}
 
 %Titel und Inhaltsverzeichnis
 \thispagestyle{empty}
 \begin{titlepage}
+\begin{figure}[htp]
+		\includegraphics[height=2.5cm]{../projektdokumentation/img/hsrLogo.jpg}
+	\end{figure}	
+	
 	\begin{center}
 
-	\vspace*{40mm}
+		\vspace*{1cm}
+		{\fontsize{32}{40} \selectfont \textbf{\project} \\[10mm]}
 	
-	\begin{figure}[htp]
-		\centering
-		\includegraphics[scale=0.60]{../img/icon-js-voip.png}
-	\end{figure}		
-	\vspace*{20mm}
+		\begin{figure}[htp]
+			\centering
+			\includegraphics[scale=0.60]{../img/icon-js-voip.png}
+		\end{figure}		
+		\vspace*{20mm}	
 	
-	{\fontsize{40}{48} \selectfont \project \\[10mm]}
-	\vspace*{20mm}
-	Tobias Blaser, Jannis Grimm
+		{\fontsize{32}{40} \selectfont \textbf{Studienarbeit} \\[10mm]}
+	
+		{\fontsize{18}{20} \selectfont 
+			Abteilung Informatik\\
+			Hochschule für Technik Rapperswil \\
+				
+			\vspace*{1cm}
+			Herbstsemester 2013\\
+		}
+		
+		\vspace*{2cm}
+		Tobias Blaser, Jannis Grimm\\
+		Betreuer: Prof. Dr. Luc Bläser
 
-\end{center}
+	\end{center}
 \end{titlepage}
 \clearpage
+
+\includepdf[pages=-]{../projektdokumentation/media/Aufgabenstellung.pdf}
+\includepdf[pages=-]{../projektdokumentation/media/Nutzungsvereinbarung.pdf}
+\includepdf[pages=-]{../projektdokumentation/media/Eigenstaendigkeitserklaerung.pdf}
+
 
 \chapter*{Änderungsnachweis}
 \begin{tabularx}{\textwidth}{|cXlr|} % Versionstabelle, Rahmen links und rechts
@@ -41,8 +61,9 @@
 		1.5 & Doku Review & Jannis Grimm & 22.11.13\\
 		1.6 & Abstract \& Management Summary & Tobias Blaser, Jannis Grimm & 10.12.13\\
 		1.7 & Performanceanalyse & Tobias Blaser, Jannis Grimm & 12.12.13\\
-		\versionnumber & Firewall Testing, Erkenntnisse, Überarbeitungen & Jannis
+		1.8 & Firewall Testing, Erkenntnisse, Überarbeitungen & Jannis
 		Grimm & 14.12.13\\
+		\versionnumber & Schnittstellen und Protokolle & Tobias Blaser & 15.12.13\\
 		\hline
 \end{tabularx}
 
@@ -53,6 +74,7 @@
 \input{abstract}
 \input{managementSummary}
 \input{vision}
+
 
 % projektorganisation
 \input{../projektplan/chapter2-projektorganisation}
@@ -80,6 +102,78 @@
 %\input{SchlussberichtTobias}
 
 
+\begin{thebibliography}{literatur}
+	\bibitem{IETF-JSON-RFC} IETF: 
+		"`The application/json Media Type for JavaScript Object Notation (JSON)'', RFC4627 (Stand Juli 2006),
+		\hyperlink{http://tools.ietf.org/html/rfc4627}{http://tools.ietf.org/html/rfc4627}, 
+		[Abruf am 21.11.13]
+	\bibitem{IETF-vCard-RFC} IETF: 
+		"`vCard Format Spezifikation'', RFC6350 (Stand August 2011),
+		\hyperlink{http://tools.ietf.org/html/rfc6350}{http://tools.ietf.org/html/rfc6350}, 
+		[Abruf am 21.11.13]
+	\bibitem{MDN-XHR-Cross-Site} Mozilla: 
+		"`HTTP access control (CORS)'' 
+		\hyperlink{https://developer.mozilla.org/en/docs/HTTP/Access_control_CORS}{https://developer.mozilla.org/en/docs/HTTP/Access/Access\_control\_CORS}, 
+		[Abruf am 07.10.13]
+	\bibitem{Mozilla-STUN-VM} Mozilla: 
+		STUN-VM (Stand: 15.01.13), 
+		\hyperlink{https://github.com/mozilla/stun-vm}{https://github.com/mozilla/stun-vm},
+		[Abruf am 28.10.13]
+	\bibitem{Kamailio-Project} Kamailio SIP Server Project: 
+		Kamailio Features (Stand: 18.03.2013), 
+		\hyperlink{http://www.kamailio.org/w/features/}{http://www.kamailio.org/w/features/}, 
+		[Abruf am 28.10.13]
+	\bibitem{IETF-DTLS-RFC} IETF: 
+		"`Datagram Transport Layer Security'', RFC5764 (Stand: 2010), 
+		\hyperlink{http://tools.ietf.org/html/rfc5764}{tools.ietf.org/html/rfc5764}, 
+		[Abruf am 28.10.13]
+	\bibitem{AdamRoach-WebRTC-Security} Adam Roach: 
+		"`WebRTC: Security and Confidentiality'' (Stand: 07.06.13), 
+		\hyperlink{http://sporadicdispatches.blogspot.ch/2013/06/webrtc-security-and-confidentiality.html}{http://sporadicdispatches.blogspot.ch/2013/06/webrtc-security-and-confidentiality.html}, 
+		[Abruf am 28.10.13]
+	\bibitem{MDN-LocalStorage} Mozilla: 
+		"`DOM Storage guide'',
+		\hyperlink{https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage}{https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage},
+		[Abruf am 21.10.13]
+	\bibitem{IETF-SDP-RFC} IETF:
+		"`SDP: Session Description Protocol'' (Stand: Juli 2006),
+		\hyperlink{http://tools.ietf.org/html/rfc4566}{http://tools.ietf.org/html/rfc4566},
+		[Abruf am 28.10.13]
+	\bibitem{IETF-STUN-RFC} IETF:
+		"`Session Traversal Utilities for NAT (STUN)'' (Stand Oktober 2008),
+		\hyperlink{http://tools.ietf.org/html/rfc5389}{http://tools.ietf.org/html/rfc5389},
+		[Abruf am 05.11.13]
+	\bibitem{QUnit-API} QUnit: %not use in text
+		"`QUnit API Documentation'',
+		\hyperlink{http://api.qunitjs.com/}{http://api.qunitjs.com/},
+		[Abruf am 30.09.13]
+	\bibitem{LESS} LESS:
+		"`The dynamic stylesheet language'',
+		\hyperlink{http://lesscss.org/\#docs}{http://lesscss.org/\#docs}
+		[Abruf am 25.11.13]
+	\bibitem{ChrisCoiyer-Flexbox} Chris Coiyer:
+		"`http://css-tricks.com/snippets/css/a-guide-to-flexbox/'',
+		\hyperlink{http://css-tricks.com/snippets/css/a-guide-to-flexbox/}{http://css-tricks.com/snippets/css/a-guide-to-flexbox/},
+		[Abruf am 14.10.13]
+	\bibitem{RequireJS-API} RequireJS:
+		"`RequireJS API'',
+		\hyperlink{http://requirejs.org/docs/api.html}{http://requirejs.org/docs/api.html},
+		[Abruf am 28.11.13]
+	\bibitem{AngularJS} AngualrJS:
+		"`AngularJS API Docs'',
+		\hyperlink{http://docs.angularjs.org/api/}{http://docs.angularjs.org/api/},
+		[Abruf am 28.11.13]
+	\bibitem{html5rocks-WebRTC} HTML5rocks:
+		"`http://www.html5rocks.com/en/tutorials/webrtc/basics/'',
+		\hyperlink{http://www.html5rocks.com/en/tutorials/webrtc/basics/}{http://www.html5rocks.com/en/tutorials/webrtc/basics/},
+		[Abruf am 23.09.13]
+	\bibitem{MuazKhan-RTCDataChannel} Muaz Khan:
+		"`How to use RTCDataChannel'',
+		\hyperlink{https://www.webrtc-experiment.com/docs/how-to-use-rtcdatachannel.html}{https://www.webrtc-experiment.com/docs/how-to-use-rtcdatachannel.html}
+		[Abruf am 07.11.13]
+\end{thebibliography}
+
+
 \appendix
 
 
@@ -102,7 +196,6 @@
 
 % interfaces & protocols
 \input{../interfacesAndProtocols/interfacesAndProtocols}
-
 
 
 

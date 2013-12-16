@@ -72,7 +72,7 @@
 		\begin{itemize}
 			\item Es wird kein Server benötigt.
 			\item Anwender können einen beliebigen Kommunikationsserver
-			(beispielsweise SIP\footnote{Session Initiation Protocol} oder
+			(beispielsweise SIP\footnote{Session Initiation Protocol \cite{IETF-SDP-RFC}} oder
 			XMPP\footnote{Extensible Messaging and Presence Protocol}) für das
 			Signaling verwenden und sogar selbst eine eigene Channelimplementation
 			hinzufügen.
@@ -86,7 +86,7 @@
 		\subsubsection{Nachteile}
 		\begin{itemize}
 			\item Die möglichen Schnittstellen sind auf die Browserfunktionalität
-			begrenzt (HTTP, WebSockets, RTSP\footnote{Realtime Strem Protocol}). Dadurch
+			begrenzt (HTTP, WebSockets, SDP, STUN, UserMedia). Dadurch
 			muss ein SIP- oder XMPP-Provider WebSockets unterstützen, damit er für das
 			Signaling genutzt werden kann.
 			\item Der Client wird umfangreicher.
@@ -105,7 +105,7 @@
 			wird mit der Option "`Allow Cross Origin"' gearbeitet.
 
 	\subsection{STUN-Service}
-		STUN\footnote{Session Traversal Utilities for NAT}-Services sind zwingend
+		STUN\footnote{Session Traversal Utilities for NAT \cite{IETF-STUN-RFC}}-Services sind zwingend
 		notwendig, um die nach aussen sichtbare IP-Adresse des Clients herauszufinden.
 		Neben der Möglichkeit, selbst einen STUN-Service aufzusetzen, gibt es frei
 		verfügbare STUN-Services, beispielsweise von Mozilla oder Google.
@@ -115,21 +115,21 @@
 		Konfiguration ist es möglich, den Server festzulegen.
 
 		Im Netz gibt es fertig konfigurierte virtuelle Maschinen mit einsatzbereitem
-		STUN-Service\footnote{Mozilla, stun-vm (Stand: 15.01.13). \hyperlink{https://github.com/mozilla/stun-vm}{https://github.com/mozilla/stun-vm} [Abgerufen am 28.10.13]}.
+		STUN-Service\footnote{Mozilla, stun-vm \cite{Mozilla-STUN-VM}}.
 
 	\subsection{SIP-Proxy vs. SIP-Server mit WebSockets}
 		Unterstützt ein SIP-Server keine WebSockets, so kann ein SIP/WebSocket-Proxy
 		dazwischen geschaltet werden. Die Konfiguration eines SIP-Proxies ist ähnlich
-		aufwändig wie die Installation eines Kamailio\footnote{Kamailio SIP Server
-		Project, Features (Stand: 18.03.2013).
-		\hyperlink{http://www.kamailio.org/w/features/}{http://www.kamailio.org/w/features/}, [Abruf am 28.10.13]}-SIP-Servers, der in der neusten Version WebSockets unterstützt.
+		aufwändig wie die Installation eines Kamailio
+		\footnote{Kamailio SIP Server Project, \cite{Kamailio-Project}}-SIP-Servers, der in der neusten Version WebSockets unterstützt.
 
 	\subsection{Sicherheit}
 		WebRTC-Streams können nur verschlüsselt übertragen werden. Es gibt keine
 		Möglichkeit, die Verschlüsselung abzuschalten. Dies führt zwar zu einem
 		erhöhten Rechenbedarf auf dem Client, garantiert jedoch eine verschlüsselte
 		Verbindung unabhängig von den Vorlieben des Entwicklers.
-		Die Verschlüsselung erfolg über DTLS-SRTP\footnote{IETF, RFC5764 (Stand: 2010). \hyperlink{http://tools.ietf.org/html/rfc5764}{tools.ietf.org/html/rfc5764}, [Abruf am 28.10.13]} keyings\footnote{Adam Roach, WebRTC: Security and Confidentiality (Stand: 07.06.13). \hyperlink{http://sporadicdispatches.blogspot.ch/2013/06/webrtc-security-and-confidentiality.html}{http://sporadicdispatches.blogspot.ch/2013/06/webrtc-security-and-confidentiality.html}, [Abruf am 28.10.13]}. 
+		Die Verschlüsselung erfolg über DTLS-SRTP\footnote{Datagram Transport Layer Security \cite{IETF-DTLS-RFC}} 
+		keyings\footnote{Adam Roach, WebRTC: Security and Confidentiality \cite{AdamRoach-WebRTC-Security}}. 
 		
 		Die Verschlüsselung des Signaling-Channels ist abhängig von der eingesetzten
 		Technologie. Werden z.B. Secure Websockets oder XHR über HTTPS eingesetzt so ist die Kommunikation verschlüsselt und nicht abgreifbar.

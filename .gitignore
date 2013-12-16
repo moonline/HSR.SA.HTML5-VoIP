@@ -30,6 +30,7 @@
 *.pdf
 !planung/*.pdf    # allow pdfs in directory "planung"
 !documentation/projektplan/media/*.pdf
+!documentation/projektdokumentation/media/*.pdf
 !documentation/interfacesAndProtocols/*.pdf
 !material/*.pdf
 

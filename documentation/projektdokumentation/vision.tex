@@ -25,16 +25,14 @@
 	\section{Ziele}
 		\begin{itemize}
 			\item Audio- und Videokommunikation zwischen zwei Teilnehmern.
-			\item Signaling\footnote{Benachrichtigen eines andern Peers über eine Verbindungsanfrage und Austausch von Verbindungsparametern} über beliebige Channels, Referenzimplementation eines Channels mit XHR\footnote{XML HTTP Request, Asynchrones nachladen von HTTP Seiten}.
-			\item Adressbuchimport von beliebigen Quellen, Referenzimplementationen für JSON
-				\footnote{Javascript Object Notation, strukturiertes mensch- und maschinenlesbares Datenaustauschformat, 
-					IETF, JSON (Stand Juli 2006)
-					\hyperlink{http://tools.ietf.org/html/rfc4627}{http://tools.ietf.org/html/rfc4627}, [Abruf am 21.11.13]
-				} und VCARD
-				\footnote{Elektronische Visitenkarte, IETF, vCard Format Spezifikation (Stand August 2011) 
-					\hyperlink{http://tools.ietf.org/html/rfc6350}{http://tools.ietf.org/html/rfc6350}, [Abruf am 21.11.13]
-				} Import sowie eines Online Adressbuches über eine JSON Schnittstelle.
-			\item Speichern von Adressbüchern und Benutzerinformationen im Browser (Local Storage).
+			\item Signaling\footnote{Benachrichtigen eines andern Peers über eine Verbindungsanfrage und Austausch von Verbindungsparametern} 
+				über beliebige Channels, Referenzimplementation eines Channels mit 
+				XHR\footnote{XML HTTP Request, Asynchrones nachladen von HTTP Seiten \cite{MDN-XHR-Cross-Site}}.
+			\item Adressbuchimport von beliebigen Quellen, Referenzimplementationen für 
+				JSON\footnote{Javascript Object Notation \cite{IETF-JSON-RFC}, strukturiertes mensch- und maschinenlesbares Datenaustauschformat} und 
+				VCARD\footnote{Elektronische Visitenkarte \cite{IETF-vCard-RFC}} Import sowie eines Online Adressbuches über eine JSON Schnittstelle.
+			\item Speichern von Adressbüchern und Benutzerinformationen im Browser 
+				(Local Storage\cite{MDN-LocalStorage}).
 			\item Verschlüsselte Kommunikation zwischen den Clients. Die Kommunikation der Signaling Channel Referenzimplementation muss nicht zwingend verschlüsselt werden, da diese automatisch verschlüsselt wird sobald die Verbindung mit TLS geschützt wird.
 		\end{itemize}
 		

@@ -14,4 +14,11 @@
 	
 	
 	\section{Bugs und technische Probleme}
-	Es ist nicht gelungen, SIP als Signaling-Protokoll einzusetzen, da die SIP-Server Websockets erst seit kurzem unterstützen und die Schnittstelle im verwendeten SIP-Server Kamailo noch nicht stabil ist. Websockets sind zwingend notwendig, 
+	Es ist nicht gelungen, SIP als Signaling-Protokoll einzusetzen, da die SIP-Server Websockets erst seit kurzem unterstützen und die Schnittstelle im verwendeten SIP-Server Kamailo noch nicht stabil ist. Websockets sind zwingend notwendig,
+	
+	
+	\section{Zusätzlich umgesetzte Features}
+	Durch die Umsetzung des Verbindungsabbaus über den P2P Datachannel wurde die Voraussetzung geschaffen, um mit wenig Zusatzaufwand Chat Funktionalität in die Applikation einbauen zu können.
+	Chatnachrichten werden als sogenannte User-Messages über den Datachannel gesendet und sind somit ebenfalls verschlüsselt.
+	
+	

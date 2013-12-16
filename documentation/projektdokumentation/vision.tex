@@ -1,16 +1,16 @@
 \chapter{Vision}
-	Im Rahmen der Semesterarbeit ``A Practical JavaScript-Only Video-Over-IP Communication Plattform"' wird eine
+	Im Rahmen der Semesterarbeit "`A Practical JavaScript-Only Video-Over-IP Communication Plattform"' wird eine
 	Video-Over-IP-Applikation entwickelt, die vollständig im Browser läuft.
 	
 	Die Applikation läuft in modernen Browser ohne Plugins oder die Installation lokaler Software.
 			
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\textwidth]{img/plattformUnabhaengigkeit.jpg}
+		\includegraphics[width=0.5\textwidth]{../projektdokumentation/img/plattformUnabhaengigkeit.jpg}
 		\label{plattformUnabhaengigkeit}
 	\end{figure}
 	
-	Durch den offenen Standard ``WebRTC"' ist die Applikation auf jedem modernen Gerät benutzbar, das den Standard umsetzt und genug Leistung für Audio- und Videokommunikation bereitstellt.
+	Durch den offenen Standard "`WebRTC"' ist die Applikation auf jedem modernen Gerät benutzbar, das den Standard umsetzt und genug Leistung für Audio- und Videokommunikation bereitstellt.
 	
 	Durch die einfache Benutzung ist die Applikation auch für technisch nicht
 	versierte Benutzer zugänglich.
@@ -23,16 +23,12 @@
 	
 	
 	\section{Ziele}
+		Im Projekt sollen die folgenden konkreten Ziele erreicht werden:
 		\begin{itemize}
 			\item Audio- und Videokommunikation zwischen zwei Teilnehmern.
-			\item Signaling\footnote{Benachrichtigen eines andern Peers über eine Verbindungsanfrage und Austausch von Verbindungsparametern} 
-				über beliebige Channels, Referenzimplementation eines Channels mit 
-				XHR\footnote{XML HTTP Request, Asynchrones nachladen von HTTP Seiten \cite{MDN-XHR-Cross-Site}}.
-			\item Adressbuchimport von beliebigen Quellen, Referenzimplementationen für 
-				JSON\footnote{Javascript Object Notation \cite{IETF-JSON-RFC}, strukturiertes mensch- und maschinenlesbares Datenaustauschformat} und 
-				VCARD\footnote{Elektronische Visitenkarte \cite{IETF-vCard-RFC}} Import sowie eines Online Adressbuches über eine JSON Schnittstelle.
-			\item Speichern von Adressbüchern und Benutzerinformationen im Browser 
-				(Local Storage\cite{MDN-LocalStorage}).
+			\item Signaling\footnote{Benachrichtigen eines andern Peers über eine Verbindungsanfrage und Austausch von Verbindungsparametern} über beliebige Channels, Referenzimplementation eines Channels mit XHR.
+			\item Adressbuchimport von beliebigen Quellen, Referenzimplementationen für JSON und VCARD Import sowie eines Online Adressbuches über eine JSON Schnittstelle.
+			\item Speichern von Adressbüchern und Benutzerinformationen im Browser (Local Storage\cite{MDN-LocalStorage}).
 			\item Verschlüsselte Kommunikation zwischen den Clients. Die Kommunikation der Signaling Channel Referenzimplementation muss nicht zwingend verschlüsselt werden, da diese automatisch verschlüsselt wird sobald die Verbindung mit TLS geschützt wird.
 			\item Unterbricht die Verbindung, so soll der Stream automatisch weiterlaufen, sobald die Verbindung wieder verfügbar ist.
 		\end{itemize}
@@ -40,8 +36,7 @@
 	\section{Abgrenzung}
 		\begin{itemize}
 			\item Kommunikation mit mehreren Teilnehmern ist nicht Teil der Arbeit, es soll jedoch sichergestellt werden, das dies später umgesetzt werden könnte.
-			\item Für Adressbuchimport und Signaling-Channel soll nur die API und eine
-			Referenzimplementation umgesetzt werden und keine Implementationen für diverse Formate.
+			\item Für Adressbuchimport und Signaling-Channel soll nur die API und eine Referenzimplementation umgesetzt werden und keine Implementationen für diverse Formate.
 		\end{itemize}
 		
 		
@@ -50,6 +45,7 @@
 		\begin{itemize}
 			\item Chat
 			\item Austausch von Dateien
+			\item Konferenzschaltung
 			\item Screensharing soweit die Browser solche Funktionalität überhaupt schon unterstützen
 		\end{itemize}
 		

@@ -7,7 +7,7 @@
 	\item Zugewiesene Arbeitsplätze im Zimmer 1.258
 	\item Mobile Devices mit WebRTC-fähigem Browser
 	\item Virtual Server für Projektmanagement
-	\item SIP Service (z.B. sipcall.ch) oder SIP-Server mit WebSockets-Support
+	\item SIP Service (z.B. sipcall.ch), SIP-Server mit WebSockets-Support oder Webserver für XHR basierte Lösung
 \end{itemize}
 
 \section{Tools}
@@ -65,7 +65,7 @@ PDF-Export.
 \subsection{UI Drafting}
 \begin{itemize}
 	\setlength{\itemsep}{-\parsep}
-	\item Balsamiq Mockup für UI Drafts
+	\item Evolus Pencil für UI Drafts
 	\item eventuell LibreOffice Draw für UI Design Finals
 \end{itemize}
 
@@ -74,8 +74,14 @@ PDF-Export.
 \subsubsection{Adapter.js}
 Adapter.js abstrahiert die verschiedenen Browserschnittstellen von WebRTC und vereinfacht die Entwicklung. Zudem muss bei einer Schnittstellenanpassung browserseitig nur der Adapter aktualisiert werden und nichts an der App geändert werden.
 
-\subsubsection{Ember.js}
-Ember.js ist ein bekanntes MVC und Templating Framework, das eine saubere Trennung von Logik und Darstellung ermöglicht. Ember.js bindet darüber hinaus Properties im Template direkt an Objektproperties, wodurch in vielen Fällen eigene Observerimplementierungen überflüssig sind.
+\subsubsection{Angular.js}
+Angular.js ist ein bekanntes MVW- und Templating Framework, das eine saubere Trennung von Logik und Darstellung ermöglicht. Angular.js bindet darüber hinaus ViewModel Properties und Functions ans Template, wodurch sich Observerkonstrukte sparen lassen.
+
+\subsubsection{Require.js}
+Require.js soll zur Strukturierung und Autolading der Klassen und komponenten eingesetzt werden.
+
+\subsubsection{LESS}
+Less soll als clientseitiger CSS Parser eingesetzt werden, da es den CSS Code stark verschlankt und Vorteile wie Variablen und Mixins bietet.
 
 \subsubsection{jQuery}
 jQuery als eine der besten JavaScript-Bibliotheken, bietet sehr einfache

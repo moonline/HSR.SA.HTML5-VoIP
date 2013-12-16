@@ -7,16 +7,16 @@
 		\includegraphics[width=1\textwidth]{../architekturanalayse/img/bigPicture.png}
 		\caption{Big Picture JS VoIP App}
 	\end{figure}
-	Das Diagramm zeigt die erforderlichen Komponenten anhand zweier Clients. Jeder Client besitzt ein User Interface über welches der User die Kommunikation starten und beenden sowie Kontakbücher verwalten kann.
 	
-	$\rightarrow$ User Interface siehe Anhang \ref{uiDrafts}
+	Jeder Client besitzt Signaling Channels, die mit einem Signaling Server interagieren. Hier wurde als Beispiel eine Message Queue und ein SIP Server verwendet. Die Kommunikation läuft entsprechend über XHR oder SIP.
 	
-	Jeder Client besitzt Signaling Channels, die mit einem Signaling Server interagieren. Hier wurde als Beispiel eine Message Queue auf einem Apache Server verwendet. Die Kommunikation läuft entsprechend über XHR.
+	Für das Media Handling und die P2P-Kommunikation greift jeder Client über den Browser auf die lokale Kamera und das lokale Mikrophon zu.
 	
-	Für das Media Handling und die P2P-Kommunikation besitzt jeder Client ein Mediamanagement, das den P2P-Channel verwaltet und auf die lokale Mediaschnittstelle zugreift.
+	Ein Verbindungsaufbau beginnt bei einem Client. Der Browser generiert eine Offer für den andern Client und sendet diese in einer Signaling Message über einen Signaling Server wie eine einfache Message Queue oder einen SIP Server an den andern Client. Der Browser des andern Clients generiert eine Answer und schickt diese auf dem gleichen Weg zurück. Anschliessend bauen die Clients die direkte P2P Connection auf. Sobald diese aufgebaut wurde, können Daten oder Video- und Audio gestreamt werden.
 	
+	Für den Abbau sendet ein Client ein bye. Anschliessend bauen beide Clients die P2P Connection ab.
 
-\section{Architektur-Detailmodell}
+\section{Architektur-Schichten}
 	Der logische Aufbau der Software besteht aus vier Schichten:
 	\begin{figure}[H]
 		\centering
@@ -28,7 +28,7 @@
 	
 
 \begin{landscape}
-\section{Domain}
+\section{Domainmodel}
 	Im folgenden Diagramm sind die wichtigsten konzeptionellen Klassen und ihre Beziehungen untereinander aufgeführt.
 	\begin{figure}[H]
 		\centering
@@ -37,12 +37,22 @@
 	\end{figure}
 	Herzstück der Applikation sind die Channels und die Connection sowie das Contactbookmanagement.
 	
-	Die Channels laufen im Hintergrund und verbinden den User mit einem oder mehreren Signaling-Servern. Sie werden beim Login des Benutzers gestartet und müssen entsprechend ein Channel-Interface implementieren.
+	Die Channels laufen im Hintergrund und verbinden den User mit einem oder mehreren Signaling-Servern. Sie werden beim Login des Benutzers gestartet und müssen entsprechend ein Channel-Interface implementieren. So laufen z.B. ein SIP Channel und ein XHR Channel, ja nach dem was der Benutzer für Accounts besitzt.
 	
 	Die Connection übernimmt das komplette Handling der P2P-Verbindung inklusive Verbindungsauf- und -abbau. Sie greift über den Host auf die lokale Kamera zu und sendet und empfängt über einen Channel "`Offers"' und "`Answers/Replies"'.
 	
 	Die Kontaktverwaltung übernimmt der ContactbookManager. Er importiert Kontaktbücher anhand der Konfiguration von den Quelle "`Datei"', "`Ordner"' oder "`Online"'. Für die formatspezifischen Importprozesse sind die jeweiligen Kontaktbücher zuständig. Dazu müssen alle Kontaktbücher das Addressbook-Interface umsetzen.
 \end{landscape}
+
+\section{Connection}
+
+
+\section{Adressbook}
+
+
+\section{Interfaces}
+
+
 \clearpage
 
 \section{Architektur-Designmotivations}
@@ -174,14 +184,4 @@
 		Abbruch der Verbindung bzw. des Aufbaus, vorausgesetzt das "`bye"'
 		kommt vom anderen Kommunikationspartner.
 	\end{landscape}
-		
-	
-\clearpage
-\section{Deployment}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{../architekturanalayse/img/deployment.png}
-		\label{img:deployment}
-		\caption{Deploymentdiagramm JS VoIP App}
-	\end{figure}
 	

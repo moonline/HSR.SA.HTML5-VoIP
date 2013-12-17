@@ -9,23 +9,12 @@
 	\end{figure}
 	
 	Jeder Client besitzt Signaling Channels, die mit einem Signaling Server interagieren. Hier wurde als Beispiel eine Message Queue und ein SIP Server verwendet. Die Kommunikation läuft entsprechend über XHR oder SIP.
-	
-	Für das Media Handling und die P2P-Kommunikation greift jeder Client über den Browser auf die lokale Kamera und das lokale Mikrophon zu.
-	
+		
 	Ein Verbindungsaufbau beginnt bei einem Client. Der Browser generiert eine Offer für den andern Client und sendet diese in einer Signaling Message über einen Signaling Server wie eine einfache Message Queue oder einen SIP Server an den andern Client. Der Browser des andern Clients generiert eine Answer und schickt diese auf dem gleichen Weg zurück. Anschliessend bauen die Clients die direkte P2P Connection auf. Sobald diese aufgebaut wurde, können Daten oder Video- und Audio gestreamt werden.
 	
 	Für den Abbau sendet ein Client ein bye. Anschliessend bauen beide Clients die P2P Connection ab.
-
-\section{Architektur-Schichten}
-	Der logische Aufbau der Software besteht aus vier Schichten:
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\textwidth]{../architekturanalayse/img/architecture.png}
-		\caption{Architekturdiagramm JS VoIP App}
-	\end{figure}
-	Im untersten Layer sind Services und Libraries enthalten, auf die die oberen Layer zugreifen.
-	Der Application Layer beinhaltet View Models für das User Interface und interagiert mit dem Model. 
-
+	
+	
 	\subsection{Client/Server vs. reine Client-Applikation}
 		\subsubsection{Vorteile Client/Server-Umsetzung}
 		\begin{itemize}
@@ -42,9 +31,8 @@
 			Funktionalität umgesetzt werden müssen.
 			\item Ein Anwender ist an den Server oder die Serverimplementation gebunden.
 			Die Applikation läuft nicht ohne den Server.
-			\item Der Server ist ein "`Single Point of Failure"'.
-			\item Sollen weitere Schnittstellen umgesetzt werden, so muss der Server
-			erweitert werden, was aufwendiger ist, als den Client zu erweitern.
+			\item Der Server ist ein "`Single Point of Failure"', falls keine redundanten Server eingesetzt werden. Zudem stellt der Server eine zentrale Angriffsstelle dar, über die Angreifer einfacher das ganze System blockieren könnten.
+			\item Möchte ein Entwickler die Applikation um weitere Schnittstellen erweitern, so muss er Server und möglichweise den Client trotzdem auch anpassen, was aufwendiger ist. Zudem muss er den Server selbst betreiben und kann keinen bestehenden mehr nehmen was für Ihn zusätzlichen Aufwand bedeutet.
 		\end{itemize}
 
 
@@ -83,3 +71,14 @@
 			Für die Kommunikation mit Signalingservern, wie SIP oder XMPP, werden
 			WebSockets eingesetzt, für das Signaling über XHR\footnote{XmlHTTPRequest}
 			wird mit der Option "`Allow Cross Origin"' gearbeitet.
+
+\section{Architektur-Schichten}
+	Der logische Aufbau der Software besteht aus vier Schichten:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{../architekturanalayse/img/architecture.png}
+		\caption{Architekturdiagramm JS VoIP App}
+	\end{figure}
+	Im untersten Layer sind Services und Libraries enthalten, auf die die oberen Layer zugreifen.
+	Der Application Layer beinhaltet View Models für das User Interface und interagiert mit dem Model. 
+

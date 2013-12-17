@@ -1,4 +1,6 @@
 \chapter{Erkenntnisse}
+	Die während der Entwicklung der Architekturprototypen und dem Ausbau der Connection gesammelten Erkenntnisse sind hier zusammengetragen:
+
 	\section{Media Streaming}
 		\begin{description}
 			\item[Verbindungsabbruch] Bricht die Verbindung ab, so bleibt die Video- und Audiowiedergabe stehen, bis die Verbindung wieder da ist und die UDP Pakete wieder ankommen.
@@ -13,12 +15,11 @@
 	 	\end{description}
 	 	
 	 \section{Peerconnection}
-	 	Eine Peer-Connection kann nur durch den Austausch von SDP-Descriptions
-	 	aufgebaut werden. Innerhalb der SDP werden Parameter für die Peer-Connection
+	 	Eine Peer-Connection kann nur durch den Austausch von SDP aufgebaut werden. Innerhalb der SDP werden Parameter für die Peer-Connection
 	 	sowie IP und allenfalls Endpunktkandidaten übertragen.
 	 	
 	 	\begin{description}
-			\item[Endpunktkandidaten] zwischengespeichert werden, bis die Verbindung bereit ist.
+			\item[Endpunktkandidaten] Je nach Implementation übertragen die Browser die Endpunktkandidaten (Candidates) einzeln und nicht in einer bestimmten Reihenfolge. Ist die Verbindung noch nicht initialisiert worden, so müssen diese zwischengespeichert werden, bis die Verbindung bereit ist.
 
 			\item[Verschlüsselung] Der übertragene Stream ist standardmässig verschlüsselt. Die Verschlüsselung ist Teil des Standards und kann nicht abgeschaltet werden.
 			

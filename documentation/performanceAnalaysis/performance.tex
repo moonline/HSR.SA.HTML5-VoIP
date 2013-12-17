@@ -32,6 +32,8 @@
 		
 		\vspace{0.5cm}
 		Bei schwächeren Geräten und einer kleineren möglichen Datenrate beeinträchtigt das Video die Audioübertragung zu stark. Entsprechend lohnt es sich, unter diesem Umständen das Video gar nicht zu aktivieren.
+		
+		Während dem Entwickeln ist aufgefallen, das die Performance von Chrome etwas besser ist als die von Firefox. Ist die Performance auf einem Gerät mit Firefox zu schlecht, so kann man es mit Chrome erneut versuchen.
 			
 		Ausführliche Performanceanalyse siehe Anhang \ref{performanceanalyse}
 	
@@ -46,14 +48,20 @@
 	
 	
 \chapter{Firewall Testing}
+	Beim Firewall Testing ging es darum, herauszufinden, in welchen Netzwerkumgebungen WebRTC-Kommunikation eingesetzt werden kann, und in welchen nicht.
+	
 	\section{Signaling}
-		Je nach verwendetem Protokoll wird dieses in einer stark reglementierten
-		Umgebung geblockt. Ebenfalls kann es vorkommen, das beispielsweise
-		WebSockets-Pakete unterwegs verworfen werden, weil Router sie aus
-		Policygründen nicht weiterleiten.
+		Für das Signaling können verschiedene Protokolle eingesetzt werden. Bevorzugt HTTP oder WebSockets. Davon hängt auch ab, ob die Pakete von Firewalls ausgefiltert werden, oder nicht.
 		
-		Wird für das Signaling ein HTTP-basierter Mechanismus verwendet, sollten
-		keine Pakete geblockt werden.
+		WebSocket Pakete sind insbesondere älteren Firewalls noch nicht bekannt und werden von diesen verworfen. Dies betrifft jedoch vor Allem Unternehmensnetzwerke.
+		In den Netzwerken der Schweizer Provider sowie im Netzwerk der HSR konnten wir dies nie beobachten.
+		Mit VPN könnte man das Problem umgehen, sofern VPN im Netzwerk zugelassen ist.
+		
+		Wird HTTP für das Signaling eingesetzt, kommt es zu keinen Paketverwürfen, da HTTP von allen Firewalls erlaubt wird.
+		In Unternehmen ist es vorstellbar, das unverschlüsselte HTTP-Pakete analysiert und aufgrund der enthaltenen SDP blockiert werden. Durch den Einsatz von HTTPS lässt sich dies jedoch lösen.
+		
+		Werden Signaling Pakete blockiert, so erhalten die Peers nie Verbindungsanfragen von andern Peers.
+		
 
 	\section{P2P Connection}
 		Für den Aufbau der Peer-to-Peer Connection ermitteln beide Clients über einen
@@ -61,10 +69,13 @@
 		mittels SDP\footnote{Session Description Protocol} aus und verbinden sich
 		direkt P2P um Parameter für die Verschlüsselung auszutauschen. Für diesen
 		Austausch wird ebenfalls das UDP basierte STUN-Protokoll verwendet.
-		In starkt reglementierten Umgebungen werden unter Umständen diese STUN-Pakete
-		geblockt. Dadurch kann keine Verbindung zwischen den Clients aufgebaut werden.
 		
-		In gewöhnlichen Umgebungen sollten STUN-Pakete jedoch nicht geblockt werden.
+		In starkt reglementierten Umgebungen werden unter Umständen diese STUN-Pakete
+		geblockt. Dadurch kann keine Verbindung zwischen den Clients aufgebaut werden und die Applikation wird nach dem eingestellten Timeout den Verbindungsaufbau abbrechen. 
+		Um durch eine solch restriktive Firewall hindurchzukommen kann ein VPN Client eingesetzt werden, vorausgesetzt VPN ist zugelassen.
+		
+		In Netzwerkumgebungen wie sie Heimanwender oder kleinere Firmen verwenden sollten STUN-Pakete nicht blockiert werden. Auch im Mobilfunk konten wir dies bisher nicht beobachten.
 	
-	\section{Firewall Pass Tests}
-		Siehe Anhang \ref{firewalltests}
+		Detailierte Firewalltests: Siehe Anhang \ref{firewalltests}
+		
+		

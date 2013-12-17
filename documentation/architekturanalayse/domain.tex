@@ -57,22 +57,20 @@
 		\end{figure}
 		Die Clients beziehen vom STUN-Service ihre extern sichtbare IP. Nach dem Austauschen der SDP\footnote{Session Description Protocol\cite{IETF-SDP-RFC}} über den Signaling Channel versuchen die Peers sich gegenseitig direkt zu erreichen mit STUN Messages. Dazu verwenden Sie die Ports, die sie von den Candidates\footnote{Endpunktkandidaten (Ports) für DataChannel, Audio- und Videostream} des SDP erhalten haben.
 		War dies erfolgreich, wird die PeerConnection aufgebaut und die Datenströme sind verbunden. Die Peers kommunizieren nun direkt und benötigen den Signaling Service nicht mehr.
+				
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{../architekturanalayse/img/connectionState.png}
+			\label{img:deployment}
+			\caption{Applikationszustände}
+		\end{figure}
+		Beim Verbindungsaufbau nimmt jeder Client entwerde die Rolle "`Caller"' oder
+		"`Callee"' ein. Erlaubt der Benutzer Zugriff auf die Kamera, so wird die
+		Verbindung aufgebaut und bleibt bestehen, bis einer der Clients die Verbindung mit einem "`bye"' beendet.
 		
-		\begin{landscape}		
-			\begin{figure}[H]
-				\centering
-				\includegraphics[height=0.7\textwidth]{../architekturanalayse/img/connectionState.png}
-				\label{img:deployment}
-				\caption{Applikationszustände}
-			\end{figure}
-			Beim Verbindungsaufbau nimmt jeder Client entwerde die Rolle "`Caller"' oder
-			"`Callee"' ein. Erlaubt der Benutzer Zugriff auf die Kamera, so wird die
-			Verbindung aufgebaut und bleibt bestehen, bis einer der Clients die Verbindung mit einem "`bye"' beendet.
-			
-			Ungültige Messages werden ignoriert. "`bye"' führt in jedem Zustand zu einem
-			Abbruch der Verbindung bzw. des Aufbaus, vorausgesetzt das "`bye"'
-			kommt vom anderen Kommunikationspartner.
-		\end{landscape}
+		Ungültige Messages werden ignoriert. "`bye"' führt in jedem Zustand zu einem
+		Abbruch der Verbindung bzw. des Aufbaus, vorausgesetzt das "`bye"'
+		kommt vom anderen Kommunikationspartner.
 	
 	\subsection{Verbindungsabbau}
 		Für den Verbindungsabbau teilen sich die Peers dies mit und bauen anschliessend die Verbindung ab. Der Verbindungsabbau kann wahlweise über den Signaling-Server oder direkt über den Datachannel der PeerConnection gesendet werden. Wurde die PeerConnection als unzuverlässig konfiguriert, so sind Bestätigungsnachrichten sinnvoll, damit kein Client die Verbindung offen behält, obwohl der andere Peer bereits die Verbindung abgebaut hat.

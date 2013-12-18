@@ -11,36 +11,49 @@
 \end{landscape}
 
 \section{Channel}
-	Die Channels laufen im Hintergrund und verbinden den User mit einem oder mehreren Signaling-Servern. Sie werden beim Login des Benutzers gestartet und müssen entsprechend ein Channel-Interface implementieren. So laufen z. B. ein SIP Channel und ein XHR Channel, ja nach dem was der Benutzer für Accounts besitzt.
+	Die Channels laufen im Hintergrund und verbinden den User mit einem oder
+	mehreren Signaling-Servern. Sie werden beim Login des Benutzers gestartet und
+	müssen entsprechend ein Channel-Interface implementieren. So laufen z.\,B. ein
+	SIP Channel und ein XHR Channel, abhängig davon, was der Benutzer für Accounts
+	besitzt.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\textwidth]{../architekturanalayse/img/channel.png}
 		%\caption{Strukturdiagramm JS VoIP App}
 	\end{figure}
 	
-	Die interne implementation des Channels ist dem entsprechenden Entwickler überlassen. Als Referenzimplementation wurde ein Channel über XHR und ein Channel über WebSockets umgesetzt. 
+	Die interne Implementation des Channels ist dem entsprechenden Entwickler
+	überlassen. Als Referenzimplementation wurde ein Channel über XHR und ein Channel über WebSockets umgesetzt.
 	
-	Beim XHR-Channel wird mit dem Starten des Channels ein Polling auf den Queue-Server gestartet. Sobald dieses eine Antwort zurückliefert, werden die Listener benachrichtigt. 
+	Beim XHR-Channel wird mit dem Starten des Channels ein Polling auf den
+	Queue-Server gestartet. Sobald dieser eine Antwort zurückliefert, werden die Listener benachrichtigt.
 	
-	Beim Websocket-Channel wird eine WebSocket-Verbindung geöffnet, die anschliessend offen bleibt. Sobald der Queue-Server einen neue Nachricht hat, erhält der Channel diese vom Server und kann die Listener benachrichtigen.
+	Beim WebSocket-Channel wird eine WebSocket-Verbindung geöffnet, die
+	anschliessend offen bleibt. Sobald der Queue-Server einen neue Nachricht hat, erhält der Channel diese vom Server und kann die Listener benachrichtigen.
 	
-	Sowohl der XHR-Channel wie der WebSocket-Channel lassen sich verschlüsselt nutzen, indem beim XHR-Channel über HTTPS\footnote{TLS geschützte HTTP Verbindung} zugegriffen wird und beim WebSocket-Channel über WSS\footnote{Secure WebSocket, TLS geschützte WebSocket Verbindung}.
+	Sowohl der XHR-Channel wie der WebSocket-Channel lassen sich verschlüsselt
+	nutzen, indem beim XHR-Channel über HTTPS\footnote{TLS geschützte HTTP Verbindung} zugegriffen wird und beim WebSocket-Channel über WSS\footnote{Secure WebSocket, TLS geschützte WebSocket-Verbindung}.
 	
 
 \section{Adressbook}
-	Die Kontaktverwaltung übernimmt der ContactbookManager. Er importiert Kontaktbücher anhand der Konfiguration von den Quelle "`Datei"', "`Ordner"' oder "`Online"'. Für die formatspezifischen Importprozesse sind die jeweiligen Kontaktbücher zuständig. Dazu müssen alle Kontaktbücher das Addressbook-Interface umsetzen.
+	Die Kontaktverwaltung übernimmt der ContactbookManager. Er importiert
+	Kontaktbücher anhand der Konfiguration von den Quellen "`Datei"', "`Ordner"'
+	oder "`Online"'. Für die format\-spezifischen Importprozesse sind die
+	jeweiligen Kontaktbücher zuständig. Dazu müssen alle Kontaktbücher das Addressbook-Interface umsetzen.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\textwidth]{../architekturanalayse/img/addressbook.png}
 		%\caption{Strukturdiagramm JS VoIP App}
 	\end{figure}
 
-	Kontaktbücher werden im LocalStorage gespeichert und nach einem Neustart wieder geladen. Da im Localstorage nur Serialisierte Daten gespeichert werden können, müssen neue Kontaktbuchobjekte erstellt und die Daten injected werden.
+	Kontaktbücher werden im LocalStorage gespeichert und nach einem Neustart wieder
+	geladen. Da im LocalStorage nur serialisierte Daten gespeichert werden können,
+	müssen neue Kontaktbuchobjekte erstellt und die Daten injected werden.
 
 
 \section{Connection}
 	Die Connection übernimmt das komplette Handling der P2P-Verbindung inklusive Verbindungsauf- und -abbau. Sie greift über den Host auf die lokale Kamera zu und sendet und empfängt über einen Channel "`Offers"' und "`Answers/Replies"'.
-	\begin{figure}[H]
+	\begin{figure}[hp]
 		\centering
 		\includegraphics[width=\textwidth]{../architekturanalayse/img/connection.png}
 		%\caption{Strukturdiagramm JS VoIP App}
@@ -55,8 +68,14 @@
 			\label{img:deployment}
 			\caption{Clientkommunikation}
 		\end{figure}
-		Die Clients beziehen vom STUN-Service ihre extern sichtbare IP. Nach dem Austauschen der SDP\footnote{Session Description Protocol\cite{IETF-SDP-RFC}} über den Signaling Channel versuchen die Peers sich gegenseitig direkt zu erreichen mit STUN Messages. Dazu verwenden Sie die Ports, die sie von den Candidates\footnote{Endpunktkandidaten (Ports) für DataChannel, Audio- und Videostream} des SDP erhalten haben.
-		War dies erfolgreich, wird die PeerConnection aufgebaut und die Datenströme sind verbunden. Die Peers kommunizieren nun direkt und benötigen den Signaling Service nicht mehr.
+		Die Clients beziehen vom STUN-Service ihre extern sichtbare IP. Nach dem
+		Austauschen der SDP\footnote{Session Description Protocol\cite{IETF-SDP-RFC}}
+		über den Signaling Channel versuchen die Peers sich gegenseitig direkt zu
+		erreichen mit STUN Messages. Dazu verwenden sie die Ports, die sie von den
+		Candidates\footnote{Endpunktkandidaten (Ports) für DataChannel, Audio- und Videostream} des SDP erhalten haben.
+		War dies erfolgreich, wird die PeerConnection aufgebaut und die Datenströme
+		sind verbunden. Die Peers kommunizieren nun direkt und benötigen den
+		Sig\-naling Service nicht mehr.
 				
 		\begin{figure}[H]
 			\centering
@@ -64,12 +83,13 @@
 			\label{img:deployment}
 			\caption{Applikationszustände}
 		\end{figure}
-		Beim Verbindungsaufbau nimmt jeder Client entwerde die Rolle "`Caller"' oder
+		Beim Verbindungsaufbau nimmt jeder Client entweder die Rolle "`Caller"' oder
 		"`Callee"' ein. Erlaubt der Benutzer Zugriff auf die Kamera, so wird die
-		Verbindung aufgebaut und bleibt bestehen, bis einer der Clients die Verbindung mit einem "`bye"' beendet.
+		Verbindung aufgebaut und bleibt bestehen, bis einer der Clients die Verbindung
+		mit einem "`Bye"' beendet.
 		
-		Ungültige Messages werden ignoriert. "`bye"' führt in jedem Zustand zu einem
-		Abbruch der Verbindung bzw. des Aufbaus, vorausgesetzt das "`bye"'
+		Ungültige Messages werden ignoriert. "`Bye"' führt in jedem Zustand zu einem
+		Abbruch der Verbindung bzw. des Aufbaus, vorausgesetzt das "`Bye"'
 		kommt vom anderen Kommunikationspartner.
 	
 	\subsection{Verbindungsabbau}

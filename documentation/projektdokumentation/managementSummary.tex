@@ -2,10 +2,20 @@
 
 \section{Ausgangslage}
 Videokommunikation wird bereits seit Jahrzehnten als Telefonie der Zukunft angeführt, verbreitet sich jedoch erst seit einigen Jahren. 
-Besonders bekannt sind hier die Produkt Skype von Skype Technologies, Google Hangout sowie Facetime von Apple.
-Diese mittlerweile sehr verbreitete Produkte benötigen alle die Installation einer Softare auf jedem Endgerät. Die Produkte verwenden eigene Protokolle, sodass untereinander nicht kommuniziert werden kann. Bietet der Anbieter keine Applikation für eine bestimmte Plattform, kann diese nicht zur Kommunikation genutzt werden.
+Besonders bekannt sind hier die Produkte "`Skype"' von Microsoft,
+"`Google Hangout"' sowie "`FaceTime"' von Apple.
+Diese mittlerweile sehr verbreiteten Produkte benötigen alle die Installation
+einer Software auf jedem Endgerät. Die Produkte verwenden nicht offene
+Protokolle, sodass nur innerhalb desselben Anbieters kommuniziert werden
+kann.
+Bietet der Anbieter keine Applikation für eine bestimmte Plattform, kann diese
+nicht zur Kommunikation genutzt werden.
 
-Daneben gibt es SIP als offnenen Standard, der sich in vielen Firmen etabliert hat und für IP-Telefonie genutzt wird. Auch für SIP wird auf jedem Endgerät eine entsprechende Software benötigt, Telefonie zwischen verschiedenen SIP-Providern ist möglich.
+Daneben gibt es SIP als offenen Standard, der sich in vielen Unternehmen
+etabliert hat und für IP-Telefonie genutzt wird. Auch für SIP wird auf jedem
+Endgerät eine entsprechende Software benötigt. Durch die Offenheit des Standards
+ist es jedoch möglich, SIP für eigene Plattformen selbst umzusetzen. Telefonie
+zwischen verschiedenen SIP-Anbietern ist möglich.
 
 Videokommunikation ohne Installation einer Software war bisher nicht möglich. Neue Browser unterstützen nun jedoch entsprechende Technologien.
 
@@ -13,9 +23,11 @@ Videokommunikation ohne Installation einer Software war bisher nicht möglich. N
 \section{Vorgehen}
 In der Anfangsphase des Projektes lag der Schwerpunkt darauf, die Grenzen der Technologie abzustecken, da die Schnittstellen sich noch in Entwicklung befinden und von den Browsern erst seit einiger Zeit unterstützt werden.
 
-In der anschliessenden Phase ging es darum, mit den Prototypen der ersten Phase eine rudimentäre Applikation umzusetzen, die bereits Videokommunikation und Import von Kontaktdaten erlaubt. Gleichzeitig wurde begonnen einen eigenen SIP-Server zu installieren, um auch mit SIP eine Referenzimplementation umsetzen zu können.
+In der anschliessenden Phase ging es darum, mit den Prototypen der ersten Phase
+eine rudimentäre Applikation umzusetzen, die bereits Videokommunikation und
+Import von Kontaktdaten erlaubt. Gleichzeitig wurde begonnen einen eigenen SIP-Server zu installieren, um auch mit SIP eine Referenzimplementation umsetzen zu können.
 
-Parallel fanden in der nächsten Phase Performace-Analysen und Ausbauarbeiten an der Applikation statt. Dabei wurden weitere Importformate ergänzt und die Videokommunikation verfeinert.
+Parallel fanden in der nächsten Phase Performance-Analysen und Ausbauarbeiten an der Applikation statt. Dabei wurden weitere Importformate ergänzt und die Videokommunikation verfeinert.
 Die Referenzimplementation für SIP wurde abgebrochen, da der verwendete SIP-Server noch keine stabile Implementation der benötigten Schnittstelle besass und eine Einrichtung unmöglich war.
 
 Nach einem grösseren Refactoring wurde in der Abschlussphase die finale Benutzeroberfläche umgesetzt, die auf Desktop- wie Mobilnutzer ausgelegt ist.
@@ -25,13 +37,17 @@ Zudem wurde die bereits während der zweiten Phase initialisierte und regelmäss
 \section{Ergebnisse}
 Entwickelt wurde eine Applikation, die vollständig im Browser läuft und somit ohne Installation zusätzlicher Software auskommt.
 Benutzer können Kontaktdaten importieren und über Video kommunizieren.
-Die Performance-Analyse hat gezeigt, das die Technologie nach dem aktuellen Stand noch viel Resourcen benötigt, grundsätzlich jedoch einsetzbar ist.
+Die Performance-Analyse hat gezeigt, dass die Technologien nach dem aktuellen
+Stand noch viel Ressourcen benötigen, grundsätzlich jedoch einsetzbar sind.
 Die Videokommunikation wird durch technische Hürden wie NATs und gewöhnlichen Firewalls nicht beeinträchtigt. Auch im Mobilfunknetz gibt es keine Einschränkungen.
 In stark reglementierten Netzwerken werden die Pakete für den Verbindungsaufbau blockiert, sodass ein Verbindungsaufbau nicht möglich ist.
-Die Umsetzung einer Referenzimplementation für den Verbindungsaufbau über SIP wurde verworfen, weil die SIP-Server die notwendigen Schnittstellen erst seit kurzem und entsprechend instabil unterstützen.
+Die Umsetzung einer Referenzimplementation für den Verbindungsaufbau über SIP
+wurde verworfen, weil die SIP-Server die notwendigen Schnittstellen erst seit Kurzem und entsprechend instabil unterstützen.
 
 
 \section{Ausblick}
-Die Entwicklung der Browser schreitet schnell voran. Es wird erwartet, das die Schnittstellen bald stabiler werden und die Browser wesentlich weniger Resourcen für die Videokommunikation benötigen. Ebenfalls wird die Unterstützung weiterer Browser erwartet. Mit Opera ist in den letzen Projektphase noch ein bekannter Browser hinzugekommen, der die Technologie unterstützt.
+Die Entwicklung der Browser schreitet schnell voran. Es wird erwartet, dass die
+Schnittstellen bald stabiler werden und die Browser wesentlich weniger Ressourcen für die Videokommunikation benötigen. Ebenfalls wird die Unterstützung weiterer Browser erwartet. Mit Opera ist in den letzen Projektphase noch ein bekannter Browser hinzugekommen, der die Technologie unterstützt.
 
-Ausbaumöglichkeiten für die Applikation wären direkten Datenaustausch zwischen den Teilnehmern, Konferenzschaltung, Screensharing und Verbindungsaufbau über SIP.
+Ausbaumöglichkeiten für die Applikation wären ein direkter Datenaustausch
+zwischen den Teilnehmern, Konferenzschaltung, Screensharing und Verbindungsaufbau über SIP.

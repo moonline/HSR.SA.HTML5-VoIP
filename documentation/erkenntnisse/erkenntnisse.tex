@@ -23,7 +23,7 @@
 
 			\item[Verschlüsselung] Der übertragene Stream ist standardmässig verschlüsselt. Die Verschlüsselung ist Teil des Standards und kann nicht abgeschaltet werden.
 			
-			\item[Verbindungsaufbau] Ice Candidates müssen einer RTCPeerConnection attatched werden, bevor eine Offer oder eine Answer generiert wird. Ansonsten hat der andere Endpunkt zu wenig Informationen, um eine Verbindung aufzubauen. Die Ice Candidates sind Proposals für Verbindungsendpunkte (Ports). Die Browser senden einandern mehrere möglich Kombinationen für jede Art von Verbindung (DataChannel, Video, Audio). Anschliessend werden alle Kombinationen probiert, bis eine funktioniert.
+			\item[Verbindungsaufbau] Ice Candidates müssen einer RTCPeerConnection attatched werden, bevor eine Offer oder eine Answer generiert wird. Ansonsten hat der andere Endpunkt zu wenig Informationen, um eine Verbindung aufzubauen. Die Ice Candidates sind Proposals für Verbindungsendpunkte (Ports). Die Browser senden einanderen mehrere möglich Kombinationen für jede Art von Verbindung (DataChannel, Video, Audio). Anschliessend werden alle Kombinationen probiert, bis eine funktioniert.
 	 	\end{description}
 	 
 	 \section{Filezugriff}
@@ -53,7 +53,7 @@
 			"`reliable: false"'. Setzt man ihn auf "`reliable: true"', kommen die Events
 			nicht zuverlässig an.
 			
-			\item[Media Access] Firefox erlaubt mehrfachen Kameraacces und teilt sich die Kamera auch problemlos mit andern Prozessen. So ist es im Firefox möglich, von einem Tab in einen andern anzurufen. Chrome will die Kamera komplett für sich beanspruchen und wirf eine Fehlermeldung, falls sie bereits von einem Andern Prozess genutzt wird.
+			\item[Media Access] Firefox erlaubt mehrfachen Kameraacces und teilt sich die Kamera auch problemlos mit anderen Prozessen. So ist es im Firefox möglich, von einem Tab in einen anderen anzurufen. Chrome will die Kamera komplett für sich beanspruchen und wirf eine Fehlermeldung, falls sie bereits von einem anderen Prozess genutzt wird.
 			
 			\item[Schnittstellenbezeichnung] Die Schnittstellen unterstützen beide Browser erst mit Prefix. Die offizielle Bezeichnung wird noch nicht unterstützt. Adapter.js wurde dafür entwickelt und mappt die offiziellen Schnittstellenbezeichnungen auf die mit Prefix, sodass in der Applikation trotzdem mit den offiziellen gearbeitet werden kann und auch Kompatibilität besteht, sobald die Browser auf die definitiven Schnittstellen umstellen.
 	 	\end{description}

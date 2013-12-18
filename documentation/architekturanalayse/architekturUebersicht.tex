@@ -10,9 +10,16 @@
 	
 	Jeder Client besitzt Signaling Channels, die mit einem Signaling Server interagieren. Hier wurde als Beispiel eine Message Queue und ein SIP Server verwendet. Die Kommunikation läuft entsprechend über XHR oder SIP.
 		
-	Ein Verbindungsaufbau beginnt bei einem Client. Der Browser generiert eine Offer für den andern Client und sendet diese in einer Signaling Message über einen Signaling Server wie eine einfache Message Queue oder einen SIP Server an den andern Client. Der Browser des andern Clients generiert eine Answer und schickt diese auf dem gleichen Weg zurück. Anschliessend bauen die Clients die direkte P2P Connection auf. Sobald diese aufgebaut wurde, können Daten oder Video- und Audio gestreamt werden.
+	Ein Verbindungsaufbau beginnt bei einem Client. Der Browser generiert eine
+	Offer für den anderen Client und sendet diesen in einer Signaling Message über
+	einen Signaling Server, wie eine einfache Message Queue oder einen SIP Server,
+	an den anderen Client. Der Browser des anderen Clients generiert eine Answer
+	und schickt diese auf dem gleichen Weg zurück. Anschliessend bauen die Clients
+	die direkte P2P Connection auf. Sobald diese aufgebaut wurde, können Video und
+	Audio gestreamt sowie Daten übertragen werden.
 	
-	Für den Abbau sendet ein Client ein bye. Anschliessend bauen beide Clients die P2P Connection ab.
+	Für den Abbau sendet ein Client ein Bye. Anschliessend bauen beide Clients die
+	P2P Connection ab.
 	
 	
 	\subsection{Client/Server vs. reine Client-Applikation}
@@ -32,7 +39,11 @@
 			\item Ein Anwender ist an den Server oder die Serverimplementation gebunden.
 			Die Applikation läuft nicht ohne den Server.
 			\item Der Server ist ein "`Single Point of Failure"', falls keine redundanten Server eingesetzt werden. Zudem stellt der Server eine zentrale Angriffsstelle dar, über die Angreifer einfacher das ganze System blockieren könnten.
-			\item Möchte ein Entwickler die Applikation um weitere Schnittstellen erweitern, so muss er Server und möglichweise den Client trotzdem auch anpassen, was aufwendiger ist. Zudem muss er den Server selbst betreiben und kann keinen bestehenden mehr nehmen was für Ihn zusätzlichen Aufwand bedeutet.
+			\item Möchte ein Entwickler die Applikation um weitere Schnittstellen
+			erweitern, so muss er Server und möglichweise den Client trotzdem auch
+			anpassen, was aufwendiger ist. Zudem muss er den Server selbst betreiben und
+			kann keinen bestehenden mehr nehmen, was für ihn zusätzlichen Aufwand
+			bedeutet.
 		\end{itemize}
 
 
@@ -44,9 +55,9 @@
 			XMPP\footnote{Extensible Messaging and Presence Protocol}) für das
 			Signaling verwenden und sogar selbst eine eigene Channelimplementation
 			hinzufügen.
-			\item Um die Applikation für weitere Schnittstellen zu erweitern sind keine
+			\item Um die Applikation für weitere Schnittstellen zu erweitern, sind keine
 			Kenntnisse der Servertechnologie notwendig.
-			\item Die Applikation ist insgesamt weniger aufwändig aufgebaut, da sie
+			\item Die Applikation ist insgesamt weniger aufwendig aufgebaut, da sie
 			weniger Redundanzen beinhaltet.
 			\item Es ist keine eigene SIP-/XMPP-Server-Implementation erforderlich
 			(bereits vorhandene Serverinfrastrukturen werden genutzt).
@@ -65,11 +76,11 @@
 		\end{itemize}
 
 		\subsubsection{Fazit}
-			Aufgrund geringerer Abhängigkeiten und der Wahrscheinlichkeit, das die
+			Aufgrund geringerer Abhängigkeiten und der Wahrscheinlichkeit, dass die
 			SIP-Server-Provider irgendwann WebSockets unterstützen, wird die Lösung
 			"`reine Client Applikation"' gewählt.
 			Für die Kommunikation mit Signalingservern, wie SIP oder XMPP, werden
-			WebSockets eingesetzt, für das Signaling über XHR\footnote{XmlHTTPRequest}
+			WebSockets eingesetzt. Für das Signaling über XHR\footnote{XML HTTP Request}
 			wird mit der Option "`Allow Cross Origin"' gearbeitet.
 
 \section{Architektur-Schichten}

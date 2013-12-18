@@ -51,7 +51,7 @@ Protokoll
 	
 - Anhang
 	- Anforderungen in Hauptdokument verschieben
-- Performaceanalyse für den Hauptteil:
+- Performanceanalyse für den Hauptteil:
 	1. Testziele
 	2. Setup (Tabelle mit Maschinen und in den einzelnen Test nur darauf verweisen)
 	3. Testszenarien auflisten und begründen (Top Down)

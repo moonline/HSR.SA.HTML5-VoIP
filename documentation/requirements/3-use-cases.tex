@@ -1,25 +1,27 @@
 \section{Use Cases}
 
-	%\section{Use Case Diagramm}
-	%\includegraphics[width=\textwidth]{use-case-diagram.png}
-	\subsection{Use Case Übersicht}
+	\subsection{Use-Case-Übersicht}
 	\begin{itemize}
 		\item Anrufen
 		\item Telefonbuch importieren
 	\end{itemize}
 
-	\subsection{Use Case Beschreibungen}
+	\subsection{Use-Case-Beschreibungen}
 
 		\subsubsection{Anrufen}
-		Voraussetzungen: Der hat eine Kamera und ein Mikrophon angeschlossen sowie ist angemeldet und hat einen Account beim gleichen Channel wie die Person, die er anrufen möchte.\newline
+		Voraussetzungen: Der Benutzer hat eine Kamera und ein Mikrofon angeschlossen,
+		ist angemeldet und hat einen Account beim gleichen Channel wie die Person, die
+		er anrufen möchte.\newline
 
-		Der Benutzer ruft einen andern Benutzer an. Ist der andere Benutzer erreichbar
-		und verwendet einen kompatiblen Client (WebRTC), so wird eine gemeinsame Audio- oder Videosession gestartet.
-		Am Ende des Telefonates beendet der Benutzer das Telefonat und die Verbindung wird beendet.
+		Der Benutzer ruft einen anderen Benutzer an. Ist der andere Benutzer
+		erreichbar und verwendet einen kompatiblen Client (WebRTC), so wird eine gemeinsame Audio- oder Videosession gestartet.
+		Am Ende des Telefonates beendet der Benutzer die Session und die Verbindung
+		wird beendet.
 
-		Währen dem Telefonat wird die Auflösung der Verbindungsqualität angepasst.
+		Während dem Telefonat wird die Auflösung der Verbindungsqualität angepasst.
 
 		\subsubsection{Telefonbuch importieren}
-		Voraussetzungen: Der Benutzer ist angemeldet und befindet sich in der Kontakbuchansicht.\newline
+		Voraussetzungen: Der Benutzer ist angemeldet und befindet sich in der
+		Kontaktbuchansicht.\newline
 		
 		Der Benutzer wählt eine Quelle aus und importiert die entsprechenden Daten. Die Telefonbucheinträge werden dem Benutzer nach Quelle getrennt angezeigt.

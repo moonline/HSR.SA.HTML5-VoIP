@@ -6,56 +6,47 @@
 
 
 		\subsubsection{Functionality}
-		\begin{itemize}
-			%\item[Korrektheit:] 
-			%\item[Angemessenheit:] 
-			\item[Interoperabilität:] Die Applikation soll auf existierende Standards wie 
+		\begin{description}
+			\item[Interoperabilität] Die Applikation soll auf existierende Standards wie 
 			SDP\footnote{Javascript Object Notation \cite{IETF-JSON-RFC}}, 
-			STUN\footnote{Session Traversal Utilities for NAT \cite{IETF-STUN-RFC}}, HTTP und JSON\footnote{JavaScript Object Notation\cite{IETF-JSON-RFC}} setzen und wo eigene Standards oder Schnittstellen nötig sind ist eine Protokol- oder Schnittstellendokumentation anzufertigen.
-			\item[Sicherheit:] Die Audio- und Videokommunikation soll verschlüsselt werden. Die Verbindung zum Server soll Verschlüsselung unterstützen, sodass z.B. TLS\footnote{Transport Layer Security, früher SSL} genutzt werden könnte.
-		\end{itemize}
-
-		%\subsubsection{Efficiency}
-		%\begin{itemize}
-		%	\item[Wirtschaftlichkeit:] 
-		%	\item[Zeitverhalten:] 
-		%\end{itemize}
+			STUN\footnote{Session Traversal Utilities for NAT \cite{IETF-STUN-RFC}}, HTTP
+			und JSON\footnote{JavaScript Object Notation\cite{IETF-JSON-RFC}} setzen und
+			wo eigene Standards oder Schnittstellen nötig sind, ist eine Protokoll- oder Schnittstellendokumentation anzufertigen.
+			\item[Sicherheit] Die Audio- und Videokommunikation soll verschlüsselt
+			werden. Die Verbindung zum Server soll Verschlüsselung unterstützen, sodass
+			z.\,B. TLS\footnote{Transport Layer Security, früher SSL} genutzt werden
+			könnte.
+		\end{description}
 
 		\subsubsection{Usability}
-		\begin{itemize}
-			\item[Verständlichkeit:] Die Benutzeroberfläche soll so aufgebaut sein, das sich ein Benutzer ohne externe Hilfe innerhalb von Minuten darin zurechtfindet. Knöpfe und Labels sollen sprechend bezeichnet sein.
-			%\item[Bedienbarkeit:] 
-			\item[Robustheit:] Die Oberfläche soll nicht hängen bleiben bei Operationen, die länger als 5s dauern und auf Fehler angemessen reagieren.
-		\end{itemize}
-
-		%\subsubsection{Reliability}
-		%\begin{itemize}
-		%	\item[Reife:] RC 1
-		%	\item[Fehlertoleranz:] 
-		%	\item[Wiederherstellbarkeit:] 
-		%\end{itemize}
+		\begin{description}
+			\item[Verständlichkeit] Die Benutzeroberfläche soll so aufgebaut sein, dass
+			sich ein Benutzer ohne externe Hilfe innerhalb von Minuten darin
+			zurechtfindet. Buttons und Labels sollen sprechend bezeichnet sein.
+			\item[Robustheit] Die Oberfläche soll nicht hängen bleiben bei Operationen,
+			die länger als 5s dauern, und auf Fehler angemessen reagieren.
+		\end{description}
 
 		\subsubsection{Portability}
-		\begin{itemize}
-			\item[Anpassbarkeit:] Die Applikation soll so gestaltet werden, das sich die Unterstützung für weitere Channel- und Adressbuch-Technologien hinzufügen lässt. Dazu sollen Schnittstellen definiert und dokumentiert werden.
-			\item[Installierbarkeit:] Die Applikation soll auf jedem WebRTC fähigen modernen Browser laufen, der sich an die Standards hält.
-			\item[Austauschbarkeit:] Die Oberfläche soll durch eigene Styles einfach umgestaltet und angepasst werden können. Es soll eine Template-Engine verwendet werden, sodass Mehrsprachigkeit später hinzugefügt werden kann.
-		\end{itemize}
-
-		%\subsubsection{Maintainability}
-		%\begin{itemize}
-		%	\item[Analysierbarkeit:] 
-		%\end{itemize}
+		\begin{description}
+			\item[Anpassbarkeit] Die Applikation soll so gestaltet werden, dass sich die
+			Unterstützung für weitere Channel- und Adressbuch-Technologien hinzufügen lässt. Dazu sollen Schnittstellen definiert und dokumentiert werden.
+			\item[Installierbarkeit] Die Applikation soll auf jedem
+			modernen, WebRTC-fähigen Browser laufen, der sich an die Standards
+			hält.
+			\item[Austauschbarkeit] Die Oberfläche soll durch eigene Styles einfach umgestaltet und angepasst werden können. Es soll eine Template-Engine verwendet werden, sodass Mehrsprachigkeit später hinzugefügt werden kann.
+		\end{description}
 
 	\subsection{Schnittstellen}
 
-		\subsubsection{Signalling-Schnittstelle}
-		Die Applikation soll als Signalling-Technologie einen offenen Standard (zum
-		Beispiel SIP\footnote{Session Initiation Protocol\cite{IETF-SDP-RFC}} oder 
-		XAMPP\footnote{Extensible Messaging and Presence Protocol\cite{IETF-XMPP-RFC}} oder JSON über 
-		XHR\footnote{XML HTTP Request, Asynchrones nachladen von HTTP Seiten \cite{MDN-XHR-Cross-Site}}) unterstützen.
+		\subsubsection{Signaling-Schnittstelle}
+		Die Applikation soll als Signaling-Technologie einen offenen Standard (z.\,B.
+		SIP\footnote{Session Initiation Protocol\cite{IETF-SDP-RFC}} oder XAMPP\footnote{Extensible Messaging and Presence Protocol\cite{IETF-XMPP-RFC}} oder JSON über 
+		XHR\footnote{XML HTTP Request, asynchrones Nachladen von HTTP-Seiten
+		\cite{MDN-XHR-Cross-Site}}) unterstützen.
 
 		\subsubsection{Telefonbuchschnittstelle}
 		Die Telefonbuchschnittstelle soll offene und verbreitete Standardformate
-		unterstützen (beispielsweise vCard\footnote{Elektronische Visitenkarte \cite{IETF-vCard-RFC}}, 
-		CSV\footnote{Comma Separated Values\cite{IETF-CSV-RFC}}, JSON …).
+		unterstützen (z.\,B. vCard\footnote{Elektronische Visitenkarte
+		\cite{IETF-vCard-RFC}}, CSV\footnote{Comma Separated
+		Values\cite{IETF-CSV-RFC}}, JSON \ldots).

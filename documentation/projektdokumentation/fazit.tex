@@ -1,26 +1,36 @@
 \chapter{Schlussfolgerungen}
 	\section{Zielerreichung}
-		Es ist gelungen, mit WebRTC eine funktionsfähige Video-Over-IP Applikation zu entwickeln, die ohne Serverkomponenten auskommt.
+		Es ist gelungen, mit WebRTC eine funktionsfähige Video-Over-IP-Applikation zu
+		entwickeln, die ohne Serverkomponenten auskommt.
 		
-		Die Applikation benutzt die neuen WebRTC Schnittstellen "`MediaStream"', "`RTCPeerConnection"' und "`RTCDataChannel"'. Daneben werden "`LocalStorage"' für die Speicherung der Kontaktbücher und der Benutzeraccounts sowie "`FileReader"' für den Import der Kontaktbücher verwendet.
+		Die Applikation benutzt die neuen WebRTC-Schnittstellen "`MediaStream"',
+		"`RTCPeerConnection"' und "`RTCDataChannel"'. Daneben werden "`LocalStorage"' für die Speicherung der Kontaktbücher und der Benutzeraccounts sowie "`FileReader"' für den Import der Kontaktbücher verwendet.
 		
 		Die Benutzeroberfläche wurde responsive gestaltet um auf dem Desktop wie auf Mobilgeräten eine angenehme Benutzung zu ermöglichen.
 	
 	
 	\section{Offene Punkte}
-		Internationalisierung, SIP Support, CSV Contactbook Adapter wurden bereits im dritten Viertel des Projektes aus den Featurelist entfernt, da sie tieferer Priorität waren und ein umfangreiches Refactoring der Core-Funktionalität wichtiger war.
+		Internationalisierung, SIP-Support, CSV Contactbook Adapter wurden bereits im
+		dritten Viertel des Projektes aus den Featurelist entfernt, da sie tieferer Priorität waren und ein umfangreiches Refactoring der Core-Funktionalität wichtiger war.
 		
-		Auf eine Authentifizierung beim Channel und entsprechende Mechanismen im QueueServer wurde verzichtet, da es sich nur um eine Referenzimplementation handelt und jeder Channel dies selbst handeln kann.
+		Auf eine Authentifizierung beim Channel und entsprechende Mechanismen im
+		QueueServer wurde verzichtet, da es sich nur um eine Referenzimplementation
+		handelt und jeder Channel dies selbst umsetzen kann.
 		
 	
 	\section{Bugs und technische Probleme}
-		Es ist nicht gelungen, SIP als Signaling-Protokoll einzusetzen, da die SIP-Server Websockets erst seit kurzem unterstützen und die Schnittstelle im verwendeten SIP-Server Kamailo noch nicht stabil ist. Websockets sind zwingend notwendig,
+		Es ist nicht gelungen, SIP als Signaling-Protokoll einzusetzen, da die
+		SIP-Server WebSockets erst seit Kurzem unterstützen und die Schnittstelle im
+		verwendeten SIP-Server Kamailio noch nicht stabil ist. WebSockets sind
+		zwingend notwendig.
 		
 	
 	\section{Zusätzlich umgesetzte Features}
-		Durch die Umsetzung des Verbindungsabbaus über den P2P Datachannel wurde die Voraussetzung geschaffen, um mit wenig Zusatzaufwand Chat Funktionalität in die Applikation einbauen zu können.
+		Durch die Umsetzung des Verbindungsabbaus über den P2P Datachannel wurde die
+		Voraussetzung geschaffen, um mit wenig Zusatzaufwand Chat-Funktionalität in die Applikation einbauen zu können.
 		Chatnachrichten werden als sogenannte User-Messages über den Datachannel gesendet und sind somit ebenfalls verschlüsselt.
 		
 	
 	\section{Erweiterbarkeit}
-		Es ist gelungen, die Applikation so erweiterbar zu entwickeln, das in einem weiteren Projekt Funktionen wie Dateiaustausch, Konferenzschaltung oder Screensharing hinzugefügt werden können.
+		Es ist gelungen, die Applikation so erweiterbar zu entwickeln, dass in einem
+		weiteren Projekt Funktionen wie Dateiaustausch, Konferenzschaltung oder Screensharing hinzugefügt werden können.

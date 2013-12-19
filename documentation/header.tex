@@ -43,27 +43,26 @@
 \usepackage{lastpage}
 
 \pagestyle{fancy}
-\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
-\fancyhead[L]{Studienarbeit} %Kopfzeile links
-\fancyhead[C]{\project} %Kopfzeile mitte
-\fancyhead[R]{Seite \thepage/\pageref{LastPage}} %Kopfzeile rechts
-\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
-\fancyfoot[L]{\jobname} %Fusszeile links
-\fancyfoot[C]{Version: \versionnumber} %Fusszeile mitte
-\fancyfoot[R]{\today{}} %Fusszeile rechts
-\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+	\fancyhead[L]{Studienarbeit} %Kopfzeile links
+	\fancyhead[C]{} %Kopfzeile mitte
+	\fancyhead[R]{\project} %Kopfzeile rechts
+	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+	\fancyfoot[L]{Seite \thepage/\pageref{LastPage}} %Fusszeile links
+	\fancyfoot[C]{} %Fusszeile mitte
+	\fancyfoot[R]{\today{}} %Fusszeile rechts
+	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
 
 %Kopf-/ Fusszeile auf chapter page
 \fancypagestyle{plain} {
 	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
 	\fancyhead[L]{Studienarbeit} %Kopfzeile links
-	\fancyhead[C]{\project} %Kopfzeile mitte
-	\fancyhead[R]{Seite \thepage/\pageref{LastPage}} %Kopfzeile rechts
+	\fancyhead[C]{} %Kopfzeile mitte
+	\fancyhead[R]{\project} %Kopfzeile rechts
 	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
-	\fancyfoot[L]{\jobname} %Fusszeile links
-	\fancyfoot[C]{Version: \versionnumber} %Fusszeile mitte
+	\fancyfoot[L]{Seite \thepage/\pageref{LastPage}} %Fusszeile links
+	\fancyfoot[C]{} %Fusszeile mitte
 	\fancyfoot[R]{\today{}} %Fusszeile rechts
-	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
 }
 
 \usepackage{changepage}
@@ -84,7 +83,7 @@ urlcolor=black
 ]{hyperref} % Paket muss unbedingt als letzes eingebunden werden!
 
 %Dokumenteigenschaften
-\providecommand{\project}{A Practical Javascript-Only Video-Over-IP Communication}
+\providecommand{\project}{A Practical Javascript-Only Video-Over-IP Communication Platform}
 \author{Tobias Blaser, Jannis Grimm}
 \providecommand{\room}{1.258}
 \providecommand{\teacher}{Prof. Dr. Luc Bläser}

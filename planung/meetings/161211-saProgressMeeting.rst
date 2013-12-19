@@ -2,7 +2,7 @@ Protokoll SA Progress Meeting
 =============================
 
 :Daum: Mo 16.12.13
-:Zeit: 16:00 - 14:30
+:Zeit: 16:00 - 17:00
 :Ort: Rapperswil, HSR, IFS, 6.108
 :Anwesende:
 	Prof. Dr. Luc Bläser,

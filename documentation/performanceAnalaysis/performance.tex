@@ -1,20 +1,24 @@
 \chapter{Performanceanalyse}
 	\section{Leistungsverbrauch}
-		Zur Analyse der Performance wurden Versuche mit Desktoprechnern und Mobilgeräten gemacht. Erwartet wurde, das die Performance auf den Desktopgeräten wesentlich besser ist als bei den Mobilgeräten.
+		Zur Analyse der Performance wurden Versuche mit Desktoprechnern und Mobilgeräten gemacht. Erwartet wurde, dass die Performance auf den Desktopgeräten wesentlich besser ist als bei den Mobilgeräten.
 		Angeschaut wurden die CPU-Belastung, RAM-Verbrauch und Netzwerktrafic sowie Audio- und Videoqualität.
 		
-		Es hat sich gezeigt, das die Performance sehr stark von der Leistung des Prozessors abhängt. Die Vermutung, das Desktopgeräte besser performen als Mobilgeräte war jedoch falsch. 
+		Es hat sich gezeigt, das die Performance sehr stark von der Leistung des Prozessors abhängt. Die Vermutung, dass Desktopgeräte besser performen als Mobilgeräte war jedoch falsch. 
 		Auf den Desktoprechnern verbraucht ein P2P Stream ca. 10-20\% CPU Leistung, auf dem Netbook und dem Tablet wesentlich mehr. Das verwendete Smartphone lag näher bei den Desktopgeräten, wurde allerdings spürbar warm.	
+		
 		
 	\section{Speicherverbauch und Netzwerktrafic}
 		Der Speicherverbauch ist bei allen Geräten vernachlässigbar und im Systemmonitor praktisch nicht zu sehen.
 		
-		Der Netzwerktrafic hängt von zwei Faktoren ab: Wie leistungsfähig der Prozessor ist und die verfügbare Bandbreite im Netz. 	
-		Videodecodierung und Verschlüsselung verbrauchen in den aktuellen Versionen von Firefox und Chrome noch viel Leistung. Netbook und Tablet hatten entsprechend Mühe, einen Datenstrom mit hoher Datenrate zu liefern. Das Empfangen machte keinem der Geräte Probleme.
+		Der Netzwerktrafic hängt von zwei Faktoren ab: Leistungsfähigkeit des Prozessors und effektiv verfügbare Bandbreite zwischen den Peers.
+		Videodecodierung und Verschlüsselung verbrauchen in den aktuellen Versionen von Firefox und Chrome noch viel Leistung. Netbook und Tablet hatten entsprechend Mühe, einen Datenstrom mit hoher Datenrate zu liefern. Das Empfangen bereitete keinem der Geräte Probleme.
+		
+		Die Browser fahren die Videoauflösung langsam hoch, sobald sie feststellen, das genügend Leistung und Bandbreite vorhanden ist. Dies lässt sich gut zeigen, indem ein verbundenes Smartphone gedreht wird. Dabei wird das Video ebenfalls gedreht und neu dargestellt, wobei die Auflösung und der Bandbreitenverbrauch ab einem Minimum von ca. 50KiB/s kontinuierlich ansteigen und sich bei ca. 300 KiB/s einpendeln.
+	
 	
 	\section{Zusammenfassung}
-		Die folgende Tabelle fasst die Bedingungen kurz zusammen, unter denen gute und akzeptable Performance möglich sind.
-		
+		Die folgende Tabelle fasst die Bedingungen kurz zusammen, unter denen gute und akzeptable Performance möglich sind:
+
 		\noindent
 		\begin{tabularx}{\linewidth}{|X|X|X|X|}
 			\hline
@@ -35,13 +39,13 @@
 		
 		Während dem Entwickeln ist aufgefallen, das die Performance von Chrome etwas besser ist als die von Firefox. Ist die Performance auf einem Gerät mit Firefox zu schlecht, so kann man es mit Chrome erneut versuchen.
 			
-		Ausführliche Performanceanalyse siehe Anhang \ref{performanceanalyse}
+		Ausführliche Performanceanalyse siehe Anhang \ref{performanceanalyse}.
+	
 	
 	\section{Fazit}
 		Videocodierung und Verschlüsselung benötigen noch sichtlich viel Rechenleistung. Desktopgeräte und Mobilgeräte im mittleren- und oberen Leistungssegment sind allerdings in der Lage, die notwendige Leistung zu liefern.
 		
-		Die bevorzugten Codecs, die auf der VP8-Engine basieren, werden bisher von keinem Gerät hardwareseitig unterstützt. Nach der Veröffentlichung einer OpenSource-Implementation des Codecs h.264
-		durch Cisco ist zu erwarten, das dieser Einzug in die Browser hält und durch die bereits existierenden Hardwarechips die erforderliche Rechenleistung enorm senken wird.
+		Die bevorzugten Codecs, die auf der VP8-Engine basieren, werden bisher von keinem Gerät hardwareseitig unterstützt. Nach der Veröffentlichung einer OpenSource-Implementation des Codecs h.264 durch Cisco ist zu erwarten, das dieser Einzug in die Browser hält und durch die bereits existierenden Hardwarechips die erforderliche Rechenleistung enorm senken wird.
 			
 		Ebenfalls ist zu erwarten, das zukünftige Implementation der Videocodecs ohne Hardwareunterstützung einen Teil über die GPU rendern und damit erhebliche Performanceverbesserungen bringen werden.
 			
@@ -49,6 +53,7 @@
 	
 \chapter{Firewall Testing}
 	Beim Firewall Testing ging es darum, herauszufinden, in welchen Netzwerkumgebungen WebRTC-Kommunikation eingesetzt werden kann, und in welchen nicht.
+	
 	
 	\section{Signaling}
 		Für das Signaling können verschiedene Protokolle eingesetzt werden. Bevorzugt HTTP oder WebSockets. Davon hängt auch ab, ob die Pakete von Firewalls ausgefiltert werden, oder nicht.

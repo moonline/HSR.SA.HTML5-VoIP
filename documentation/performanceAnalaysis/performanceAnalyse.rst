@@ -169,7 +169,7 @@ Ultrabook
 	
 - Zunahme CPU-Auslastung: ca. 10%
 - Zunahme Memory-Verbrauch: nicht spürbar
-- Zunahme Netzwerk-Trafic: 8 KiB/s out, 7KiB/s in, Abbruch des Streams nach 30s
+- Zunahme Netzwerk-Traffic: 8 KiB/s out, 7KiB/s in, Abbruch des Streams nach 30s
 
 
 2.3 Messung

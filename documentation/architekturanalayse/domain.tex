@@ -111,19 +111,20 @@
 			\subsection{SIP-Proxy vs. SIP-Server mit WebSockets}
 		Unterstützt ein SIP-Server keine WebSockets, so kann ein SIP/WebSocket-Proxy
 		dazwischen geschaltet werden. Die Konfiguration eines SIP-Proxies ist ähnlich
-		aufwändig wie die Installation eines Kamailio
-		\footnote{Kamailio SIP Server Project, \cite{Kamailio-Project}}-SIP-Servers, der in der neusten Version WebSockets unterstützt.
+		aufwändig wie die Installation eines Kamailio\footnote{Kamailio SIP Server
+		Project, \cite{Kamailio-Project}}-SIP-Servers, der in der neusten Version WebSockets unterstützt.
 
 	\subsection{Sicherheit}
 		WebRTC-Streams können nur verschlüsselt übertragen werden. Es gibt keine
 		Möglichkeit, die Verschlüsselung abzuschalten. Dies führt zwar zu einem
 		erhöhten Rechenbedarf auf dem Client, garantiert jedoch eine verschlüsselte
 		Verbindung unabhängig von den Vorlieben des Entwicklers.
-		Die Verschlüsselung erfolg über DTLS-SRTP\footnote{Datagram Transport Layer Security \cite{IETF-DTLS-RFC}} 
-		keyings\footnote{Adam Roach, WebRTC: Security and Confidentiality \cite{AdamRoach-WebRTC-Security}}. 
+		Die Verschlüsselung erfolgt über DTLS-SRTP\footnote{Datagram Transport Layer
+		Security \cite{IETF-DTLS-RFC}} keyings\footnote{Adam Roach, WebRTC: Security and Confidentiality \cite{AdamRoach-WebRTC-Security}}. 
 		
 		Die Verschlüsselung des Signaling-Channels ist abhängig von der eingesetzten
-		Technologie. Werden z. B. Secure Websockets oder XHR über HTTPS eingesetzt so ist die Kommunikation verschlüsselt und nicht abgreifbar.
+		Technologie. Werden z.\,B. Secure WebSockets oder XHR über HTTPS eingesetzt,
+		so ist die Kommunikation verschlüsselt und nicht abgreifbar.
 		
 		Obwohl die Daten sicher übertragen werden, kann ein Provider oder eine anderweitige Zwischenstelle Metadaten darüber sammeln, wer mit wem telefoniert.
 		
